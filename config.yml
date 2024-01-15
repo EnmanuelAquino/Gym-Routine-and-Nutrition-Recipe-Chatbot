@@ -1,0 +1,77 @@
+# The config recipe.
+# https://rasa.com/docs/rasa/model-configuration/
+recipe: default.v1
+
+# The assistant project unique identifier
+# This default value must be replaced with a unique assistant name within your deployment
+#assistant_id: 20231216-221859-district-capacity
+assistant_id: 20231217-192236-easy-loft
+
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+language: en
+
+pipeline:
+# # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
+# # If you'd like to customize it, uncomment and adjust the pipeline.
+# # See https://rasa.com/docs/rasa/tuning-your-model for more information.
+
+#Tokenizer using whitespaces as a separator. Creates a token for every whitespace separated character sequence.
+- name: WhitespaceTokenizer
+#- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+#play with analyzer option
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  entity_recognition: false
+  #epochs: 100
+  epochs: 100
+#  constrain_similarities: true
+#  model_confidence: softmax
+#If you use multiple entity extractors, we advise that each extractor targets an exclusive set of entity types.
+#For example, if you use two or more general purpose extractors like MitieEntityExtractor, DIETClassifier, or CRFEntityExtractor, 
+#the entity types in your training data will be found and extracted by all of them. If the slots you are filling with your
+# entity types are of type text, then the last extractor in your pipeline will win. If the slot is of type list, then all results 
+#will be added to the list, including duplicates.
+- name: RegexEntityExtractor   #this is how the entities are identified
+  use_lookup_tables: true
+  use_regexes: True
+#- name: RegexFeaturizer # i need this for regular expressions of the number features in recipes
+#  use_regexes: True
+#   - name: DIETClassifier
+#     epochs: 100
+#     constrain_similarities: true
+#   - name: EntitySynonymMapper
+#   - name: ResponseSelector
+#     epochs: 100
+#     constrain_similarities: true
+#   - name: FallbackClassifier
+#     threshold: 0.3
+#     ambiguity_threshold: 0.1
+
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/policies/
+policies:
+# # No configuration for policies was provided. The following default policies were used to train your model.
+# # If you'd like to customize them, uncomment and adjust the policies.
+# # See https://rasa.com/docs/rasa/policies for more information.
+#   - name: MemoizationPolicy
+#   - name: RulePolicy
+#   - name: UnexpecTEDIntentPolicy
+#     max_history: 5
+#     epochs: 100
+#   - name: TEDPolicy
+#     max_history: 5
+#     epochs: 100
+#     constrain_similarities: true
+- name: MemoizationPolicy
+- name: TEDPolicy
+  max_history: 5
+  epochs: 100
+  constrain_similarities: true
+- name: RulePolicy
+

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rasa Core Visualisation</title>
+    <script src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.min.js"></script>
+    <script src="https://dagrejs.github.io/project/dagre/latest/dagre.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://dagrejs.github.io/project/graphlib-dot/v0.6.3/graphlib-dot.js"></script>
+</head>
+<body>
+<div id="errormsg" style="color: #b00"></div>
+<svg>
+    <style id="graph-style">
+        .node.invisible > rect {
+            display: none;
+        }
+
+        .node.start > rect {
+            fill: #7f7;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node.end > rect {
+            fill: #f77;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node:not(.active) > rect, .node:not(.active) > .label {
+            opacity: 0.4;
+        }
+
+        .edgePath:not(.active) path {
+            opacity: 0.4;
+        }
+
+        .node.ellipsis > rect {
+            fill: #CCC;
+        }
+
+        .node.intent > rect {
+            fill: #7ff;
+        }
+
+        .node.dashed > rect {
+            stroke-dasharray: 5;
+        }
+
+        text {
+            font-weight: 300;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serf, serif;
+            font-size: 14px;
+            color: #1f1d1d;
+        }
+
+        .node rect {
+            stroke: #444;
+            fill: #fff;
+            stroke-width: 1.5px;
+        }
+
+        .edgePath path {
+            stroke: #333;
+            stroke-width: 1.5px;
+        }
+
+        svg {
+            position: fixed;
+            top: 10px;
+            left: 0;
+            height: 100%;
+            width: 100%
+        }
+    </style>
+    <g></g>
+</svg>
+<script>
+
+  function serveGraph() {
+    let oldInputGraphValue;
+
+    const url = 'visualization.dot';
+    const refreshInterval = 500;
+
+    // trigger a refresh by fetching an updated graph
+    setInterval(function () {
+      fetch(url).then(r => r.text()).then(dot => {
+        document.getElementById('errormsg').innerHTML = '';
+        if (oldInputGraphValue === dot) return;
+
+        oldInputGraphValue = dot;
+        drawGraph(dot);
+      }).catch(err => {
+        document.getElementById('errormsg').innerHTML =
+          'Failed to update plot. (' + err.message + ')';
+      });
+    }, refreshInterval);
+  }
+
+  function drawGraph(graph) {
+    let g = graphlibDot.read(graph);
+    // Set margins, if not present
+    if (!g.graph().hasOwnProperty("marginx") &&
+      !g.graph().hasOwnProperty("marginy")) {
+      g.graph().marginx = 20;
+      g.graph().marginy = 20;
+    }
+    g.graph().transition = function (selection) {
+      return selection.transition().duration(300);
+    };
+    // Render the graph into svg g
+    d3.select("svg g").call(render, g);
+  }
+  // Set up zoom support
+  const svg = d3.select("svg"),
+    inner = d3.select("svg g"),
+    zoom = d3.zoom().on("zoom", function () {
+      inner.attr("transform", d3.event.transform);
+    });
+  svg.call(zoom);
+
+  // Create and configure the renderer
+  const render = dagreD3.render();
+
+  let isClient = false;
+  isClient = true;
+
+  if (isClient) {
+    // Mark all nodes and their edges as active
+    cssRules = document.getElementById('graph-style').sheet.cssRules;
+    cssRules[3].style.opacity = 1;
+    cssRules[4].style.opacity = 1;
+
+    let graph;
+    graph = `digraph  {
+0 [class="start active", fillcolor=green, fontsize=12, label=START, style=filled];
+"-1" [class=end, fillcolor=red, fontsize=12, label=END, style=filled];
+1 [class="", fontsize=12, label=utter_greet];
+2 [class="", fontsize=12, label=utter_happy];
+5 [class="", fontsize=12, label=utter_botusage];
+6 [class="", fontsize=12, label=utter_goodbye];
+7 [class="", fontsize=12, label=advanced_gym_routine_form];
+10 [class="", fontsize=12, label=utter_gym_routine_slots];
+11 [class="", fontsize=12, label=action_exercise_description];
+12 [class="", fontsize=12, label=action_image_exercise];
+14 [class="", fontsize=12, label=utter_happy];
+22 [class="", fontsize=12, label=action_calories];
+23 [class="", fontsize=12, label=action_total_time];
+24 [class="", fontsize=12, label=action_recipe_info];
+25 [class="", fontsize=12, label=action_fat];
+26 [class="", fontsize=12, label=action_protein];
+27 [class="", fontsize=12, label=action_carbohydrates];
+29 [class="", fontsize=12, label=utter_iamabot];
+30 [class="", fontsize=12, label=utter_botusage];
+43 [class="", fontsize=12, label=utter_greet];
+55 [class="", fontsize=12, label=action_image_exercise];
+56 [class="", fontsize=12, label=action_multiple_recipe_info];
+74 [class="", fontsize=12, label=utter_greet];
+75 [class="", fontsize=12, label=action_multiple_recipe_info];
+91 [class="", fontsize=12, label=utter_happy];
+97 [class="", fontsize=12, label=action_carbohydrates];
+109 [class="", fontsize=12, label=action_calories];
+110 [class="", fontsize=12, label=utter_happy];
+117 [class="", fontsize=12, label=utter_iamabot];
+118 [class="", fontsize=12, label=utter_greet];
+127 [class="", fontsize=12, label=action_multiple_recipe_info];
+128 [class="", fontsize=12, label=utter_happy];
+133 [class="", fontsize=12, label=action_multiple_recipe_info];
+180 [class="", fontsize=12, label=utter_botusage];
+191 [class="", fontsize=12, label=utter_happy];
+202 [class="", fontsize=12, label=action_image_exercise];
+203 [class="", fontsize=12, label=utter_happy];
+204 [class="", fontsize=12, label=utter_botusage];
+222 [class="", fontsize=12, label=utter_happy];
+228 [class="", fontsize=12, label=utter_happy];
+229 [class="", fontsize=12, label=action_carbohydrates];
+230 [class="", fontsize=12, label=action_image_exercise];
+261 [class="", fontsize=12, label=action_image_exercise];
+272 [class="", fontsize=12, label=utter_botusage];
+273 [class="", fontsize=12, label=utter_greet];
+320 [class="", fontsize=12, label=action_image_exercise];
+355 [class="", fontsize=12, label=action_recipe_info];
+356 [class="", fontsize=12, label=action_protein];
+382 [class="", fontsize=12, label=utter_botusage];
+391 [class="", fontsize=12, label=action_multiple_recipe_info];
+394 [class="", fontsize=12, label=utter_botusage];
+395 [class="", fontsize=12, label=utter_iamabot];
+402 [class="", fontsize=12, label=utter_botusage];
+421 [class="", fontsize=12, label=action_image_exercise];
+429 [class="", fontsize=12, label=action_calories];
+431 [class="", fontsize=12, label=action_protein];
+432 [class="", fontsize=12, label=action_total_time];
+433 [class="", fontsize=12, label=action_carbohydrates];
+435 [class="", fontsize=12, label=action_fat];
+439 [class="", fontsize=12, label=action_total_time];
+440 [class="", fontsize=12, label=action_protein];
+450 [class="", fontsize=12, label=action_recipe_info];
+486 [class="", fontsize=12, label="..."];
+487 [class="", fontsize=12, label=action_total_time];
+493 [class="", fontsize=12, label=action_recipe_info];
+507 [class="", fontsize=12, label=utter_greet];
+513 [class="", fontsize=12, label=utter_iamabot];
+515 [class="", fontsize=12, label=utter_botusage];
+517 [class="", fontsize=12, label=advanced_gym_routine_form];
+525 [class="", fontsize=12, label=action_calories];
+527 [class="", fontsize=12, label=action_protein];
+528 [class=intent, fillcolor=lightblue, label="good morning", shape=rect, style=filled];
+529 [class=intent, fillcolor=lightblue, label=i, shape=rect, style=filled];
+530 [class=intent, fillcolor=lightblue, label="i'm interested in a gym routine", shape=rect, style=filled];
+531 [class=intent, fillcolor=lightblue, label="am I talking to a bot?", shape=rect, style=filled];
+532 [class=intent, fillcolor=lightblue, label="what else you offer", shape=rect, style=filled];
+533 [class=intent, fillcolor=lightblue, label="I want an image for the Clean and press", shape=rect, style=filled];
+534 [class=intent, fillcolor=lightblue, label="give me something with turkey", shape=rect, style=filled];
+535 [class=intent, fillcolor=lightblue, label=wonderful, shape=rect, style=filled];
+536 [class=intent, fillcolor=lightblue, label="are you a bot?", shape=rect, style=filled];
+537 [class=intent, fillcolor=lightblue, label="what type of recommendation you offer", shape=rect, style=filled];
+538 [class=intent, fillcolor=lightblue, label="Tell me the calorie count for Oat Cocoa Smoothie.", shape=rect, style=filled];
+539 [class=intent, fillcolor=lightblue, label="what are you?", shape=rect, style=filled];
+540 [class=intent, fillcolor=lightblue, label="i'm interested in a gym routine", shape=rect, style=filled];
+541 [class=intent, fillcolor=lightblue, label="How many calories are in Beef Teriyaki Rice and Stir Fry?", shape=rect, style=filled];
+542 [class=intent, fillcolor=lightblue, label="what type of recommendation you offer", shape=rect, style=filled];
+543 [class=intent, fillcolor=lightblue, label="good night", shape=rect, style=filled];
+544 [class=intent, fillcolor=lightblue, label=3, shape=rect, style=filled];
+545 [class=intent, fillcolor=lightblue, label="Yes, give me a [description])(description_exercises)", shape=rect, style=filled];
+546 [class=intent, fillcolor=lightblue, label=shoulders, shape=rect, style=filled];
+547 [class=intent, fillcolor=lightblue, label="I want an image for the Clean and press", shape=rect, style=filled];
+548 [class=intent, fillcolor=lightblue, label="Provide information about energy unit in Super Peach Shake.", shape=rect, style=filled];
+549 [class=intent, fillcolor=lightblue, label="give me a picture for Hammer Curls and Close-grip pull-down", shape=rect, style=filled];
+550 [class=intent, fillcolor=lightblue, label="I am feeling very good", shape=rect, style=filled];
+551 [class=intent, fillcolor=lightblue, label="Tell me the calorie count for Oat Cocoa Smoothie.", shape=rect, style=filled];
+552 [class=intent, fillcolor=lightblue, label="what else you offer", shape=rect, style=filled];
+553 [class=intent, fillcolor=lightblue, label="/image_exercisee", shape=rect, style=filled];
+554 [class=intent, fillcolor=lightblue, label="I'm curious about the total hours for Blueberries & Frozen Yogurt Protein Pancakes.", shape=rect, style=filled];
+555 [class=intent, fillcolor=lightblue, label="recipe with pumpkin", shape=rect, style=filled];
+556 [class=intent, fillcolor=lightblue, label=wonderful, shape=rect, style=filled];
+557 [class=intent, fillcolor=lightblue, label="now give me an image of Clean and press", shape=rect, style=filled];
+558 [class=intent, fillcolor=lightblue, label="I am feeling very good", shape=rect, style=filled];
+559 [class=intent, fillcolor=lightblue, label="i'm interested in a gym routine", shape=rect, style=filled];
+560 [class=intent, fillcolor=lightblue, label="Provide information about the total time for Tofu Steaks with Blistered Tomatoes?", shape=rect, style=filled];
+561 [class=intent, fillcolor=lightblue, label="I'm curious about the total hours for Blueberries & Frozen Yogurt Protein Pancakes.", shape=rect, style=filled];
+562 [class=intent, fillcolor=lightblue, label="Provide information about energy unit in Super Peach Shake.", shape=rect, style=filled];
+563 [class=intent, fillcolor=lightblue, label="Give me details about the Beef Teriyaki Rice and Stir Fry recipe.", shape=rect, style=filled];
+564 [class=intent, fillcolor=lightblue, label="I'm curious about the fat in Morning Mocha Frappe.", shape=rect, style=filled];
+565 [class=intent, fillcolor=lightblue, label="Tell me the protein content for Cinnamon Nutella French Toast Sticks", shape=rect, style=filled];
+566 [class=intent, fillcolor=lightblue, label="bye bye", shape=rect, style=filled];
+567 [class=intent, fillcolor=lightblue, label="Tell me the carbs content for Pollo Asado, Corn Salsa, and Cilantro Lime Rice.", shape=rect, style=filled];
+568 [class=intent, fillcolor=lightblue, label="good afternoon", shape=rect, style=filled];
+569 [class=intent, fillcolor=lightblue, label="Provide information about carbs in Pumpkin Protein Balls.", shape=rect, style=filled];
+570 [class=intent, fillcolor=lightblue, label=wonderful, shape=rect, style=filled];
+571 [class=intent, fillcolor=lightblue, label=perfect, shape=rect, style=filled];
+572 [class=intent, fillcolor=lightblue, label="cool, what you can offer?", shape=rect, style=filled];
+573 [class=intent, fillcolor=lightblue, label="can i receive a gym routine", shape=rect, style=filled];
+574 [class=intent, fillcolor=lightblue, label="can i receive a gym routine", shape=rect, style=filled];
+575 [class=intent, fillcolor=lightblue, label="I'm curious about the carbohydrates in Cappuccino Overnight Oats.", shape=rect, style=filled];
+576 [class=intent, fillcolor=lightblue, label="recipe with pumpkin", shape=rect, style=filled];
+577 [class=intent, fillcolor=lightblue, label="hello there", shape=rect, style=filled];
+578 [class=intent, fillcolor=lightblue, label="How can I do the Single-Leg Press?", shape=rect, style=filled];
+579 [class=intent, fillcolor=lightblue, label="I just came from work, can you give me a recipe that can be done in 10 minutes?", shape=rect, style=filled];
+580 [class=intent, fillcolor=lightblue, label="Recommend a recipe with 100 grams protein", shape=rect, style=filled];
+581 [class=intent, fillcolor=lightblue, label="Give me anything with 15 g of fat", shape=rect, style=filled];
+582 [class=intent, fillcolor=lightblue, label="Give me a recipe with 300  calorie.", shape=rect, style=filled];
+583 [class=intent, fillcolor=lightblue, label="Give me anything with 5 carbs", shape=rect, style=filled];
+584 [class=intent, fillcolor=lightblue, label="recommend me a recipe with 20 grams of protein and 20 carbs", shape=rect, style=filled];
+585 [class=intent, fillcolor=lightblue, label="recipe with pumpkin", shape=rect, style=filled];
+586 [class=intent, fillcolor=lightblue, label="I want a recipe that can be done in 7 minutes", shape=rect, style=filled];
+587 [class=intent, fillcolor=lightblue, label="Give me a recipe with 60 g protein.", shape=rect, style=filled];
+588 [class=intent, fillcolor=lightblue, label="give me a recipe with 10 g fat", shape=rect, style=filled];
+589 [class=intent, fillcolor=lightblue, label="Recommend a recipe with 250 calories", shape=rect, style=filled];
+590 [class=intent, fillcolor=lightblue, label="I want a recipe that has 300 carbohydrates", shape=rect, style=filled];
+591 [class=intent, fillcolor=lightblue, label="Give me anything with 100 carbs, 70 g protein and 5 g of fat.", shape=rect, style=filled];
+592 [class=intent, fillcolor=lightblue, label="I just came from work, can you give me a recipe that can be done in 10 minutes?", shape=rect, style=filled];
+593 [class=intent, fillcolor=lightblue, label="recommend me a recipe with 20 grams of protein and 20 carbs", shape=rect, style=filled];
+594 [class=intent, fillcolor=lightblue, label="Give me anything with 100 carbs, 70 g protein and 5 g of fat.", shape=rect, style=filled];
+595 [class=intent, fillcolor=lightblue, label="recommend me something with 50 grams of protein", shape=rect, style=filled];
+596 [class=intent, fillcolor=lightblue, label="How many calories are in Beef Teriyaki Rice and Stir Fry?", shape=rect, style=filled];
+597 [class=intent, fillcolor=lightblue, label="recipe with pumpkin", shape=rect, style=filled];
+598 [class=intent, fillcolor=lightblue, label="I want to know the recipe for Beef Teriyaki Rice and Stir Fry.", shape=rect, style=filled];
+599 [class=intent, fillcolor=lightblue, label="see you later", shape=rect, style=filled];
+600 [class=intent, fillcolor=lightblue, label="give me something with turkey", shape=rect, style=filled];
+601 [class=intent, fillcolor=lightblue, label="what type of recommendation you offer", shape=rect, style=filled];
+602 [class=intent, fillcolor=lightblue, label="I am amazing", shape=rect, style=filled];
+603 [class=intent, fillcolor=lightblue, label=perfect, shape=rect, style=filled];
+604 [class=intent, fillcolor=lightblue, label="Provide information about the total time for Tofu Steaks with Blistered Tomatoes?", shape=rect, style=filled];
+605 [class=intent, fillcolor=lightblue, label=hey, shape=rect, style=filled];
+606 [class=intent, fillcolor=lightblue, label="what do you do?", shape=rect, style=filled];
+607 [class=intent, fillcolor=lightblue, label="Tell me the calorie count for Oat Cocoa Smoothie.", shape=rect, style=filled];
+608 [class=intent, fillcolor=lightblue, label="what type of recommendation you offer?", shape=rect, style=filled];
+609 [class=intent, fillcolor=lightblue, label="I'm interested in a gym routine", shape=rect, style=filled];
+610 [class=intent, fillcolor=lightblue, label="I am great", shape=rect, style=filled];
+611 [class=intent, fillcolor=lightblue, label="Give me a recipe with 60 g protein.", shape=rect, style=filled];
+612 [class=intent, fillcolor=lightblue, label="I want a recipe within 10 minutes", shape=rect, style=filled];
+613 [class=intent, fillcolor=lightblue, label="good by", shape=rect, style=filled];
+614 [class=intent, fillcolor=lightblue, label="good night", shape=rect, style=filled];
+615 [class=intent, fillcolor=lightblue, label="give me an image of exercise Dumbbell front raise to lateral raise", shape=rect, style=filled];
+616 [class=intent, fillcolor=lightblue, label="give me a recipe with pumpkin", shape=rect, style=filled];
+617 [class=intent, fillcolor=lightblue, label=amazing, shape=rect, style=filled];
+618 [class=intent, fillcolor=lightblue, label="How can I do the T-Bar Row with Handle?", shape=rect, style=filled];
+619 [class=intent, fillcolor=lightblue, label="see you around", shape=rect, style=filled];
+620 [class=intent, fillcolor=lightblue, label="so good", shape=rect, style=filled];
+621 [class=intent, fillcolor=lightblue, label="cool, what you can offer?", shape=rect, style=filled];
+622 [class=intent, fillcolor=lightblue, label="I'm curious about the calories in Oatmeal Pancakes.", shape=rect, style=filled];
+623 [class=intent, fillcolor=lightblue, label="I'm curious about the calories in Oatmeal Pancakes.", shape=rect, style=filled];
+624 [class=intent, fillcolor=lightblue, label="I'm curious about the carbohydrates in Cappuccino Overnight Oats.", shape=rect, style=filled];
+625 [class=intent, fillcolor=lightblue, label="now give me an image of Clean and press", shape=rect, style=filled];
+626 [class=intent, fillcolor=lightblue, label="see you around", shape=rect, style=filled];
+627 [class=intent, fillcolor=lightblue, label="give me a picture for Dumbbell Flyes", shape=rect, style=filled];
+628 [class=intent, fillcolor=lightblue, label="What's the cal content of Mustard Roasted Chicken?", shape=rect, style=filled];
+629 [class=intent, fillcolor=lightblue, label="How can I do the Superman?", shape=rect, style=filled];
+630 [class=intent, fillcolor=lightblue, label="hello world", shape=rect, style=filled];
+631 [class=intent, fillcolor=lightblue, label="Give me a recipe with 300 calories.", shape=rect, style=filled];
+632 [class=intent, fillcolor=lightblue, label="i'm interested in a gym routine", shape=rect, style=filled];
+633 [class=intent, fillcolor=lightblue, label="give me a recipe with chicken", shape=rect, style=filled];
+634 [class=intent, fillcolor=lightblue, label="What's the protein amount in Beef Soft Taco?", shape=rect, style=filled];
+635 [class=intent, fillcolor=lightblue, label="give me a salad recipe", shape=rect, style=filled];
+636 [class=intent, fillcolor=lightblue, label=great, shape=rect, style=filled];
+637 [class=intent, fillcolor=lightblue, label="thanks, goodbye", shape=rect, style=filled];
+638 [class=intent, fillcolor=lightblue, label="What's the recipe for Beef Teriyaki Rice and Stir Fry?", shape=rect, style=filled];
+639 [class=intent, fillcolor=lightblue, label="am I talking to a bot?", shape=rect, style=filled];
+640 [class=intent, fillcolor=lightblue, label="Provide information about energy unit in Super Peach Shake.", shape=rect, style=filled];
+641 [class=intent, fillcolor=lightblue, label="Give me anything with 15 g of fat", shape=rect, style=filled];
+642 [class=intent, fillcolor=lightblue, label="give me a picture for Dumbbell Bench Press and Incline dumbbell bench press and Cable Crossover", shape=rect, style=filled];
+643 [class=intent, fillcolor=lightblue, label="How much protein is in A Protein Milkshake?", shape=rect, style=filled];
+644 [class=intent, fillcolor=lightblue, label="Provide information about energy unit in Super Peach Shake.", shape=rect, style=filled];
+645 [class=intent, fillcolor=lightblue, label="Provide information about the total time for Tofu Steaks with Blistered Tomatoes?", shape=rect, style=filled];
+646 [class=intent, fillcolor=lightblue, label="How many carbohydrates are in Beef Teriyaki Rice and Stir Fry?", shape=rect, style=filled];
+647 [class=intent, fillcolor=lightblue, label="How much big is in Chicken Teriyaki Rice and Broccoli?", shape=rect, style=filled];
+648 [class=intent, fillcolor=lightblue, label="Provide information about carbs in Pumpkin Protein Balls.", shape=rect, style=filled];
+649 [class=intent, fillcolor=lightblue, label="Provide information about macronutrient in Garlicky Hummus.", shape=rect, style=filled];
+650 [class=intent, fillcolor=lightblue, label="I'm curious about the carbohydrates in Cappucino Overnight Oats", shape=rect, style=filled];
+651 [class=intent, fillcolor=lightblue, label=goodbye, shape=rect, style=filled];
+652 [class=intent, fillcolor=lightblue, label="Provide information about the total time for Chocolate Fudge Protein Brownies.", shape=rect, style=filled];
+653 [class=intent, fillcolor=lightblue, label="How many carbohydrates are in Beef Teriyaki Rice and Stir Fry?", shape=rect, style=filled];
+654 [class=intent, fillcolor=lightblue, label="I'm curious about the fat in Morning Mocha Frappe.", shape=rect, style=filled];
+655 [class=intent, fillcolor=lightblue, label="Tell me about the recipe for Beef Teriyaki Rice and Stir Fry.", shape=rect, style=filled];
+656 [class=intent, fillcolor=lightblue, label="Give me a recipe with 300 calories.", shape=rect, style=filled];
+657 [class=intent, fillcolor=lightblue, label="I want a recipe that has 300 carbohydrates", shape=rect, style=filled];
+658 [class=intent, fillcolor=lightblue, label="Recommend a recipe with 100 grams protein", shape=rect, style=filled];
+659 [class=intent, fillcolor=lightblue, label="I just came from work, can you give me a recipe that can be done in 10 minutes?", shape=rect, style=filled];
+660 [class=intent, fillcolor=lightblue, label="give me a recipe with 10 g fat", shape=rect, style=filled];
+661 [class=intent, fillcolor=lightblue, label="Recommend a recipe with 10 minutes and 400 calories.", shape=rect, style=filled];
+662 [class=intent, fillcolor=lightblue, label="give me a recipe with chicken", shape=rect, style=filled];
+663 [class=intent, fillcolor=lightblue, label="good morning", shape=rect, style=filled];
+664 [class=intent, fillcolor=lightblue, label="bye bye", shape=rect, style=filled];
+665 [class=intent, fillcolor=lightblue, label="am I talking to a human?", shape=rect, style=filled];
+666 [class=intent, fillcolor=lightblue, label="what type of recommendation you offer", shape=rect, style=filled];
+667 [class=intent, fillcolor=lightblue, label="now give me another routine", shape=rect, style=filled];
+668 [class=intent, fillcolor=lightblue, label="How can I do the Superman?", shape=rect, style=filled];
+669 [class=intent, fillcolor=lightblue, label="Provide information about energy unit in Super Peach Shake.", shape=rect, style=filled];
+670 [class=intent, fillcolor=lightblue, label="How much protein is in A Protein Milkshake?", shape=rect, style=filled];
+0 -> 486  [class="", key=NONE, label=""];
+0 -> 528  [class="", key=0];
+0 -> 529  [class="", key=0];
+0 -> 530  [class="", key=0];
+0 -> 531  [class="", key=0];
+0 -> 532  [class="", key=0];
+0 -> 533  [class="", key=0];
+0 -> 534  [class="", key=0];
+1 -> 535  [class="", key=0];
+1 -> 536  [class="", key=0];
+1 -> 537  [class="", key=0];
+1 -> 538  [class="", key=0];
+1 -> 539  [class="", key=0];
+1 -> 540  [class="", key=0];
+1 -> 541  [class="", key=0];
+2 -> "-1"  [class="", key=NONE, label=""];
+2 -> 542  [class="", key=0];
+5 -> 543  [class="", key=0];
+6 -> "-1"  [class="", key=NONE, label=""];
+7 -> 10  [class="", key=NONE, label=""];
+7 -> 544  [class="", key=0];
+7 -> 545  [class="", key=0];
+7 -> 546  [class="", key=0];
+10 -> 11  [class="", key=NONE, label=""];
+11 -> "-1"  [class="", key=NONE, label=""];
+11 -> 547  [class="", key=0];
+11 -> 548  [class="", key=0];
+11 -> 549  [class="", key=0];
+11 -> 550  [class="", key=0];
+11 -> 551  [class="", key=0];
+11 -> 552  [class="", key=0];
+11 -> 553  [class="", key=0];
+11 -> 554  [class="", key=0];
+11 -> 555  [class="", key=0];
+12 -> 556  [class="", key=0];
+12 -> 557  [class="", key=0];
+12 -> 558  [class="", key=0];
+14 -> 559  [class="", key=0];
+22 -> 560  [class="", key=0];
+22 -> 561  [class="", key=0];
+22 -> 562  [class="", key=0];
+23 -> 563  [class="", key=0];
+24 -> 564  [class="", key=0];
+25 -> 565  [class="", key=0];
+25 -> 566  [class="", key=0];
+26 -> 567  [class="", key=0];
+26 -> 568  [class="", key=0];
+26 -> 569  [class="", key=0];
+26 -> 570  [class="", key=0];
+26 -> 571  [class="", key=0];
+27 -> "-1"  [class="", key=NONE, label=""];
+29 -> 572  [class="", key=0];
+29 -> 573  [class="", key=0];
+30 -> 574  [class="", key=0];
+43 -> 575  [class="", key=0];
+55 -> 576  [class="", key=0];
+55 -> 577  [class="", key=0];
+55 -> 578  [class="", key=0];
+56 -> "-1"  [class="", key=NONE, label=""];
+56 -> 579  [class="", key=0];
+56 -> 580  [class="", key=0];
+56 -> 581  [class="", key=0];
+56 -> 582  [class="", key=0];
+56 -> 583  [class="", key=0];
+56 -> 584  [class="", key=0];
+74 -> 585  [class="", key=0];
+75 -> 586  [class="", key=0];
+75 -> 587  [class="", key=0];
+75 -> 588  [class="", key=0];
+75 -> 589  [class="", key=0];
+75 -> 590  [class="", key=0];
+75 -> 591  [class="", key=0];
+75 -> 592  [class="", key=0];
+75 -> 593  [class="", key=0];
+75 -> 594  [class="", key=0];
+75 -> 595  [class="", key=0];
+91 -> 596  [class="", key=0];
+91 -> 597  [class="", key=0];
+91 -> 598  [class="", key=0];
+97 -> 599  [class="", key=0];
+97 -> 600  [class="", key=0];
+97 -> 601  [class="", key=0];
+97 -> 602  [class="", key=0];
+109 -> 603  [class="", key=0];
+110 -> 604  [class="", key=0];
+117 -> 605  [class="", key=0];
+117 -> 606  [class="", key=0];
+117 -> 607  [class="", key=0];
+118 -> 608  [class="", key=0];
+118 -> 609  [class="", key=0];
+127 -> 610  [class="", key=0];
+128 -> 611  [class="", key=0];
+128 -> 612  [class="", key=0];
+128 -> 613  [class="", key=0];
+133 -> 614  [class="", key=0];
+133 -> 615  [class="", key=0];
+180 -> 616  [class="", key=0];
+180 -> 617  [class="", key=0];
+180 -> 618  [class="", key=0];
+191 -> 619  [class="", key=0];
+202 -> 620  [class="", key=0];
+203 -> 621  [class="", key=0];
+204 -> 622  [class="", key=0];
+222 -> 623  [class="", key=0];
+228 -> 624  [class="", key=0];
+229 -> 625  [class="", key=0];
+230 -> 626  [class="", key=0];
+230 -> 627  [class="", key=0];
+261 -> 628  [class="", key=0];
+261 -> 629  [class="", key=0];
+272 -> 630  [class="", key=0];
+272 -> 631  [class="", key=0];
+273 -> 632  [class="", key=0];
+320 -> 633  [class="", key=0];
+355 -> 634  [class="", key=0];
+356 -> 635  [class="", key=0];
+382 -> 636  [class="", key=0];
+391 -> 637  [class="", key=0];
+391 -> 638  [class="", key=0];
+394 -> 639  [class="", key=0];
+395 -> 640  [class="", key=0];
+402 -> 641  [class="", key=0];
+421 -> "-1"  [class="", key=NONE, label=""];
+421 -> 642  [class="", key=0];
+429 -> 643  [class="", key=0];
+429 -> 644  [class="", key=0];
+431 -> 645  [class="", key=0];
+432 -> 646  [class="", key=0];
+433 -> 647  [class="", key=0];
+433 -> 648  [class="", key=0];
+435 -> "-1"  [class="", key=NONE, label=""];
+439 -> 649  [class="", key=0];
+440 -> 650  [class="", key=0];
+450 -> 651  [class="", key=0];
+486 -> 7  [class="", key=NONE, label=""];
+486 -> 652  [class="", key=0];
+486 -> 653  [class="", key=0];
+486 -> 654  [class="", key=0];
+486 -> 655  [class="", key=0];
+486 -> 656  [class="", key=0];
+486 -> 657  [class="", key=0];
+486 -> 658  [class="", key=0];
+486 -> 659  [class="", key=0];
+486 -> 660  [class="", key=0];
+486 -> 661  [class="", key=0];
+486 -> 662  [class="", key=0];
+486 -> 663  [class="", key=0];
+486 -> 664  [class="", key=0];
+486 -> 665  [class="", key=0];
+486 -> 666  [class="", key=0];
+486 -> 667  [class="", key=0];
+486 -> 668  [class="", key=0];
+486 -> 669  [class="", key=0];
+486 -> 670  [class="", key=0];
+487 -> "-1"  [class="", key=NONE, label=""];
+493 -> "-1"  [class="", key=NONE, label=""];
+507 -> "-1"  [class="", key=NONE, label=""];
+513 -> "-1"  [class="", key=NONE, label=""];
+515 -> "-1"  [class="", key=NONE, label=""];
+517 -> "-1"  [class="", key=NONE, label=""];
+525 -> "-1"  [class="", key=NONE, label=""];
+527 -> "-1"  [class="", key=NONE, label=""];
+528 -> 1  [class="", key=0];
+529 -> 7  [class="", key=0];
+530 -> 7  [class="", key=0];
+531 -> 117  [class="", key=0];
+532 -> 382  [class="", key=0];
+533 -> 421  [class="", key=0];
+534 -> 75  [class="", key=0];
+535 -> 2  [class="", key=0];
+536 -> 29  [class="", key=0];
+537 -> 394  [class="", key=0];
+538 -> 429  [class="", key=0];
+539 -> 30  [class="", key=0];
+540 -> 7  [class="", key=0];
+541 -> 22  [class="", key=0];
+542 -> 5  [class="", key=0];
+543 -> 6  [class="", key=0];
+544 -> 7  [class="", key=0];
+545 -> 7  [class="", key=0];
+546 -> 7  [class="", key=0];
+547 -> 12  [class="", key=0];
+548 -> 22  [class="", key=0];
+549 -> 55  [class="", key=0];
+550 -> 91  [class="", key=0];
+551 -> 109  [class="", key=0];
+552 -> 180  [class="", key=0];
+553 -> 202  [class="", key=0];
+554 -> 23  [class="", key=0];
+555 -> 75  [class="", key=0];
+556 -> 14  [class="", key=0];
+557 -> 12  [class="", key=0];
+558 -> 191  [class="", key=0];
+559 -> 7  [class="", key=0];
+560 -> 23  [class="", key=0];
+561 -> 439  [class="", key=0];
+562 -> 22  [class="", key=0];
+563 -> 24  [class="", key=0];
+564 -> 25  [class="", key=0];
+565 -> 26  [class="", key=0];
+566 -> 6  [class="", key=0];
+567 -> 27  [class="", key=0];
+568 -> 43  [class="", key=0];
+569 -> 97  [class="", key=0];
+570 -> 228  [class="", key=0];
+571 -> 191  [class="", key=0];
+572 -> 30  [class="", key=0];
+573 -> 7  [class="", key=0];
+574 -> 7  [class="", key=0];
+575 -> 27  [class="", key=0];
+576 -> 56  [class="", key=0];
+577 -> 74  [class="", key=0];
+578 -> 320  [class="", key=0];
+579 -> 56  [class="", key=0];
+580 -> 56  [class="", key=0];
+581 -> 56  [class="", key=0];
+582 -> 56  [class="", key=0];
+583 -> 56  [class="", key=0];
+584 -> 56  [class="", key=0];
+585 -> 75  [class="", key=0];
+586 -> 75  [class="", key=0];
+587 -> 75  [class="", key=0];
+588 -> 75  [class="", key=0];
+589 -> 75  [class="", key=0];
+590 -> 75  [class="", key=0];
+591 -> 56  [class="", key=0];
+592 -> 127  [class="", key=0];
+593 -> 127  [class="", key=0];
+594 -> 133  [class="", key=0];
+595 -> 391  [class="", key=0];
+596 -> 22  [class="", key=0];
+597 -> 75  [class="", key=0];
+598 -> 355  [class="", key=0];
+599 -> 6  [class="", key=0];
+600 -> 75  [class="", key=0];
+601 -> 402  [class="", key=0];
+602 -> 191  [class="", key=0];
+603 -> 110  [class="", key=0];
+604 -> 23  [class="", key=0];
+605 -> 118  [class="", key=0];
+606 -> 272  [class="", key=0];
+607 -> 22  [class="", key=0];
+608 -> 30  [class="", key=0];
+609 -> 7  [class="", key=0];
+610 -> 128  [class="", key=0];
+611 -> 75  [class="", key=0];
+612 -> 75  [class="", key=0];
+613 -> 6  [class="", key=0];
+614 -> 6  [class="", key=0];
+615 -> 12  [class="", key=0];
+616 -> 75  [class="", key=0];
+617 -> 222  [class="", key=0];
+618 -> 261  [class="", key=0];
+619 -> 6  [class="", key=0];
+620 -> 203  [class="", key=0];
+621 -> 204  [class="", key=0];
+622 -> 22  [class="", key=0];
+623 -> 22  [class="", key=0];
+624 -> 229  [class="", key=0];
+625 -> 230  [class="", key=0];
+626 -> 6  [class="", key=0];
+627 -> 230  [class="", key=0];
+628 -> 22  [class="", key=0];
+629 -> 261  [class="", key=0];
+630 -> 273  [class="", key=0];
+631 -> 75  [class="", key=0];
+632 -> 7  [class="", key=0];
+633 -> 127  [class="", key=0];
+634 -> 356  [class="", key=0];
+635 -> 75  [class="", key=0];
+636 -> 110  [class="", key=0];
+637 -> 6  [class="", key=0];
+638 -> 450  [class="", key=0];
+639 -> 395  [class="", key=0];
+640 -> 22  [class="", key=0];
+641 -> 75  [class="", key=0];
+642 -> 421  [class="", key=0];
+643 -> 431  [class="", key=0];
+644 -> 429  [class="", key=0];
+645 -> 432  [class="", key=0];
+646 -> 433  [class="", key=0];
+647 -> 435  [class="", key=0];
+648 -> 433  [class="", key=0];
+649 -> 440  [class="", key=0];
+650 -> 433  [class="", key=0];
+651 -> 6  [class="", key=0];
+652 -> 487  [class="", key=0];
+653 -> 27  [class="", key=0];
+654 -> 435  [class="", key=0];
+655 -> 493  [class="", key=0];
+656 -> 56  [class="", key=0];
+657 -> 56  [class="", key=0];
+658 -> 56  [class="", key=0];
+659 -> 56  [class="", key=0];
+660 -> 56  [class="", key=0];
+661 -> 56  [class="", key=0];
+662 -> 56  [class="", key=0];
+663 -> 507  [class="", key=0];
+664 -> 6  [class="", key=0];
+665 -> 513  [class="", key=0];
+666 -> 515  [class="", key=0];
+667 -> 517  [class="", key=0];
+668 -> 421  [class="", key=0];
+669 -> 525  [class="", key=0];
+670 -> 527  [class="", key=0];
+}
+`;
+    drawGraph(graph);
+  } else {
+    serveGraph();
+  }
+
+
+</script>
+</body>
+</html>

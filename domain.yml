@@ -1,0 +1,128 @@
+version: '3.1'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- affirm
+- ask_calories
+- ask_carbohydrates
+- ask_fat
+- ask_protein
+- ask_recipe_info
+- ask_total_time
+- bot_challenge
+- bot_usage
+- deny
+- description_of_exercises
+- full_gym_routine
+- goodbye
+- greet
+- gym_debugging
+- gym_routine
+- image_exercise
+- inform_gym_routine
+- mood_great
+- multiple_info_forrecipe
+- recipe_info_by_calories
+- recipe_info_by_carbs
+- recipe_info_by_fat
+- recipe_info_by_ingredient
+- recipe_info_by_protein
+- recipe_info_by_totaltime
+- request_exercises
+- request_gym_routine_form
+entities:
+- protein
+- fat
+- carbohydrates
+- total_time
+- calories
+- recipe_name
+- body_part
+- level_intensity
+- recipe_lookup
+- number_of_exercises
+- number_recipe
+- image_lookup
+- description_exercises
+- exercise_lookup
+slots:
+  body_part:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: body_part
+  level_intensity:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: level_intensity
+  number_of_exercises:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: number_of_exercises
+  description_exercises:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: description_exercises
+forms:
+  advanced_gym_routine_form:
+    required_slots:
+    - body_part
+    - level_intensity
+    - number_of_exercises
+    - description_exercises
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  - text: Hello, how you are doing?
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  - text: glad you got your response
+  - text: happy to help
+  utter_goodbye:
+  - text: Bye
+  - text: Goodbye, have a nice day!
+  utter_iamabot:
+  - text: I am Gym & Nutrition recommendation bot, created by Enmanuel Aquino.
+  utter_botusage:
+  - text: 'I am a recommendation chatbot specializing in Gym Routines and Nutrition Recipes, providing the following features. 1) Gym Routines: Users can choose from a selection of 420 exercises targeting any body part they wish to train. Additionally, they can specify the intensity level, the number of exercises, and receive step-by-step instructions for each exercise. A simple command like "I want a gym routine" initiates the process. If the user desires visual guidance, they can request images of the exercises. 2) Nutrition Recipes: Access to a database of 1,925 recipes. Users can request recipes based on attributes such as calories, carbohydrates, protein, fat, and total preparation time. Furthermore, if a user prefers a dish containing a specific ingredient or items, the chatbot can provide a recipe that aligns with the request. Additionally, users can inquire about attribute values for a known recipe by specifying its name, and the chatbot will furnish the relevant details.'
+  utter_ask_body_part:
+  - text: What body part would you like to train?
+  utter_ask_level_intensity:
+  - text: What kind of level intensity?
+  utter_ask_number_of_exercises:
+  - text: How many exercises will you like to perform?
+  utter_ask_description_exercises:
+  - text: Will you like a description of the exercises?
+  utter_gym_routine_slots:
+  - text: I will give you a {body_part} {level_intensity} routine of {number_of_exercises} exercises.
+actions:
+- action_fat
+- action_carbohydrates
+- action_calories
+- action_protein
+- action_total_time
+- utter_botusage
+- utter_greet
+- action_multiple_recipe_info
+- utter_gym_routine_slots
+- utter_iamabot
+- utter_happy
+- utter_goodbye
+- action_ask_body_part
+- action_ask_level_intensity
+- action_ask_number_of_exercises
+- utter_ask_description_exercises
+- action_exercise_description
+- validate_advanced_gym_routine_form
+- action_image_exercise
+- action_recipe_info
