@@ -1,0 +1,2949 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - yo
+    - hello world
+    - hi there
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - thanks, goodbye
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - /affirm
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+- intent: stop
+  examples: |
+    - stop
+    - nevermind
+    - please stop
+    - i want to stop
+    - stop the form
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - good, are you a bot?
+    - what is this?
+- intent: bot_usage
+  examples: |
+    - what kind of bot you are?
+    - what do you do?
+    - what type of recommendation bot assistance you offer?
+    - what type of recommendation you offer
+    - what type of recommendation you offer?
+    - what else you offer
+    - cool, what you can offer?
+    - what are you?
+- intent: full_gym_routine
+  examples: |
+    - I want a gym routine of [forearms](body_part)[beginner](level_intensity) of [3](number_of_exercises) exercises
+    - give me a [glutes](body_part)[intermediate](level_intensity) of [5](number_of_exercises) exercises
+    - I want a [intermediate](level_intensity) [chest](body_part) routine
+    - what type of exercises you have for [beginner](level_intensity)
+    - i want a gym routine of [chest](body_part) [intermediate](level_intensity) of [2](number_of_exercises) exercises
+- intent: gym_routine
+  examples: |
+    - I'll like to exercise
+    - I want a gym routine
+    - can i receive a gym routine
+    - I'm interested in a gym routine
+    - i want a gym routine
+    - i'm interested in a gym routine
+    - now give me another routine
+    - give me a gym routine
+- intent: inform_gym_routine
+  examples: |
+    - I'll like to exercise [chest](body_part)
+    - I'll like to exercise [forearms](body_part)
+    - I'll like to exercise [triceps](body_part)
+    - I'll like to exercise [glutes](body_part)
+    - I want a [chest](body_part) routine
+    - I want a [biceps](body_part) routine
+    - I want a [glutes](body_part) routine
+    - I want a [triceps](body_part) routine
+    - I want a [shoulders](body_part) routine
+    - I want a [lower back](body_part) routine
+    - [abdominals](body_part)
+    - [abductors](body_part)
+    - [adductors](body_part)
+    - [biceps](body_part)
+    - [calves](body_part)
+    - [chest](body_part)
+    - [forearms](body_part)
+    - [glutes](body_part)
+    - [hamstrings](body_part)
+    - [lats](body_part)
+    - [lower back](body_part)
+    - [middle back](body_part)
+    - [neck](body_part)
+    - [quadriceps](body_part)
+    - [shoulders](body_part)
+    - [traps](body_part)
+    - [triceps](body_part)
+    - [beginner](level_intensity)
+    - [intermediate](level_intensity)
+    - [expert](level_intensity)
+    - [b](level_intensity)
+    - [i](level_intensity)
+    - [e](level_intensity)
+    - i want a [chest](body_part) routine
+    - beginneer
+- intent: request_exercises
+  examples: |
+    - How many exercises should I do?
+    - Can you recommend a workout with [5](number_of_exercises) exercises?
+    - I need a workout with [10](number_of_exercises) exercises.
+    - What's a good workout with [bodyweight](number_of_exercises) exercises?
+    - Suggest a routine with [15](number_of_exercises) exercises for me.
+    - How many exercises are suitable for a [beginner](number_of_exercises)?
+    - What's a good workout plan with [8](number_of_exercises) exercises?
+    - [5](number_of_exercises)
+    - [7](number_of_exercises)
+    - [10](number_of_exercises)
+    - [2](number_of_exercises)
+    - [3](number_of_exercises)
+    - [4](number_of_exercises)
+- intent: description_of_exercises
+  examples: |
+    - I want a [description](description_exercises) of the exercises
+    - give me a [description](description_exercises) of the exercises
+    - please, give me a [description](description_exercises)
+    - how can i do those [exercises](description_exercises)?
+    - Yes, give me a [description])(description_exercises)
+    - [Yes](description_exercises), give me a description
+    - [yes](description_exercises)
+    - [give it to me](description_exercises)
+    - [ok](description_exercises)
+    - [perfect](description_exercises)
+- intent: image_exercise
+  examples: |
+    - I want an [image](image_lookup) for exercise [Rickshaw Carry](exercise_lookup) and [Single-Leg Press](exercise_lookup)
+    - I want an [image](image_lookup) for the [Clean and press](exercise_lookup)
+    - I want an [image](image_lookup) for the [Clean Deadlift](exercise_lookup)
+    - I want an [image](image_lookup) for the [Hammer Curls](exercise_lookup)
+    - give me a [picture](image_lookup) for [Hammer Curls](exercise_lookup) and [Close-grip pull-down](exercise_lookup)
+    - give me a [picture](image_lookup) for [Dumbbell Bench Press](exercise_lookup)
+    - give me a [picture](image_lookup) for [Dumbbell Flyes](exercise_lookup)
+    - give me a [picture](image_lookup) for [Dumbbell Bench Press](exercise_lookup) and [Incline dumbbell bench press](exercise_lookup) and [Cable Crossover](exercise_lookup)
+    - How can I do the [Single-Leg Press](exercise_lookup)?
+    - How can I do the [T-Bar Row with Handle](exercise_lookup)?
+    - How can I do the [One-Arm Long Bar Row](exercise_lookup) and [Incline dumbbell row](exercise_lookup)?
+    - How can I do the [Middle Back Shrug](exercise_lookup) and [Back extension](exercise_lookup)?
+    - How can I do the [Superman](exercise_lookup)?
+    - I want an [image](image_lookup) for exercise [Kneeling Squat](exercise_lookup)
+    - give me an [image](image_lookup) of exercise [Dumbbell front raise to lateral raise](exercise_lookup)
+    - now give me an [image](image_lookup) of [Clean and press](exercise_lookup)
+    - I want [images](image_lookup) of exercises [T-Bar Row with Handle](exercise_lookup) and [Reverse-grip bent-over row](exercise_lookup)
+- intent: ask_calories
+  examples: |
+    - How many [calories](calories) are in [Beef Teriyaki Rice and Stir Fry](recipe_name)?
+    - Tell me the [calorie](calories) count for [Oat Cocoa Smoothie](recipe_name).
+    - What's the [cal](calories) content of [Mustard Roasted Chicken](recipe_name)?
+    - Provide information about [energy unit](calories) in [Super Peach Shake](recipe_name).
+    - I'm curious about the [calories](calories) in [Oatmeal Pancakes](recipe_name).
+    - How many [calories](calories) are in [Beef Teriyaki Rice and Stir Fry](recipe_name)?
+- intent: ask_protein
+  examples: |
+    - How much [protein](protein) is in [A Protein Milkshake](recipe_name)?
+    - Tell me the [protein](protein) content for [Cinnamon Nutella French Toast Sticks](recipe_name).
+    - What's the [protein](protein) amount in [Beef Soft Taco](recipe_name)?
+    - Provide information about [macronutrient](protein) in [Garlicky Hummus](recipe_name).
+    - I'm curious about the [macronutrient](protein) in [Grilled Chicken and Lemon Skewers](recipe_name).
+    - Tell me the [protein](protein) content for [Cinnamon Nutella French Toast Sticks](recipe_name)
+- intent: ask_total_time
+  examples: |
+    - How much [time](total_time) does it take to make [Vegan Red Lentil Curry](recipe_name)?
+    - Tell me the total [time](total_time) for [Buddha Bowl](recipe_name).
+    - What's the total [minutes](total_time) required for [Tofu Steaks with Blistered Tomatoes](recipe_name)?
+    - Provide information about the total [time](total_time) for [Chocolate Fudge Protein Brownies](recipe_name).
+    - I'm curious about the total [hours](total_time) for [Blueberries & Frozen Yogurt Protein Pancakes](recipe_name).
+    - Provide information about the total [time](total_time) for [Tofu Steaks with Blistered Tomatoes](recipe_name)?
+- intent: ask_carbohydrates
+  examples: |
+    - How many [carbohydrates](carbohydrates) are in [Beef Teriyaki Rice and Stir Fry](recipe_name)?
+    - Tell me the [carbs](carbohydrates) content for [Pollo Asado, Corn Salsa, and Cilantro Lime Rice](recipe_name).
+    - What's the [carbohydrate](carbohydrates) amount in [Smoked Texas Brisket, Cowboy Beans, and Corn](recipe_name)?
+    - Provide information about [carbs](carbohydrates) in [Pumpkin Protein Balls](recipe_name).
+    - I'm curious about the [carbohydrates](carbohydrates) in [Cappuccino Overnight Oats](recipe_name).
+    - I'm curious about the [carbohydrates](carbohydrates) in [Cappucino Overnight Oats](recipe_name)
+    - Provide me information about [carbs](carbohydrates) in [Morning Mocha Frappe](recipe_name)
+- intent: ask_fat
+  examples: |
+    - How much [big](fat) is in [Chicken Teriyaki Rice and Broccoli](recipe_name)?
+    - Tell me the [fat](fat) content for [Beef Teriyaki Rice and Stir Fry](recipe_name).
+    - What's the [fat](fat) amount in [High Protein Plant Based Lasagna](recipe_name)?
+    - Provide information about [fat](fat) in [Slow Cooked Pulled Pork, Mashed Potatoes, and Corn Confetti](recipe_name).
+    - I'm curious about the [fat](fat) in [Morning Mocha Frappe](recipe_name).
+    - tell me the [fat](fat) content for [Morning Mocha Frappe](recipe_name)
+- intent: ask_recipe_info
+  examples: |
+    - What are the details of [Beef Teriyaki Rice and Stir Fry](recipe_name)?
+    - Tell me about the recipe for [Beef Teriyaki Rice and Stir Fry](recipe_name).
+    - Give me details about the [Beef Teriyaki Rice and Stir Fry](recipe_name) recipe.
+    - I want to know the recipe for [Beef Teriyaki Rice and Stir Fry](recipe_name).
+    - Can you provide information about [Beef Teriyaki Rice and Stir Fry](recipe_name)?
+    - What's the recipe for [Beef Teriyaki Rice and Stir Fry](recipe_name)?
+- intent: recipe_info_by_calories
+  examples: |
+    - Give me a [recipe](recipe_lookup) with [300](number_recipe) [calories](calories).
+    - Recommend a [recipe](recipe_lookup) with [250](number_recipe) [calories](calories)
+    - Give me a [recipe](recipe_lookup) with [300](number_recipe)  [calorie](calories).
+- intent: recipe_info_by_carbs
+  examples: |
+    - Give me anything with [5](number_recipe) [carbs](carbohydrates)
+    - I want a [recipe](recipe_lookup) that has [300](number_recipe) [carbohydrates](carbohydrates)
+    - I want a [recipe](recipe_lookup) with [100](number_recipe) [carbs](carbohydrates)
+- intent: recipe_info_by_protein
+  examples: |
+    - Give me a [recipe](recipe_lookup) with [60](number_recipe) [g protein](protein).
+    - Recommend a [recipe](recipe_lookup) with [100](number_recipe) [grams protein](protein)
+    - recommend me something with [50](number_recipe) [grams of protein](protein)
+- intent: recipe_info_by_totaltime
+  examples: |
+    - I want a [recipe](recipe_lookup) that can be done in [7](number_recipe) [minutes](total_time)
+    - Recommend a [recipe](recipe_lookup) with [5](number_recipe) [min](total_time)
+    - I want a [recipe](recipe_lookup) within [10](number_recipe) [minutes](total_time)
+    - I just came from work, can you give me a [recipe](recipe_lookup) that can be done in [10](number_recipe) [minutes](total_time)?
+- intent: recipe_info_by_fat
+  examples: |
+    - Recommend a [recipe](recipe_lookup) with [10](number_recipe) [g fat](fat)
+    - Give me anything with [15](number_recipe) [g of fat](fat)
+    - give me a [recipe](recipe_lookup) with [10](number_recipe) [g fat](fat)
+- intent: multiple_info_forrecipe
+  examples: |
+    - Recommend a [recipe](recipe_lookup) with [10](number_recipe) [minutes](total_time) and [400](number_recipe) [calories](calories).
+    - I want a [recipe](recipe_lookup) that has [60](number_recipe) [g of protein](protein) and [300](number_recipe) [calories](calories)
+    - Give me anything with [100](number_recipe) [carbs](carbohydrates), [70](number_recipe) [g protein](protein) and [5](number_recipe) [g of fat](fat).
+    - recommend a [recipe](recipe_lookup) with [60](number_recipe) [g of protein](protein) and [302](number_recipe) [calories](calories)
+    - recommend me a [recipe](recipe_lookup) with [20](number_recipe) [grams of protein](protein) and 20 [carbs](carbohydrates)
+    - I want a [recipe](recipe_lookup) that has [60](number_recipe) [carbs](carbohydrates) and [14](number_recipe) [grams of fat](fat)
+    - give me a [recipe](recipe_lookup) that has [25](number_recipe) [minutes](total_time) and [45](number_recipe) [carbohydrates](carbohydrates)
+- intent: recipe_info_by_ingredient
+  examples: |
+    - give me a [recipe](recipe_lookup) with [chicken](recipe_name)
+    - [recipe](recipe_lookup) with [pumpkin](recipe_name)
+    - give me a [salad](recipe_name) [recipe](recipe_lookup)
+    - anything with [spinach](recipe_name)
+    - give me something with [turkey](recipe_name)
+    - give me a [recipe](recipe_lookup) with [pumpkin](recipe_name)
+- regex: number_recipe
+  examples: |
+    - \b(?:[0-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-2][0-9][0-9][0-9]|3310)\b
+- lookup: level_intensity
+  examples: |
+    - beginner
+    - intermediate
+    - expert
+- lookup: body_part
+  examples: |
+    - abdominals
+    - abductors
+    - adductors
+    - biceps
+    - calves
+    - chest
+    - forearms
+    - glutes
+    - hamstrings
+    - lats
+    - lower back
+    - middle back
+    - neck
+    - quadriceps
+    - shoulders
+    - traps
+    - triceps
+- lookup: number_of_exercises
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+- lookup: description_exercises
+  examples: |
+    - yes
+    - give it to me
+    - ok
+    - perfect
+    - yup
+- lookup: image_lookup
+  examples: |
+    - image
+    - picture
+    - images
+    - pictures
+    - pic
+    - pics
+    - figure
+    - portrait
+- lookup: exercise_lookup
+  examples: |
+    - Rickshaw Carry
+    - Single-Leg Press
+    - Landmine twist
+    - Weighted pull-up
+    - T-Bar Row with Handle
+    - Palms-down wrist curl over bench
+    - Atlas Stones
+    - Dumbbell front raise to lateral raise
+    - Clean from Blocks
+    - Incline Hammer Curls
+    - Straight-bar wrist roll-up
+    - Barbell glute bridge
+    - Clean and press
+    - Triceps dip
+    - Dumbbell farmer's walk
+    - Palms-up wrist curl over bench
+    - Barbell Full Squat
+    - Barbell deficit deadlift
+    - Barbell Deadlift
+    - Single-arm palm-in dumbbell shoulder press
+    - Romanian Deadlift With Dumbbells
+    - Tire flip
+    - Clean Deadlift
+    - Elbow plank
+    - Bottoms Up
+    - Barbell back squat to box
+    - Clean and jerk
+    - Single-arm kettlebell push-press
+    - Push-press
+    - Suspended ab fall-out
+    - Military press
+    - Power snatch-
+    - Sumo deadlift
+    - Hang Clean
+    - Dumbbell V-Sit Cross Jab
+    - Reverse Band Box Squat
+    - Standing palms-in shoulder press
+    - Standing cable low-to-high twist
+    - Decline EZ-bar skullcrusher
+    - Standing behind-the-back wrist curl
+    - Seated finger curl
+    - Wide-grip barbell curl
+    - Dumbbell spell caster
+    - Dumbbell floor press
+    - Lying Face Down Plate Neck Resistance
+    - Pullups
+    - Decline reverse crunch
+    - Dumbbell Bench Press
+    - Jumping rope
+    - Seated barbell shoulder press
+    - EZ-bar spider curl
+    - Smith machine shrug
+    - Smith Machine Calf Raise
+    - Romanian Deadlift from Deficit
+    - Power Snatch
+    - Pushups
+    - Barbell walking lunge
+    - Front Squats With Two Kettlebells
+    - Spider crawl
+    - Power Clean from Blocks
+    - Single Leg Push-off
+    - Hip Circles (Prone)
+    - Reverse-grip bent-over row
+    - Seated Two-Arm Palms-Up Low-Pulley Wrist Curl
+    - Back extension
+    - Close-grip bench press
+    - Cocoons
+    - Cross-Body Crunch
+    - Dumbbell Flyes
+    - Hammer Curls
+    - Incline dumbbell bench press
+    - Low-cable cross-over
+    - Single-arm high-cable side bend
+    - Seated Dumbbell Press
+    - Standing dumbbell shoulder press
+    - Single Leg Push-off
+    - Hip Circles (Prone)
+    - Reverse-grip bent-over row
+    - Seated Two-Arm Palms-Up Low-Pulley Wrist Curl
+    - Back extension
+    - Close-grip bench press
+    - Cocoons
+    - Cross-Body Crunch
+    - Dumbbell Flyes
+    - Hammer Curls
+    - Incline dumbbell bench press
+    - Seated Dumbbell Press
+    - Standing dumbbell shoulder press
+    - EZ-Bar Curl
+    - Olympic Squat
+    - Natural Glute Ham Raise
+    - Axle Deadlift
+    - Zottman Curl
+    - Glute ham raise-
+    - Single-arm lateral raise
+    - Power Partials
+    - Leverage Shrug
+    - Cable V-bar push-down
+    - Wrist Roller
+    - Incline dumbbell reverse fly
+    - Stair climber
+    - Elbow-to-knee crunch
+    - Kettlebell Pistol Squat
+    - Overhead dumbbell front raise
+    - Biceps curl to shoulder press
+    - Weighted bench dip
+    - Barbell Hip Thrust
+    - Forward lunge
+    - Barbell Bench Press - Medium Grip
+    - Chest dip
+    - Seated dumbbell shoulder press
+    - Barbell Curl
+    - EZ-Bar Skullcrusher
+    - One-Arm Dumbbell Row
+    - Alternating standing shoulder press
+    - Concentration curl
+    - Decline Crunch
+    - Decline Dumbbell Flyes
+    - Single-arm incline rear delt raise
+    - Alternating dumbbell front raise
+    - Hanging toes-to-bar
+    - Narrow-stance squat
+    - Kneeling cable oblique crunch
+    - Reverse Grip Triceps Pushdown
+    - Bear crawl sled drag
+    - Rocky Pull-Ups/Pulldowns
+    - Snatch-Grip Behind-The-Neck Overhead Press
+    - Box Squat with Bands
+    - Flexor Incline Dumbbell Curls
+    - Seated One-Arm Dumbbell Palms-Up Wrist Curl
+    - Thigh adductor
+    - Machine Bicep Curl
+    - Seated Palms-Down Barbell Wrist Curl
+    - Single-arm incline rear delt raise
+    - Alternating dumbbell front raise
+    - Hanging toes-to-bar
+    - Narrow-stance squat
+    - Kneeling cable oblique crunch
+    - Reverse Grip Triceps Pushdown
+    - Bear crawl sled drag
+    - Rocky Pull-Ups/Pulldowns
+    - Snatch-Grip Behind-The-Neck Overhead Press
+    - Box Squat with Bands
+    - Flexor Incline Dumbbell Curls
+    - Seated One-Arm Dumbbell Palms-Up Wrist Curl
+    - Machine Bicep Curl
+    - Seated Palms-Down Barbell Wrist Curl
+    - Car driver
+    - Alternating Deltoid Raise
+    - Hanging Oblique Knee Raise
+    - Bodyweight Flyes
+    - Standing Calf Raises
+    - Push-Ups - Close Triceps Position
+    - One-Arm Long Bar Row
+    - Overhead cable curl
+    - Single-dumbbell front raise
+    - Incline cable chest fly
+    - Single-leg depth squat
+    - Dumbbell suitcase crunch
+    - Plate Twist
+    - Single-leg cable hip extension
+    - Weighted Jump Squat
+    - Squat with Chains
+    - Gorilla Chin/Crunch
+    - Kneeling cable triceps extension
+    - Kneeling Cable Crunch With Alternating Oblique Twists
+    - Bicycling
+    - Arnold press
+    - Arnold press
+    - Weighted Crunches
+    - Single-arm cable triceps extension
+    - Barbell roll-out
+    - Kneeling cable crunch
+    - Exercise Ball Pull-In
+    - Hanging leg raise
+    - Barbell Ab Rollout - On Knees
+    - Barbell Squat
+    - Decline barbell bench press
+    - Dumbbell Bicep Curl
+    - Dumbbell Goblet Squat
+    - Dumbbell squat
+    - Barbell front squat
+    - Close-grip pull-down
+    - Triceps Pushdown - Rope Attachment
+    - Side-to-side box skip
+    - Smith machine shoulder press
+    - Seated triceps press
+    - Dumbbell Lying Supination
+    - Pull-up
+    - Wide-grip bench press
+    - Close-grip EZ-bar curl
+    - T-Bar Row
+    - Bent Over Two-Arm Long Bar Row
+    - Muscle Up
+    - Machine shoulder press
+    - Incline EZ-bar skullcrusher
+    - Alternating sit-through with crunch
+    - Wide-Grip Decline Barbell Bench Press
+    - Rower
+    - Snatch Deadlift
+    - Front Plate Raise
+    - Decline Close-Grip Bench To Skull Crusher
+    - Lying Leg Curls
+    - Cross-body hammer curl
+    - Shotgun row
+    - Ab Roller
+    - Reverse-grip incline dumbbell bench press
+    - Leg Press
+    - Stiff-Legged Dumbbell Deadlift
+    - Cable Crossover
+    - Barbell Incline Bench Press Medium-Grip
+    - Incline Dumbbell Flyes
+    - Seated Cable Rows
+    - Seated Cable Rows
+    - Seated Cable Rows
+    - Tricep Dumbbell Kickback
+    - Otis-Up
+    - Mountain climber
+    - Ab bicycle
+    - Barbell forward lunge
+    - 3/4 sit-up
+    - Exercise ball leg curl
+    - Glute bridge
+    - Close-Grip Front Lat Pulldown
+    - Dip Machine
+    - Incline dumbbell row
+    - Dumbbell Lunges
+    - Single-arm standing shoulder press
+    - Preacher Curl
+    - Reverse crunch
+    - Standing Dumbbell Triceps Extension
+    - Elliptical trainer
+    - Bodyweight squat
+    - Bent Over Two-Dumbbell Row With Palms In
+    - Hex-bar deadlift
+    - Narrow-stance leg press
+    - Single-leg glute bridge
+    - Barbell Curls Lying Against An Incline
+    - Standing Hip Circles
+    - Clam
+    - Narrow Stance Hack Squats
+    - Seated Close-Grip Concentration Barbell Curl
+    - Dumbbell Lying Pronation
+    - Smith machine box squat
+    - Drop Push
+    - Upside-down pull-up
+    - Reverse Barbell Preacher Curls
+    - Close-grip EZ-bar bench press
+    - Incline Push-Up
+    - Hyperextensions With No Hyperextension Bench
+    - Dumbbell front raise
+    - Parallel Bar Dip
+    - Stairmaster
+    - Double Leg Butt Kick
+    - Groiners
+    - Neck Press
+    - Broad jump
+    - Machine Squat
+    - V-bar pull-up
+    - Ring dip
+    - Standing One-Arm Cable Curl
+    - Burpee
+    - Double-arm triceps kick-back
+    - Dumbbell reverse lunge
+    - Seated Calf Raise
+    - Standing dumbbell shrug
+    - Calf Press On The Leg Press Machine
+    - Barbell step-up
+    - Feet-elevated bench dip
+    - Bent Over Barbell Row
+    - Crunches
+    - Dumbbell Alternate Bicep Curl
+    - Bent-over dumbbell rear delt row
+    - External Rotation with Cable
+    - Handstand push-up
+    - Single-arm dumbbell preacher curl
+    - Step-up with knee raise
+    - Smith machine back squat
+    - Incline dumbbell front raise
+    - Alternate Incline Dumbbell Curl
+    - Standing dumbbell upright row
+    - Single-arm cable front raise
+    - Two-Arm Kettlebell Military Press
+    - Incline cable chest press
+    - Rope climb
+    - Single-arm dumbbell preacher curl
+    - Step-up with knee raise
+    - Incline dumbbell front raise
+    - Rope climb
+    - Trail Running/Walking
+    - Standing Bradford press
+    - Neutral-grip dumbbell bench press
+    - Cable Chest Press
+    - Standing concentration curl
+    - Wide-Grip Rear Pull-Up
+    - Kettlebell pass-through lunge
+    - Hands-elevated push-up
+    - Deadlift with Bands
+    - Straight-arm rope pull-down
+    - Barbell Shoulder Press
+    - Power clean
+    - Hang Snatch
+    - Kettlebell sumo deadlift high pull
+    - Calf-Machine Shoulder Shrug
+    - Bench Press - Powerlifting
+    - Rocking Standing Calf Raise
+    - Goblet Squat
+    - Behind-the-head skullcrusher
+    - Seated palms-up wrist curl
+    - Reverse Cable Curl
+    - Dumbbell side bend
+    - Lat pull-down
+    - Side Lateral Raise
+    - Alternating incline dumbbell biceps curl
+    - Kettlebell One-Legged Deadlift
+    - Alternate Hammer Curl
+    - Decline Push-Up
+    - Captain's chair knee raise
+    - Triceps Pushdown
+    - Low cable overhead triceps extension
+    - Single-arm cable cross-over
+    - Seated dumbbell biceps curl
+    - Battle ropes
+    - Dead bug reach
+    - Deadlift with Chains
+    - Rope Crunch
+    - Palms-Up Dumbbell Wrist Curl Over A Bench
+    - Kettlebell thruster
+    - Single-Arm Push-Up
+    - Band Hip Adductions
+    - Single-arm kettlebell clean
+    - Preacher Hammer Dumbbell Curl
+    - Alternating Kettlebell Press
+    - Split Squat with Dumbbells
+    - Standing One-Arm Dumbbell Curl Over Incline Bench
+    - Standing Olympic Plate Hand Squeeze
+    - Sledgehammer swing
+    - Kneeling Squat
+    - Single-arm kettlebell snatch
+    - Close-grip barbell curl
+    - Box jump
+    - Standing cable crunch
+    - Leverage Incline Chest Press
+    - Standing barbell overhead triceps extension
+    - Lying cable triceps extension
+    - Kettlebell Turkish Get-Up (Squat style)
+    - Crunch - Hands Overhead
+    - Cable Internal Rotation
+    - Leg Extensions
+    - Standing One-Arm Dumbbell Curl Over Incline Bench
+    - Standing Olympic Plate Hand Squeeze
+    - Sledgehammer swing
+    - Single-arm kettlebell snatch
+    - Box jump
+    - Standing cable crunch
+    - Standing barbell overhead triceps extension
+    - Lying cable triceps extension
+    - Close push-up to wide push-up
+    - Single-arm dumbbell triceps extension
+    - Butterfly
+    - Decline dumbbell bench press
+    - V-up
+    - Seated face pull
+    - Barbell Bulgarian split squat
+    - Reverse-grip lat pull-down
+    - Standing Biceps Cable Curl
+    - Single-arm cable seated row
+    - Single-arm kettlebell row
+    - Scissors Jump
+    - Wide Stance Stiff Legs
+    - Rack Pull with Bands
+    - Drag curl
+    - Close push-up to wide push-up
+    - Single-arm dumbbell triceps extension
+    - Butterfly
+    - Seated face pull
+    - Rack Pull with Bands
+    - Drag curl
+    - Hang Clean - Below the Knees
+    - Decline oblique crunch
+    - Dumbbell external shoulder rotation
+    - Single-arm bent-over cable rear delt fly
+    - Clean
+    - Single-arm incline lateral raise
+    - Decline bar press sit-up
+    - Decline bar press sit-up
+    - Barbell rear delt bent-over row
+    - Calf Press
+    - Kettlebell alternating renegade row
+    - Bosu Ball Cable Crunch With Side Bends
+    - Stomach Vacuum
+    - Hammer Grip Incline DB Bench Press
+    - Wide-grip hands-elevated push-up
+    - Decline Dumbbell Triceps Extension
+    - Jumping jack-
+    - Push-Ups With Feet On An Exercise Ball
+    - Seated cable shoulder press
+    - Barbell hack squat
+    - Feet-elevated push-up
+    - Good Morning
+    - Leverage Chest Press
+    - Gironda Sternum Chins
+    - Exercise ball crunch
+    - Seated rear delt fly
+    - Seated rear delt fly
+    - Standing face pull
+    - Glute Ham Raise
+    - Russian twist
+    - Seated Flat Bench Leg Pull-In
+    - Barbell shrug
+    - Seated Flat Bench Leg Pull-In
+    - Barbell shrug
+    - Standing cable rear delt row
+    - Flat Bench Lying Leg Raise
+    - Hack Squat
+    - Dumbbell skullcrusher
+    - Man-maker
+    - Pallof press
+    - Knees tucked crunch
+    - Straight-arm dumbbell pull-over
+    - Arms-crossed jump squat
+    - Decline Smith Press
+    - Band Skull Crusher
+    - Side Wrist Pull
+    - Isometric Wipers
+    - Skating
+    - Cable cross-over
+    - Treadmill running
+    - One Arm Pronated Dumbbell Triceps Extension
+    - Single-arm kettlebell clean and jerk
+    - Side To Side Chins
+    - Incline Dumbbell Bench With Palms Facing In
+    - Seated palms-down wrist curl
+    - Standing leg swing
+    - Clock push-up
+    - Machine seated row
+    - Lying Face Up Plate Neck Resistance
+    - Weighted sissy squat
+    - Jog In Place
+    - Dumbbell Raise
+    - Palms-Down Dumbbell Wrist Curl Over A Bench
+    - One Arm Supinated Dumbbell Triceps Extension
+    - Jog In Place
+    - Dumbbell Raise
+    - Palms-Down Dumbbell Wrist Curl Over A Bench
+    - One Arm Supinated Dumbbell Triceps Extension
+    - Stationary bike
+    - Dumbbell bent-over row
+    - Barbell thruster
+    - Flutter Kicks
+    - Dumbbell sumo squat
+    - Barbell upright row
+    - Superman
+    - Straight-Arm Pulldown
+    - Barbell stiff-legged deadlift
+    - Standing One-Arm Dumbbell Triceps Extension
+    - Smith machine bench press
+    - Seated Side Lateral Raise
+    - Dumbbell Lying Rear Lateral Raise
+    - Dumbbell preacher curl
+    - Front Raise And Pullover
+    - Dumbbell seated box jump
+    - Middle Back Shrug
+    - Incline face-down bar front raise
+    - Butt-Ups
+    - Band Good Morning (Pull Through)
+    - Bodyweight Reverse Lunge
+    - Seated One-Arm Dumbbell Palms-Down Wrist Curl
+    - Glute Kickback
+    - Treadmill jogging
+    - Plate Pinch
+    - Yates Row Reverse Grip
+    - Linear Acceleration Wall Drill
+    - Reverse-grip bench press
+    - Leverage Decline Chest Press
+    - Chain Handle Extension
+- lookup: calories
+  examples: |
+    - calories
+    - cal
+    - calorie
+    - energy unit
+    - work unit
+- lookup: protein
+  examples: |
+    - protein
+    - proteins
+    - macronutrient
+    - nutrient
+    - macro
+    - g of protein
+    - g protein
+    - grams of protein
+    - grams protein
+- lookup: total_time
+  examples: |
+    - time
+    - hours
+    - minutes
+    - seconds
+    - hour
+    - min
+    - long
+- lookup: carbohydrates
+  examples: |
+    - carbohydrates
+    - carbs
+    - glucose
+    - sugar
+    - cbs
+    - cellulose
+    - carbohydrates
+    - of carbs
+    - of carbohydrates
+- lookup: fat
+  examples: |
+    - fat
+    - large
+    - big
+    - of fat
+    - g fat
+    - g of fat
+    - grams fat
+    - grams of fat
+- lookup: recipe_name
+  examples: |
+    - Beef Teriyaki Rice and Stir Fry
+    - Chicken Teriyaki Rice and Broccoli
+    - Braised Pork with Soy Rice and Coleslaw
+    - Buffalo Chicken Thigh, Mashed Potatoes, and Asparagus
+    - Pollo Asado, Corn Salsa, and Cilantro Lime Rice
+    - Texas Rub Chicken Thigh, Au Gratin Potatoes, and Salad with Ranch
+    - Herb Roasted Chicken, Golden Potatoes, and Caprese
+    - Slow Cooked Pulled Pork, Mashed Potatoes, and Corn Confetti
+    - Texas Rub Tri-Tip, Red Potatoes, and Green Beans
+    - Carne Asada, Fajita Peppers, and Chipotle Rice
+    - Sweet & Spicy Pork, Brown Rice, and Broccoli Slaw
+    - Smoked Texas Brisket, Cowboy Beans, and Corn
+    - Spinach, Feta, and Sun-Dried Tomato Omelet and Potatoes
+    - Scrambled Egg with Salsa and Potatoes
+    - French Toast
+    - Scrambled Oatmeal Pancakes
+    - Dirty Banana Pudding
+    - Jerk Chicken with Mashed Plantains and Greens
+    - Coleslaw Bowl
+    - Sausage Egg Wrap
+    - Indian Chicken Curry
+    - Shrimp & Rice Bowl
+    - Tofu Scramble with Rice
+    - Salmon Quinoa Bowl
+    - Protein-Packed Nighttime Snack
+    - Banana and Oat Breakfast Cookies
+    - High Protein Plant Based Lasagna
+    - High Protein Plant Based Pancake Muffins
+    - Easy Stovetop Chili Recipe
+    - Vegan Red Lentil Curry
+    - Pumpkin Protein Balls
+    - Recipe: A Classic Protein Shake
+    - Easy Mediterranean Bowls
+    - Chocolate & Banana Protein Pancakes
+    - Blueberries & Frozen Yogurt Protein Pancakes
+    - Cinnamon Almond Butter Protein Pancakes
+    - Oatmeal Cookie Overnight Oats
+    - Chocolate Zucchini Protein Muffins
+    - Double Chocolate Protein Mug Cake
+    - Animal Whey Protein Frozen Dalgona Coffee
+    - Kaged Muscle Clean Meal Bulk Shake
+    - St. Patrick's Day Green Smoothie
+    - GAT Sport Nitraflex Gummies
+    - Sweet Spiced Pumpkin Bread
+    - Oatmeal Snickerdoodle Protein Cookies
+    - AminoLean Holiday Punch
+    - Vegan Christmas Protein Cookies
+    - Peppermint Bark Protein Shake
+    - Healthy Holiday Meatballs
+    - Cookies and Cream Protein Filling for Holiday Yule Cake
+    - Cappuccino Overnight Oats
+    - Mocha Latte Mug Cake
+    - Mocha Latte Recovery Shake
+    - Morning Mocha Frappe
+    - Buckwheat Chili
+    - Cold Veggie, Bean, and Rice Salad
+    - Quinoa Apple-Raspberry Crumble
+    - Spicy Beans and Rice
+    - Mexican Quinoa
+    - Salmon And Lentils With Tomato Vinaigrette
+    - Quinoa Lentil Berry Salad
+    - Lemony Lentil Power Balls
+    - Peanut Butter Hummus
+    - Thai-Style Chicken Salad
+    - PB Banana Chia Pudding
+    - Cider With A Kick
+    - Sweet Potato Carrot Soup
+    - Spicy Eggs With A Twist
+    - Easy Turmeric Rice
+    - Mango Pineapple Greens Smoothie
+    - Pumpkin Banana Smoothie
+    - Pumpkin Spice Smoothie
+    - Maple-Glazed Pumpkin Spice Protein Donuts
+    - Protein Pumpkin Bread
+    - Pumpkin Carrot Muffins
+    - Optimum Pumpkin Protein Bars
+    - Pumpkin Million Dollar Pie
+    - Fat-Burning Veggie Soup
+    - Pumpkin Protein Bars
+    - Protein-Packed Muscle-Building Chili
+    - Pumpkin Spice Bark
+    - Protein Banana Cream Pie Bars
+    - Collagen Chocolate Mint Thins
+    - Grilled Eggplant
+    - Stuffed Portobello Caps
+    - Balsamic Grilled Vegetables
+    - Grill-Poached Pears
+    - Blueberry Banana Protein Donuts
+    - Chocolate Chia Protein Pudding
+    - Spiced Pear Cookie Butter Proats
+    - PB&J Cookie Butter Protein Cereal Treats
+    - Roasted MCT Spiced Sweet Potatoes
+    - Maple Mustard Brussels Sprouts
+    - TrueFit Pumpkin Pie
+    - Roasted Butternut Squash Fall Salad
+    - Quick Cookie Butter Protein Pancakes
+    - Cinna Cocoa Protein Bites
+    - Cookie Butter and Jelly Flex Bowl
+    - Giant Protein Oatmeal Cream Pie
+    - High-Protein Pancakes or Waffles
+    - Protein Muffins on the Go
+    - Protein Drizzled Apples
+    - Overnight Protein Oats
+    - Protein French Toast
+    - Protein Powder Cereal
+    - Double-Chocolate Protein Doughnuts
+    - Protein Smoothie Bowl
+    - Crispy Collagen Marshmallow Squares
+    - Collagen Cranberry Applesauce
+    - Peanut Butter Cup Protein Overnight Oats
+    - Chocolate Chip Protein Overnight Oats
+    - Vanilla Cinnamon Roll Protein Overnight Oats
+    - Pumpkin Protein Overnight Oats
+    - Raspberry Brownie Protein Overnight Oats
+    - One-Minute Chocolate Protein Mug Cake
+    - Chocolate Chickpea Protein Cookie Recipe
+    - Cookies and Cream Protein Pancakes
+    - Matcha Protein Energy Bites
+    - Kaged Muscle Healthy Protein Cream of Rice
+    - Kaged Chocolate Casein Pudding
+    - Caramel Apple Slow Cooker Proats
+    - Fruity Cereal Ice Cream Sandwiches
+    - Cinna Cereal Protein Pancakes
+    - PB Crunch Popcorn
+    - Carrot-Orange Baobab Drink
+    - PBFit Hot Chocolate
+    - Slow-Cooker Superfood Protein Bars
+    - Turmeric Latte
+    - John's Lasagna for One (or Two)
+    - Crispy Fruity Cereal Waffles
+    - Very Berry Chocolaty Smoothie
+    - PBfit and Banana Protein Smoothie
+    - Chocolate Banana PBfit Smoothie Bowl
+    - NYE Stay-at-Home Protein Mug Cake
+    - Signature Black Friday Energy Drink
+    - Spinach Frozen Yogurt
+    - Spooky Protein Pudding Dirt Cup
+    - Apple Tarts
+    - Creamy Mashed Sweet Potato
+    - Sweet Potato Burrito Bowls
+    - Sweet Potato Breakfast Boat
+    - Banana Cream Pie Smoothie Bowl
+    - Curry Chicken Banana Stir-Fry
+    - Chocolate Banana Cocoa Pucks
+    - Smash Apple
+    - My Only Vice
+    - Blue Raz Cooldown
+    - The Fitness Model
+    - Crunchy Baked Granola Bars
+    - Watermelon Sorbet
+    - Cookies and Cream Protein Ice Cream
+    - Chocolate Coconut Protein Balls
+    - Cheerio Protein Trail Mix
+    - Sparkling Mint Lemonade
+    - Almond Avocado Matcha Smoothie
+    - Protein Muddy Buddies
+    - Chocolate Cherry Protein Ice Cream
+    - Pre-Workout Gummies
+    - Chocolate Protein Pudding
+    - Low-Sugar Red, White, and Blue Popsicles
+    - Golden Protein Shake
+    - Strawberry Fro-Yo
+    - Healthy Dessert Hummus
+    - Strawberry Protein Ice Cream
+    - Keto Chocolate Peanut Butter Eggs
+    - 4-Ingredient PBfit Fudge
+    - Peanut Butter Swirl Brownies
+    - PBfit Protein Bites
+    - Signature  Peach-Mango Sangria
+    - Healthy Peanut Butter Glazed Donuts
+    - Signature Raspberry Lemon Mojito
+    - Ultimate Green Smoothie
+    - Healthy Greek Yogurt Brownies
+    - Kiwi and Kale Recovery Smoothie
+    - 5-Minute Strawberry Pineapple Sherbet
+    - Oat Cocoa Smoothie
+    - MetaBurn90: Flat Iron Steak with Shallots and Broccolini
+    - MetaBurn90: Beet Falafel with Low-Fat Tzatziki
+    - MetaBurn90: Tofu Ranchero
+    - MetaBurn90: Cashew and Date Truffle
+    - MetaBurn90: Almond and Orange Creamsicle
+    - MetaBurn90 White Bean and Vegetable Soup
+    - MetaBurn90: Trout with Green Beans and Almonds
+    - MetaBurn90: Overnight Oats and Berries
+    - MetaBurn90: Catfish with Peanut Romesco and Collard Greens
+    - MetaBurn90: Egg White Omelet with Spinach, Broccoli, and Capers
+    - MetaBurn90 Breakfast Burrito with Spinach, Onions, and Feta
+    - MetaBurn90: Ricotta Breakfast Bowl with Fruit and Almonds
+    - MetaBurn90 Strawberry Chia Smoothie
+    - MetaBurn90: Braised Chicken with Roasted Fingerling Potatoes
+    - MetaBurn90: Poached Chicken with Spinach Edamame Salad
+    - MetaBurn90 Nicoise Salad
+    - MetaBurn90 Leek and Mushroom Frittata
+    - MetaBurn90: Peppers Stuffed with Brown Rice and Turkey Sausage
+    - MetaBurn90 Roasted Eggplant with Zucchini and Spicy Yogurt
+    - MetaBurn90 Grilled Salmon with Chili Butter and Roasted Mushrooms
+    - MetaBurn90 Halibut with Sweet Potato Puree and Chimichurri
+    - MetaBurn90 Turkey Freekeh Cabbage Roll in Tomato Sauce
+    - MetaBurn90: Salmon Burger with Avocado and Mixed Greens
+    - Chocolate PBfit No-Bake Cookies
+    - PBfit Burger
+    - Pad Thai Chicken
+    - PBfit Gluten-Free Pancakes
+    - Green PBfit Smoothie
+    - PB Avocado Delight "Nice" Cream
+    - Blueberry Oatmeal Banana Muffins
+    - Chocolate Quinoa Energy Bites
+    - Healthy Homemade Jello
+    - Mango Creamsicles
+    - Peanut Butter Banana Protein Bread
+    - Strawberry Virgin Margarita
+    - Signature Birthday Cake Protein Blondies
+    - Signature Birthday Cake Protein Cupcakes
+    - Signature Birthday Cake Protein Waffles
+    - Signature Birthday Cake Protein Shake
+    - Signature Birthday Cake Protein Pancakes
+    - Signature Birthday Cake Protein Cookies
+    - Signature Birthday Cake Protein Donuts
+    - Signature Birthday Cake Protein Oatmeal
+    - Watermelon Prosciutto Salad with Balsamic Glaze
+    - Sweet Peach and Chicken Salad
+    - Egg and Bacon Breakfast Sandwich
+    - Signature Chocolate Chip Protein Cookies
+    - Apple Pie Smoothie
+    - Chocolate Protein Donuts
+    - Signature Chocolate Peanut Butter Protein Cupcakes
+    - Grilled Balsamic Beets
+    - Vietnamese Buddha Bowl
+    - Shrimp Avocado Mango Salad
+    - Sweet and Savory Broiled Grapefruit
+    - Protein Rice Crispy Treats
+    - Strawberry Cheesecake Bites
+    - Sweet Potato Toast Open-Faced Sandwich
+    - Beef and Veggie Skewers
+    - Carrot Cake Overnight Oats
+    - Grilled Chicken and Lemon Skewers
+    - Cinnamon Apple Smoothie
+    - Carrot Cake Smoothie
+    - Banana Almond Cream Shake
+    - Chocolate Cookies and Cream Pancakes
+    - Healthy Chicken Pot Pie
+    - Peanut Butter Banana Waffles
+    - Butternut Squash Lasagna
+    - Turkey Meatloaf Muffins
+    - Low Carb Beef Stew
+    - Everyday Beast Grilled Chicken Thighs and Broccoli Saute with Cheddar Mushroom Bake
+    - Everyday Beast Rosemary Grilled Chicken Thighs
+    - Everyday Beast Quick Chicken, Bacon, and Collard Green SautÃ©
+    - Pizza Stuffed Chicken Breast
+    - Core Camper Protein Balls
+    - Buddha Bowl
+    - Core Camper Detox Tea
+    - Ice Cube Tray Snack
+    - Everyday Beast Ribeye
+    - Core Camper High-Protein Peanut Butter Cookies
+    - 100-Calorie Popcorn
+    - Antipasto Salad And Stuffed Mushrooms
+    - Chocolate Hazelnut Gelato
+    - Pizza Rustica
+    - Mini Italian Frittatas
+    - "Souped Up" Chicken Noodle Soup
+    - Pumpkin Hummus
+    - Sesame Soy Kale Chips
+    - Egg-Salad-Filled Endive Cups
+    - Slow-Cooker Stew
+    - BBQ Chicken Flatbread
+    - Baked Yam Fries
+    - Pumpkin Protein Pancakes
+    - Omega-3 Balsamic Vinaigrette
+    - Strawberry Banana G.O.A.T.
+    - Coconut Protein Pina Colada
+    - Cinnamon Cashew Delight
+    - Banana Almond Cream Shake (Vegetarian-Friendly)
+    - Dark Chocolate Hemp Heaven
+    - Creamy Chocolate Super Soy Smoothie
+    - PB & Berry Protein Oats
+    - Parmesan-Crusted Baked Cod
+    - Breakfast Club Sandwich
+    - Ground Turkey And Sweet Potato Hash
+    - Firehouse Chili
+    - White Chocolate Almond Protein Bars
+    - Dr. Sara Solomon's Protein Fudge
+    - Arugula, Watermelon, Feta And Kind Bar Salad
+    - Amino Vitamin Water
+    - Spicy Tex-Mex Lime Chicken Kabobs
+    - Chocolate Protein Cheesecake Popsicles
+    - Fully Loaded Sweet Potato Salad
+    - Choconut Peanut Butter Dream
+    - Tropical Protein Paradise
+    - Beastly Berry Blast
+    - Creamy Chocolado
+    - Big Blue
+    - Sweet Orange Dream
+    - Fitmencook Lean Pro8, Blueberry Pancakes
+    - Blueberry Pancakes
+    - Kefir Pancakes
+    - Strawberry Salsa
+    - Sweet Potato Deviled Eggs
+    - Baked Kale With Peanut Green Tea Dressing
+    - Basic Protein Pancakes
+    - Two-Ingredient Pancakes
+    - Sweet 'n Spicy Gazpacho With Shrimp
+    - Beet Pancakes
+    - Protein Pow Protein Pancakes
+    - Cherry Lemonade Post JYM Blast
+    - Key Lime Pie Post JYM Delight
+    - Rainbow Post JYM Fruity Fusion
+    - Tropical Post JYM Paradise
+    - The College Boy
+    - Oatmeal Banana Nut Protein Cookie
+    - Favorite Morning Smoothie
+    - Muscle Milk Frozen Cheesecake Cups
+    - Red Velvet Protein Pudding
+    - Muscle Milk Protein Brownies
+    - Everyday Beast Roasted Tomato Marinara Sauce
+    - Chipotle Tomato Jam
+    - Asparagus Gazpacho
+    - Mayan Chocolate Fudge Smoothie
+    - Flank Steak With Mushrooms And Onions
+    - Cranberry-Almond Oatmeal
+    - Everyday Beast Grilled Salmon Burger
+    - Everyday Beast Avocado Smoothie
+    - Mocha Pops
+    - Green Mango Pops
+    - Blueberry Cheesecake Pops
+    - Spaghetti with Cashew Cream, Peas, and Spinach
+    - Roasted Chicken With Zoodles and Spicy Tomato Sauce
+    - Salmon Cake with Roasted Asparagus
+    - Grilled Halibut with Minted Peas and Freekeh
+    - Roasted Zucchini with Spinach and Feta
+    - Coconut Chia Pudding
+    - Omelette with Spinach, Chives, and Parmesan
+    - Pork Tenderloin with Kale and Red Cabbage Slaw
+    - Banana Maple Cookies
+    - Root Vegetable Salad with Parsnip Puree
+    - Banana Oatmeal
+    - Cauliflower Hash With Eggs
+    - Cauliflower Hash Browns with Eggs and Spinach
+    - Grilled Kale Caesar with Chicken
+    - Spiced Chicken Over Roasted Sweet Potato
+    - Tempeh Lettuce Wraps with Radishes
+    - Coconut Pancakes
+    - Chef Robert Irvine: Tomato and Fresh Aioli Sandwich
+    - Marinated Chicken with Cauliflower Rice
+    - Spinach, Bacon and Avocado Salad
+    - Curried Lentil Salad, with Kale and Tofu
+    - Grilled Salmon With Roasted Turnips
+    - Kamut Breakfast Bowl
+    - Strawberry Frozen Yogurt
+    - High-Protein Oatmeal Cookies
+    - White Chocolate Peanut Butter Cinnamon Protein Bars
+    - Peanut Butter Pumpkin Protein Clusters
+    - Whey Great Protein Muffins
+    - Sprouted Buckwheat Pumpkin Pancakes
+    - Chef Robert Irvine: Spicy Watermelon Salad
+    - Dark Chocolate Protein Easter Eggs
+    - Maple Pecan High-Protein Muffins
+    - Lentil Burgers with Mashed Avocado
+    - Pumpkin Roll
+    - Pumpkin Waffles
+    - Pesto Halloumi Kebabs
+    - Chicken Tacos With Pumpkin Sauce
+    - Apple Pie For Breakfast
+    - BLT Salad
+    - Pumpkin Omelet With Peanut Sauce
+    - Banana-Walnut French Toast
+    - Protein Fruit Crepe
+    - Yogurt Basil Spread
+    - Chocolate Avocado Stuffed Strawberries
+    - Peanut Butter Cups
+    - Coconut Yogurt Dip
+    - High-Protein Spinach And Mushroom Dip
+    - Blueberry Banana Butter
+    - Peanut Butter Candy Bar
+    - Sweet 'n' Spicy Yogurt Spread
+    - High-Protein, Low-Fat Chocolate Peanut Butter
+    - Low-Carb "Almost Keto" Italian Casserole Bake
+    - Protein Red Velvet Cake
+    - Triple Chocolate Fudge Protein Brownies
+    - Vegan Pumpkin Mango Nut Cookies
+    - Gainz Sweet Potato Toast
+    - Protein Tortilla Chips
+    - Banana Almond Cream Shake
+    - Protein Santa Cheesecake Bites
+    - Chocolate Coffee Avocado Pudding
+    - Baked Raspberry Oatmeal Muffins
+    - Avocado Egg White Salad
+    - Quinoa Tabbouleh
+    - Protein Bars
+    - Nutella-Style Protein Fudge
+    - Protein Chocolates
+    - Banana Protein Pancakes
+    - Chocolate Peanut Butter Protein Cupcakes
+    - Beer Marinated Pork Tenderloin
+    - Protein Brownies
+    - Rocky Road Protein Truffles
+    - Farmerâ€™s Market Mackerel Salad
+    - Tofu Steaks with Blistered Tomatoes
+    - Salmon Burgers with Sweet Potato Wedges
+    - Beer Steamed Mussels
+    - Red Curry Turkey Burgers
+    - Grilled Trout with Charred Corn Salsa
+    - Chicken Fresh Spring Rolls
+    - Crockpot Sesame-Ginger Salmon
+    - Chicken Curry Shirataki Noodles
+    - Lettuce-Wrapped Turkey Burgers
+    - Dark Chocolate Berry Protein Loaf
+    - Miso White Fish
+    - Almond Oat Booster Smoothie
+    - Frozen Banana Yogurt
+    - Two-Ingredient Banana Pancakes
+    - Banana Cookies
+    - Peachy Mandarin Smoothie
+    - Peanut Butter Cup Smoothie
+    - Chocolate Banana Souffle
+    - Pineapple Banana Cooler
+    - Nighttime Cucumber Smoothie
+    - Low-Carb Chicken Crust Pizza
+    - Banana Bread
+    - Cottage Cheese Breakfast Sandwich
+    - Chicken Hummus Wrap
+    - Chicken And Peppers With Brown Rice
+    - Cottage Cheese Banana Pancakes
+    - Cottage Cheese PiÃ±a Colada
+    - Peach Protein Smoothie
+    - Cottage Cheese And Apples
+    - Quinoa And Yogurt Parfait
+    - Cottage Cheese Cheesecake
+    - Cottage Cheese Gelatin
+    - Cottage Cheese Fruit Bowl
+    - Vanilla Almond Protein Cheesecake
+    - Open-Face Florentine Omelet Sandwich
+    - Cottage Cheese Cheesy Pasta
+    - Beef Fajitas
+    - Stuffed Flank Steak Rolls With Chimichurri Sauce
+    - Chicken And Waffle Sandwich
+    - Protein Brownies
+    - Homemade Chips And Chipotle Dip
+    - Low-Carb, High-Protein Pizza
+    - 4-Ingredient Protein Pancake Crepes
+    - Tuna Burgers
+    - Protein Chocolate Peanut Butter Cups
+    - White Chocolate Protein Cake Pops
+    - Chocolate Coconut Protein Truffles
+    - Red Velvet Protein Cake
+    - Peach Cobbler Smoothie Treat
+    - Pumpkin Oatmeal
+    - Pumpkin Pie Vanilla Shake
+    - Creamy Pumpkin Soup
+    - Apple-Pumpkin Muffins
+    - Banana, Pecan, And Vanilla Protein Muffins
+    - My Hawaiian Protein Pizza
+    - Protein Falafel
+    - Pumpkin Protein Pancakes
+    - Option 2: Strawberry Protein Filling for Holiday Yule Cake
+    - Protein Parfait
+    - Pumpkin Pie Fudge
+    - Protein Birthday Cake
+    - Protein Cinnamon Rolls
+    - Beast Whey Mug Cake
+    - Beast Chocolate Protein Waffle
+    - Beast Whey Pumpkin Muffins
+    - PB&J Oatmeal
+    - Peanut Butter Protein Drops
+    - Flank and Greens
+    - High-Protein Hot Chocolate
+    - The Overnighter Oatmeal
+    - Keto Buffalo JalapeÃ±o Popper Casserole
+    - Peanut Butter Banana Chocolate Chunk Waffles
+    - Cinnamon Nutella French Toast Sticks
+    - Blueberry Cheesecake Protein Waffles
+    - Oreo Protein Pancakes
+    - Protein Blueberry Muffins
+    - Birthday Cake Protein Cookie Dough
+    - Protein Carrot Cake With Cream Cheese Frosting
+    - Vanilla Protein Latte
+    - Chocolate Chip Banana Protein Muffins
+    - Mango Passion Amino Burner "Daquiri"
+    - The Incredible Red Velvet Pumpkin Seed Protein Bars
+    - Low-Carb Peanut Butter Protein Cookies
+    - Orange And Goji Berry Whey Protein Bars
+    - Peanut Butter Cups
+    - Toasted Coconut And Vanilla Whey Protein Bars
+    - Chocolate Avocado Protein Pudding
+    - Lemon Blueberry Protein Muffins
+    - Mango And Chia Protein Parfait
+    - Baked Protein Cinnamon Rolls
+    - Cranberry Spice Protein Bundt Cake
+    - White Chocolate And Macadamia Nut Protein Cookies
+    - Strawberry Shortcake Protein Mug Cake
+    - Chocolate Fudge Protein Brownies
+    - Protein Fudge
+    - Protein Quiche
+    - Banana Toffee Protein Mug Cake
+    - Pumpkin Protein Mug Cake
+    - Protein-Packed Funfetti Cupcakes
+    - Blackberry Lemon Protein Mug Cake
+    - Double Chocolate Protein Mug Cake
+    - Epic Chicken Salad Burger
+    - Post-Workout Shrimp Pizza
+    - Mega Turkey Egg Salad Sandwich
+    - Loaded Elote Guacamole
+    - Buffalo Sweet Potato Sliders
+    - Egg And Turkey Stuffed Avocado
+    - Sweet Potato Bread
+    - Beef Fajitas
+    - Energy Boosting DIY Breakfast Bar
+    - Homemade Mass Gainer
+    - Healthy S'mores Protein Donuts!
+    - Mini Pumpkin Cheesecakes
+    - Naked Egg Breakfast Burrito
+    - Healthy Chocolate Peanut Butter Protein Balls
+    - Protein Packed Crepes
+    - Glazed Pumpkin With Walnuts
+    - Coconut Pumpkin Ice Cream
+    - Mexican Scramble
+    - Cheddar Avocado Gains Burger
+    - Pumpkin Pancakes
+    - Healthy Pancake Breakfast
+    - Fruit Salsa with Cinnamon and Sugar Chips
+    - Coconut Oil Protein Pudding
+    - Hard-Boiled Egg And Tuna Salad
+    - Egg and Salmon Muffin
+    - Ricotta And Fig Oatmeal
+    - Buff Dudes Protein Ice Cream
+    - Apple Cinnamon Oatmeal
+    - Almond Cherry Oatmeal
+    - Asparagus With Panko Parmesan Almonds
+    - Baked Apples With Greek Yogurt
+    - Honeyed Sweet Potato Casserole
+    - Egg White Bites
+    - Tropical Blossom Protein Shake
+    - Guilt-Free Spinach Dip
+    - Ezekiel Bread Stuffing
+    - Carrot Cake Protein Cookies
+    - Hearty Protein Cornbread
+    - Post-Workout Chocolate Protein Cheesecake
+    - Tuna Salad
+    - Oatmeal Pancakes
+    - Birthday Cake Protein Blondies
+    - Peanut Butter Banana Protein Bread
+    - Chocolate Protein Cupcakes
+    - Peanut Butter And Jelly Protein Donuts
+    - Wednesday Baked Potato Extreme
+    - Chicken and Fried Rice
+    - Blackberry Protein Cheesecake
+    - No-Bake Cookies-And-Cream Protein Bars
+    - Supercharged Oatmeal
+    - Chocolate Chip Protein Cookies
+    - Snickerdoodle Protein Cookies
+    - Berry Burst Flapjack
+    - Crush Your Hunger Pangs With One Healthy Drink!
+    - Applesauce Protein Cake
+    - White Chocolate Oreo Truffles
+    - Protein Cookie Sandwiches
+    - Barbecue Beans
+    - Protein Cannolis
+    - Steak Sandwich With Hemp Pesto
+    - Red Velvet Waffles
+    - Coffee Fig Sauce
+    - Hemp Crusted Salmon
+    - Banana Colada Smoothie
+    - Two-Ingredient Protein Ice Cream
+    - Mocha Pancakes
+    - Peanut Butter Popcorn
+    - Greek Yogurt With Hemp Granola
+    - Espresso Energy Balls
+    - Pumpkin Spice Protein Mousse!
+    - Vegan Protein Brownies
+    - Chicken Quesadillas
+    - Pumpkin Pie Soft Serve
+    - Chocolate Fudge Pancakes
+    - Cinnamon Snickerdoodle Cookies
+    - Spicy GAINZ Poke
+    - Avocado Tuna Melt
+    - Shrimp Rolls
+    - Raspberry Oatmeal Protein Bites
+    - Green Goddess Dressing
+    - Chocolate Crepes with Strawberries
+    - Low Fat Crab Cakes
+    - Cod Fish with Mandarins and Walnuts and Toasted Quinoa
+    - MET-Rx She-Hulk Shake
+    - Strawberry Lime Protein Smoothie
+    - Coco-Mango Monster
+    - Strawberry and Papaya Smoothie
+    - Hydra 6 Anabolic Recovery Smoothie
+    - Watermelon Mint Smoothie
+    - Pina Colada Smoothie
+    - High-Calorie Hydra 6 Mass Smoothie
+    - Chocolate-Banana "Soft Serve" Protein Ice Cream
+    - Cran-Coco Fibernator
+    - Creamy Cookie Chaos Hydra 6 Smoothie
+    - MET-RX Protein Pudding
+    - Cinnamon Swirl Pumpkin Mousse
+    - Homemade Protein Bars
+    - Blueberry-Banana Muffins
+    - Wake-Me-Up Breakfast Shake
+    - Grilled Chicken, Spicy Southwest Sweet Potato, Asparagus, And Bell Pepper Stir-Fry
+    - Mixed Berry Chocolate Smoothie
+    - Chunky Monkey Charge Smoothie
+    - Tuna and Microwavable Brown Rice
+    - Killa Smoothie
+    - Yogurt and Granola
+    - Beet Cucumber Salad
+    - Egg, Spinach And Mozzarella Scramble With Apple Cinnamon Oatmeal
+    - Lentil and Lima Hearty Soup
+    - Eggnog Ice Cream
+    - Santa Strawberries
+    - Spicy Grilled Chicken With Stuffed Avocado
+    - Grilled Chicken Breast, Cottage Cheese, Peanut Butter, And Berries
+    - Turkey And Zucchini Quinoa Pasta Casserole With Mozzarella
+    - Strawberry Lemonade Amino Ice Pops
+    - Combat Granola
+    - Cookies And Cream Pro Cheesecake
+    - High-Protein Salmon Meatballs
+    - Chocolate Banana Cake Ice Cream
+    - Stacked Birthday Cake Cookies
+    - Chocolate Peanut Butter Batter Bars
+    - Decadent Chocolate Protein Doughnuts
+    - Garlic Shrimp Skewers
+    - Triple Chocolate Energy Bites
+    - Cinnamon Combat Overnight Oats
+    - Apple Pie Protein Cupcakes
+    - Smores Protein Cheesecake
+    - Oriental Noodle Bowl
+    - Protein Powerhouse Pizza
+    - Rise And Shine Breakfast Pizza
+    - Mixed Berry Protein Cake
+    - Mexican Low-Carb Pizza
+    - Grilled Chicken Asparagus Rolls
+    - Mass Building No Powder Protein Smoothie
+    - Peanut Butter Marshmallow Pumpkin Pie
+    - Casein Pumpkin Protein Shake
+    - Protein-Packed Pizza
+    - Peanut Butter And Banana Pretzel Pizza
+    - Chocolate Monkey Shake
+    - Paleo Pancakes
+    - Mediterranean Walnut-Lentil Spread
+    - The SBTZ Turkey Skillet
+    - Chocolate Chip Brownie Shake
+    - Sunflower Vinaigrette
+    - Low-Calorie Comfort Food: Mac And Cheese
+    - The Classic
+    - Jalapeno Potatoes
+    - Roasted Cauliflower With Curry Cashew Sauce
+    - Stuffed Baked Apples
+    - Chocolate Dessert
+    - Tilapia Veracruz
+    - Cajun Spiced Salmon
+    - Jack O'Lantern Ice Cream
+    - Confetti Cake Protein Cookies
+    - Grilled Parfait
+    - Rise N Shine Pizza
+    - Ham-And-Cheese Breakfast Griller
+    - Ghost Brownies
+    - Grilled Banana French Toast
+    - Low-Carb Almond Butter Fudge (Keto Fat Bombs)
+    - Tex-Mex Turkey Burgers
+    - Golden Milk Oatmeal
+    - Thyme-Less Gains Burger
+    - Pea Guacamole
+    - Sweet Potato Oatmeal Muffins with Blueberry Sauce
+    - BBQ Bison Pineapple Pizza
+    - Stuffed French Toast With Protein Cream
+    - Black Bean Brownies
+    - Protein Acai Bowl
+    - Mozzarella Chicken Meatballs
+    - Garlic Parmesan Wings
+    - Protein Jell-O
+    - Sweet Lime Sesame Shrimp
+    - Gainz Breakfast Bowl
+    - Smokin' Jalapeno Popper Burger
+    - Gainzerito
+    - Crunchy Chicken Chalupa
+    - Roasted Almond Bark
+    - Protein Chocolate Lava Cakes
+    - Mocha Oatmeal
+    - Gainz Lover's Nachos
+    - Homemade Kale Chips
+    - Watermelon Cherry Re-Jello
+    - Crunchy Parmesan Green Bean Fries
+    - Dairy-Free Chicken Zasta
+    - Greek Yogurt Parfait
+    - Black Bean Bacon Dip
+    - A Protein Milkshake
+    - Chocolate Protein-Filled Dark Chocolate Cups
+    - Protein Powder Parfait
+    - Protein Peanut Butter Ball
+    - Dark Chocolate and Oat Protein Truffles
+    - Fried Avocado Tacos
+    - Tomato Basil Omelet
+    - Pork, Pear, And Greens
+    - Fruit Funk Smoothie
+    - Peach Cinnamon Protein Shake
+    - PB and J Smoothie
+    - Banoffee Breakfast Bang
+    - Chocolate Banana Smoothie
+    - Peppermint Bark
+    - Orange And Vanilla Protein Cupcakes
+    - Watermelon Cooler
+    - Banana Nut Shake
+    - High-Protein, High-Fiber, Low-Fat Egg White Pancakes
+    - Spicy Flank Steak Kabobs With Sweet Potato
+    - Wild Game And Black Bean Stuffed Bell Peppers
+    - Mustard Roasted Chicken
+    - Stuffed Muscle Eggs With Pita Bread
+    - Turkey Meatloaf With Spinach And Whole Wheat Pearl
+    - Strawberry Cheesecake Protein Shake
+    - Sesame Tahini Shrimp And Zucchini Linguine Pasta Salad
+    - Confetti Chocolate Chunk Protein Blondies
+    - Jason Huh's Get Huge Skake
+    - Frank McGrath's Pre-Wrath Shake
+    - Anna Sward's Protein Waffles
+    - Chocolate Peanut Butter Cup Cookie Dough Shake
+    - Sweet and Sour Slow Cooked Chicken
+    - BBQ Chicken Wrapped Asparagus
+    - Roman Fritz's Attack Dog Shake
+    - Dorian Hamilton's Anabolic Nightcap Shake
+    - Sun-Dried Tomato And Chicken Meatballs With Spaghetti Squash
+    - The Perfect Healthy Stir-Fry!
+    - No-Bake Chocolate Chia Peanut Butter Balls
+    - Almond-Crusted Walleye Pike And Asparagus
+    - Banana Protein Fluff
+    - Venison Chili
+    - Protein Pumpkin Loaf
+    - Chocolate and Peanut Butter Shake
+    - Blueberry Protein Fluff
+    - Roasted Turkey With Sweet Potato Puree
+    - Valentine's Day Truffles
+    - Chocolate Chip Cookie Dough Balls
+    - Healthy Chicken And Veggie Hummus Quesadillas
+    - BBQ Turkey-Wrapped Asparagus
+    - Banana Chocolate Chip Protein Bread
+    - Peanut Butter Cookie Balls
+    - Turkey Jalapeno Poppers
+    - Whey Protein Banana Cake Donuts
+    - Chocolate-Covered Fruity Protein Bites
+    - Beast "Bulking" Protein Bars
+    - Protein Mousse
+    - No-Bake Peanut Butter Beast Cookies
+    - Ultimate Beast Muscle Shake
+    - Chef Robert Irvine: Sweet Summer Street Corn
+    - "Getting Siggy With It" Frosting
+    - Peanut Butter Protein Beast Bars
+    - Vanilla Protein Crepe
+    - Protein Mini Bites
+    - Beast Double Chocolate Peanut Butter Balls
+    - BPI "Muscle-Maker" Muffins
+    - Popeye's Protein Shake
+    - Lean Body Banana Split With Protein Ice Cream
+    - Lean Beef Spinach Meatball Pasta
+    - Turkey-Wrapped Asparagus
+    - Casein Pudding
+    - Fruit And Yogurt-Stuffed Waffle Cones
+    - Shrimp Sliders
+    - Muscle-Building Coffee
+    - Anabolic Kiwi-Lime Popsicles
+    - Halibut With Squash Sauce
+    - Squash Pie Shake
+    - Spinach Tomato Feta Cheese Stuffed Chicken Breast
+    - Greek Progurt
+    - Coffee Mug Egg Scramble
+    - Proats
+    - Mustard Baked Salmon with Grilled Asparagus
+    - Overnight Oatmeal
+    - Lean Pro 8 Banana, Blueberry, and Oatmeal Pancakes
+    - Good Gourd Oatmeal
+    - Traveling Breakfast Tortillas
+    - Lean and Green Meal Replacement Smoothie
+    - Sludge
+    - The Perfect Omelet Anyone Can Make!
+    - Raw Veggies with Ranch Dip
+    - Your New Favorite Bedtime Protein Treat!
+    - Protein Peanut Butter Fluff
+    - Budget Sweet Potato Lasagna
+    - White Turkey Mac And Cheese
+    - Chicken And Broccoli Casserole
+    - Blueberry Protein Pancakes
+    - Turkey Egg Quiche
+    - Spicy Vegan Freekeh Chili
+    - Protein Pancakes with Agave Nectar
+    - Berry Protein Pancakes
+    - Mashed Sweet Potato
+    - Steel-Cut Oats
+    - Spinach Scramble
+    - Casein Frosted Pumpkin Pistachio Chia Seed Muffins
+    - The Go-To Ground Turkey Skillet
+    - Santa's Double Chocolate Chip Cookies
+    - Broiled Chicken Breast
+    - Cinnamon Roll Protein Waffles
+    - Pumpkin Pie Protein Pancakes
+    - Triple Berry Custard
+    - Mediterranean Chicken Salad
+    - Peppermint Oreo Protein Cheesecake
+    - Snickerdoodle Protein Cupcakes
+    - All-Protein Banana Loaves
+    - Peanut Butter Protein Balls
+    - Beef Burger
+    - Espresso Almond Butter
+    - Vanilla Whey Protein Crepes
+    - Crunchy French Toast
+    - Beef Noodle Soup
+    - One Pot Beef Skillet
+    - Beef Soft Taco
+    - Carrot Cake and Oatmeal Cookie Smoothie
+    - Beef Stroganoff
+    - Lemon Blueberry Pancakes
+    - Coffee Spice Rub
+    - Cold-Brew Pops
+    - Stuffed Chocolate Pumpkin Protein Muffins
+    - Coffee Cheesecake Smoothie Bowl
+    - Taco Salad
+    - Red-Eye Barbecue Sauce
+    - Oriental Meatballs With Peppers
+    - Mocha Overnight Oats
+    - Huevos Rancheros
+    - Spaghetti Squash With Tomato-Beef Sauce
+    - Protein Rice Crispy Treats
+    - High Protein Pudding Parfait
+    - Creamy Tuna Dip
+    - Coconut Twisted Julius
+    - Three Bean Salad
+    - Summer Muesli
+    - Peanut Butter And Banana "Sushi"
+    - Protein Nutter Butter Balls
+    - Roasted Chickpeas
+    - Prosciutto Chips
+    - Bacon And Apple Egg Muffins
+    - Sneak Veggies Into Your Diet: Sandwich 'Em
+    - Breakfast Tofu and Spinach Scramble
+    - Dijon-Garlic Marinade
+    - Fit Falafel With Cottage Cheese Tzatziki
+    - Seared Halibut with Sweet Potato Gratin
+    - Metabolic Marinade
+    - Edamame Soba Noodles
+    - Braised Shallot Chicken With Brussels
+    - Tuna Avocado Salad
+    - Lemon Dill Marinade
+    - Poached Egg Quinoa
+    - Curried Squash and Kamut Salad
+    - Carrot and Lentil Salad
+    - Blueberry Chia Yogurt Bowl
+    - Raspberry Chia Pudding
+    - Grilled Southwest Salmon
+    - Garlic and Rosemary Marinade
+    - Lamb Chops with Fennel and Broccoli
+    - Grilled Shrimp And Avocado Kabobs
+    - Chocolate Spirulina "Truffles"
+    - Turkey Meatballs Over Lentils
+    - Cacao Pork with Black Beans, Corn, and Avocado
+    - Sneak Veggies Into Your Diet: Scramble 'Em
+    - Basil-Rosemary Marinade
+    - Portabella and "Sausage" Pasta with Spinach
+    - Garlic Peppered Flank Steak With Lime
+    - Green Smoothie Bowl
+    - Mushroom Lentil Meatballs Over Smoked Eggplant
+    - Protein Pudding or Low-Carb Smoothie
+    - Breakfast Tacos with Chili Lime Jackfruit
+    - Socca, Kale, and Zucchini Scramble
+    - Sneak Veggies Into Your Diet: Blend 'Em
+    - Red Hot Chicken and Broccoli
+    - Squash Steak with White Bean Puree and Pesto
+    - Blueberry Almond Oatmeal
+    - Spiced Chickpeas Over Polenta
+    - Almond Banana Toast
+    - Quinoa Pancakes with Almond Fig Puree
+    - BBQ-Grilled Healthier Mac & Cheese With Asparagus
+    - Warm Shaved Brussels Sprouts And Baby Kale Salad
+    - Venison Chili with Parsnips
+    - Double-Crust Apple Crisp
+    - Grilled Worcestershire Steak
+    - Homestyle Mongolian Beef
+    - Chocolate Peanut Butter Cup Overnight Oats
+    - Microwave White & Light Mac N' Cheese
+    - Chocolate Peanut Butter And Cream Overnight Oats
+    - Slow Cooker Rosemary Fennel Turkey Breast
+    - Protein Oat Balls
+    - Kale-Colada
+    - Maple Cookies And Cream Overnight Oats
+    - Banana And Vanilla Protein Pancakes
+    - Sweet-Potato Casserole With Brown Sugar Pecans
+    - Microwave Chicken Skewers With Peanut Sauce
+    - Apple Strawberry Blueberry Protein Pancakes
+    - Microwave Stuffed Bell Peppers
+    - Microwave "Baked" Berry Oatmeal Cobbler
+    - Microwave Turkey BLT
+    - Orange Vanilla Whey Protein Muffins
+    - Peanut Butter And Chocolate Drops
+    - Microwave Single-Serving Walnut Brownie
+    - Microwave Fried Rice
+    - Balsamic Roasted Chicken And Vegetables
+    - Strawberry Banana Breakfast Milkshake
+    - Chocolate Peanut Butter Marshmallow Milkshake
+    - Santa Fe Chopped Salad
+    - Southwest Overnight Breakfast Casserole
+    - Cookies And Cream Latte
+    - Spicy Turkey Chili
+    - Curry Tuna Salad With Brown Rice Cakes
+    - Easy Cheesy Burrito Skillet
+    - Whipped Vanilla And Berry Sorbet
+    - Rotisserie Chicken Noodle Pasta Bake
+    - Slow Cooker Beef Stroganoff
+    - Cinnamon Swirl Pumpkin Pie Protein Pancakes
+    - Lean Guilt-Free Taco-Stuffed Peppers
+    - Bikini Booty Protein Smoothie
+    - Grilled Chicken With Pineapples And Bell Peppers
+    - Berries And Creme Protein Pancakes
+    - Peanut Butter Cup Bliss Smoothie
+    - Creamy Turkey Skillet
+    - Orange Dreamsicle Protein Ice Cream
+    - Turkey Wild Rice Soup
+    - Dark Chocolate Fudge Brownie Protein Cookie Crumble Pot
+    - Almond Birthday Cake Protein Truffles
+    - Mexican Turkey Soup
+    - Healthy Turkey Meatloaf
+    - Creamy Turkey Pasta Salad
+    - Cinnamon Sweet Potato Fries
+    - Cilantro And Lemon Sweet Potato Fries
+    - Superman Hero Sweet Potato Slider Melts
+    - Sweet Potato Soup
+    - Banana Bread Muffins With Sweet Potatoes
+    - Brown Rice Spring Rolls
+    - Bison Omelette Roll-Up
+    - Creamy Avocado Chicken Pasta
+    - Portobello Sliders
+    - Rosemary Parmesan Roasted Sweet Potatoes
+    - Easy Sweet Potato Pancakes
+    - Shrimp-And-Veggie Stuffed Chicken Breast
+    - Chocolate Chip Sweet Potato Cookies
+    - Yam And Pumpkin Casserole
+    - Garlic Mashed Red Potatoes
+    - Herb Chicken Rice Soup
+    - Creamy Zucchini Brown Rice
+    - Bacon And Green Bean Casserole
+    - Brown Rice Apple Cinnamon Pancakes
+    - Healthy Brown Rice Pudding
+    - Blue Martini
+    - Texas Brown Rice
+    - Apple Fritter Mass JYM Pork Chops with Maple Bacon Relish
+    - Pro JYM Boneless Buffalo Wings
+    - Healthy Grilled Salmon With Pineapple Glaze
+    - Healthy Grilled Salmon With Smoky Sriracha Glaze
+    - Pro JYM Street Tacos with Chocolate Cookie Crunch Mole
+    - Pro JYM S'mores Stuffed Bison Burger
+    - Combat Pancakes
+    - Combat Vanilla Peppermint Shake
+    - Beet Hummus
+    - Combat No-Bake Cookie Bars
+    - Protein Scramble
+    - High Protein Berry Cheesecake
+    - Cooked Albacore Patties
+    - Star-Spangled BCAA Jello Treats
+    - High-Fiber Protein-Packed Breakfast Muffins
+    - Salmon with Beet Cream
+    - Protein Pancakes
+    - Roasted Beet Soup
+    - Kicked-Up Breakfast Scramble
+    - Macro-Friendly Hungarian Beef Goulash!
+    - Peanut Butter Marshmallow Protein Cheesecake
+    - Creamy Cilantro Lime Dressing
+    - Pesto Sauce
+    - Tartar Sauce
+    - Mustard-Crusted Pork Tenderloin
+    - Homemade Barbecue Sauce
+    - Protein Pumpkin Parfait
+    - Cinnamon Swirl Protein Cupcakes
+    - Tzatziki Sauce
+    - Casein Pumpkin Custard
+    - Lemon-Lime Margarita
+    - Sweet and Sour Sauce
+    - Sloppy Jane
+    - Chicken Farro Soup
+    - Beef and Broccoli Bowl
+    - Chicken Pesto Pasta
+    - Chicken Collard Wraps
+    - Meatless Nachos
+    - Quinoa Chicken Soup
+    - Mediterranean Greek Wrap
+    - Big Bill's Sloppy Gyms
+    - Protein Buns
+    - Asian Ramen Peanut Chicken Wrap
+    - Turkey Bolognese Zucchini Pasta
+    - Two-Grain Apple Porridge
+    - Pesto Skirt Steak and Vegetables
+    - Spinach Gluten-Free Lasagna
+    - Challenge Chili
+    - Popeye's Spinach Helper
+    - Mayan Chocolate Sweet Potato Pudding
+    - Tuna Salad and Fresh Dill
+    - Apple Slaw
+    - Quinoa Salmon Bowl
+    - Chipotle Black Bean And Chicken Sweet Potato Toast
+    - Apple Ginger Glazed Ham
+    - The Vegetarian Pasta Dish That's Ridiculously High In Protein
+    - Tuna Fruit Salad
+    - Scrambled Eggs and Veggie
+    - Oat-Crusted Chicken With Lemon Yogurt Sauce!
+    - BBQ Pork Chops
+    - Latin Salmon Pineapple Wrap
+    - Lime Spinach Dip with Naked Blue Tortilla Chips
+    - Cajun Venison Dirty Rice
+    - Chipotle Chili Turkey Cheese Fries
+    - Getting Lighter With Your Gravy
+    - Bleu Cheese Petit Sirloin
+    - Buffalo Pear Recovery Burger
+    - Spicy Barbecue Bison Stuffed Sweet Potato With Grilled Asparagus
+    - Wild Boar Meatball Sub
+    - Strawberry Shortbread Whipped Pie
+    - Pumpkin-Nut Cream Cheese Icing Cake
+    - Brussels Sprouts In A Blanket
+    - Workout Chicken and White Wine Sauce
+    - Thai Turkey Satay Skewers
+    - Cookie Dough Protein Treats
+    - Salmon-Stuffed Red Potato
+    - Protein-Packed Pancakes
+    - Chocolate Peanut Butter Waffle
+    - Peanut Butter Banana Smoothie
+    - Protein Almond Bark
+    - Performance-Boosting Pre-Workout Shake
+    - Protein Banana Muffins
+    - Honey-Stuffed Purple Sweet Potato
+    - Chili-Stuffed Sweet Potato
+    - Coconut Protein Almond Bark
+    - Braised Beef Cheeks
+    - Frank's Red Hot Wings
+    - Canned Chicken Parmesan Balls
+    - Honey Dijon Wings
+    - Crispy Pork Belly
+    - Lemon Pie Overnight Protein Oatmeal
+    - Piri Piri Chicken Livers
+    - Comfort Stew
+    - Coriander Lime Wings
+    - Brown Sugar Spice Wings
+    - Turkey Bacon and Eggs and Whole Grain Toast
+    - Peanut Butter Oat Bars
+    - Grilled Salmon and Broccoli
+    - Cottage Cheese And Bananas On Brown Rice Cakes
+    - Blueberry Protein Shake
+    - Medium-Rare Bunless Buffalo Burger
+    - Egg White Scramble on Whole Grain Avocado Toast
+    - Grilled Chicken Breast, Mashed Sweet Potato, and Spinach
+    - Beef and Broccoli Brown Rice Bowl
+    - Tuna Avocado on Grilled Portabello
+    - Teriyaki Wings
+    - Maple Cream And Coffee Milkshake
+    - Protein Mug Cake
+    - Chocolate Chunk Peanut Butter Protein Pancakes
+    - Crispy Rice Cereal Proats
+    - Mustard Flank Steak
+    - Cumin And Coriander Flank Steak
+    - Low-Carb Chicken Fettuccine Alfredo
+    - Curry Chicken
+    - Grilled Mustard Chicken
+    - Jamie Eason's Peanut-Butter Chocolate Protein Pie!
+    - Golden Mustard Wings (With A Lil' Curry)
+    - Garlic And Fresh Herb Chicken
+    - Peanut-Butter Honey Cookies
+    - Savory "Cold Brew" Wings
+    - High Protein Oatmeal
+    - Chef Robert Irvine: Summer Cucumber Salad
+    - Apple Cinnamon Protein Oatmeal
+    - Flank Steak With Jicama Salsa
+    - Protein Blueberry Muffin
+    - Tangy Balsamic Glaze Wings
+    - Spicy "Cup O' Joe" Chicken
+    - Spicy Coconut Chicken Curry
+    - Strawberry Protein-Filled Dark Chocolate Bites
+    - Cauliflower Rice
+    - Chickpea And Cilantro Rice
+    - Black-Eyed Pea And Sausage Rice
+    - Texas Gold Rush Chicken Breast
+    - Crispy Omega-3 Protein Chicken Fingers
+    - Spicy Chicken Fried Quinoa
+    - Corn and Turkey Salad
+    - Creamy Turkey Salad
+    - Tomato And Shrimp Salad
+    - Citrus Summer Slaw
+    - Creamy Salmon Spinach Salad
+    - Shrimp Ceviche
+    - Broccoli And Chicken Salad
+    - Strawberry And Feta Cheese Salad
+    - Roasted Sweet Potato And Kale Salad
+    - Hearts Of Palm And Avocado Salad
+    - Cucumber Radish Salad
+    - Cherry, Pistachio, And Salmon Quinoa Salad
+    - Pork Tenderloin With Cinnamon Apples
+    - Butternut Squash And Apple Soup With Seared Scallops
+    - Roasted Red Pepper Goat Cheese And Bacon Zucchini Pasta
+    - Sausage Supreme Pita Pizza
+    - Skinny Buffalo Chicken Dip
+    - Instant Pot Turkey Chili
+    - Banana Coconut Ghosts
+    - Thai Spicy Beef Salad
+    - Japanese Sushi Bowl
+    - Malaysian Curry Prawns
+    - Sweet Potato Hash With Soft-Boiled Egg
+    - Protein Chocolate Chip Cookies
+    - Ginger-Grilled Salmon
+    - Protein Frappuccino
+    - Muscle Density Broccoli Salad
+    - Salmon Salad
+    - Decadent Chilled Protein Pudding
+    - Salmon With Tomatoes
+    - Chocolate Peanut Butter Pancakes
+    - Strawberry Frotein Fluff
+    - Teriyaki Salmon
+    - Superpower Trout Almondine
+    - Monster Milk Breakfast Cake
+    - Spinach And Rice
+    - Peanut Butter And Jelly Protein Cups
+    - Protein Carrot Cake
+    - Chocolate Chip Cookie Dough Protein Truffles
+    - Peanut Butter Oatmeal Protein Cookies
+    - Grilled Prawn And Peach Butter Leaf Salad
+    - Vegan-Friendly Protein Dinner Recipe
+    - Grilled Kale, Pear, And Walnut Salad
+    - White Chocolate Pumpkin Protein Cookies
+    - Tuna Protein Wraps
+    - Chicken Avocado Spinach Salad
+    - Ahi Tuna Salad
+    - Grilled Halibut With Cherry Tomatoes
+    - Turn Green Beans For A Side
+    - Workout Energy Salad
+    - Singapore Chicken Rice
+    - Red Velvet Muscle Milk Pancakes
+    - Field of Greens
+    - Chocolate Chip Peanut Butter Protein Cookies
+    - Frosted Protein Sugar Cookies
+    - Spicy Kung Pao Chicken
+    - Curried Chicken Kabobs
+    - Curry Shrimp on Rice
+    - Hot Cod
+    - Protein Packed Tuna Melt
+    - Monster Balls
+    - Sweet Potatoes Over Mashed
+    - Mediterranean Fish
+    - Waikiki Universal Chicken
+    - Sriracha Tuna Chili
+    - Grilled Steak, Onion, And Mushroom Arugula Salad
+    - Swap Stuffing For Rice Stuffing
+    - Overnight Chia Oats
+    - Broccoli Orange Slaw
+    - Vanilla Spice Chia Pudding
+    - Cookies-And-Cream Protein Mug Cake
+    - Steel Cut Apple Cinnamon Oats
+    - Tender Roast And Sweet Potatoes
+    - Quick And Easy Turkey Chili
+    - Pesto Carrot Salad
+    - Dark Chocolate Mint Protein Mug Cake
+    - Chocolate Cherry Bomb
+    - Egg And Potato Breakfast
+    - Dyno Amino Refresher
+    - Green Chia Protein Smoothie
+    - Chocolate Chia Protein Pancake
+    - Creamy Beet Salad
+    - Instant Pot Chicken with Peppers
+    - Reindeer Mug Cake
+    - Regen Watermelon Smoothie
+    - Chocolate Brownie Protein Mug Cake
+    - Green Machine Smoothie
+    - Blueberry And Cottage Cheese Insanity
+    - No-Bake Peanut Butter Protein Bars
+    - Pudding Parfaits
+    - Orange Cream Smoothie
+    - Vanilla Caramel Protein Crepe
+    - Fruit Pizza
+    - Canada Day Jello-O
+    - Carrot Eyes
+    - Instant Pot Sweet Potato Meal
+    - Chocolate Peanut Butter Muffins With Chocolate Chips
+    - Cheesy Pumpkins
+    - Nuts For Chocolate Smoothie
+    - Angry Bruce Banner Smoothie
+    - Chocolate Peanut Butter Smoothie
+    - Chocolate and Peanut Butter Cookies
+    - Chocolate Peanut Butter Protein Cupcakes
+    - Chocolate-Covered Protein Pretzels
+    - Oatmeal Pancakes
+    - Greek Yogurt
+    - Strawberry Siege Nighttime Mousse
+    - Chocolate Banana Late-Night Escape
+    - Edamame, Hummus, Whole-Grain Crackers
+    - Sugar Free Chocolate Craze Pudding
+    - Chocolate Peanut Butter Shake
+    - Tasty Oat Squares
+    - Strawberry Ghosties
+    - Coconut Greens Shake
+    - Green Monster
+    - Jerky Power
+    - Crustless Protein Pumpkin Pie
+    - Chicken Burger Topped With Feta, Roasted Red Bell Pepper & Arugula
+    - Salmon Burger With SautÃ©ed Onions & Yogurt Dill Sauce
+    - Protein Pumpkin Rolls With Protein Cream Cheese
+    - Pumpkin Pie Peanut Butter Cups
+    - Pumpkin Cranberry Streusel Bars
+    - Teriyaki Tofu Burger
+    - Lemon Garlic Leg Of Lamb & Red Wine Sauce
+    - Coconut-Oat Bars
+    - Grilled Portobella And Zucchini Burger
+    - Coconut Peanut Butter Protein Cake
+    - Pumpkin Pie Ice Cream
+    - Avocado-Egg Hybrid
+    - Valentine's Day Red Velvet Pancakes
+    - Split Pea Vegan Soup
+    - Protein Pumpkin Mousse Pie
+    - Coconut Chocolate Clusters
+    - Healthy Shrimp & Sausage Jambalaya
+    - Tilapia Veracruz
+    - Pumpkin Protein "Ice Cream"
+    - Healthy Tartar Sauce
+    - Roasted Spring Vegetables With Dijon Maple Glaze
+    - Smoked Salmon And Baby Dill Crostini
+    - Lemon Pepper Tilapia
+    - Cajun Crab Cakes
+    - Tilapia Tacos
+    - Mozzarella, Asparagus, And Leek Mini-Quiches
+    - Ginger Basil Chicken And Rice
+    - Fruit Tart With Protein Crust
+    - Spinach, Sunflower Seeds And Salmon Salad
+    - Mexican Frittata
+    - Pro JYM Edible Cookie Dough
+    - Coconut Halibut With Green Beans
+    - Italian Shrimp Pasta
+    - Quinoa with Chicken
+    - Protein Ice Cream
+    - Cajun Halibut With Corn
+    - Protein Pancakes With Fruit
+    - Dijon Mustard Halibut In Parchment Paper
+    - Chicken Stir-Fry
+    - Greek Yogurt With Apple And Flaxseeds
+    - Tomato Basil Halibut
+    - Asian Salmon
+    - Tuna Burger Salad
+    - Zesty Orange Halibut
+    - Post Workout Paella
+    - Pro JYM Chocolate Chip Cookies
+    - Strawberry Banana No-powder Protein Smoothie
+    - Chocolate Chip Peanut Butter Pro JYM Brownies
+    - Protein Flower Pastry
+    - Jamie Eason's Protein Oatmeal Raisin Cookies
+    - Pro JYM Brownie in a Mug
+    - Banana And Cinnamon Protein Milkshake
+    - Protein King Cake
+    - Mocha Nut Shake
+    - Cinnamon Toast Shake
+    - Protein Cookie Delight
+    - Peanut Butter And Jelly Shake
+    - Lais DeLeon's Almond Banana Protein Shake
+    - The Clutch OG Shake
+    - Protein Peanut Butter Balls
+    - The Clutch-Berry Meal Replacement Shake
+    - Peanut Butter Protein Kisses
+    - Protein Pumpkin Pie
+    - Cottage Cheese And Watermelon
+    - Antioxidant-Infused Berry Smoothie
+    - Brussels Sprout Soup
+    - Parmesan Brussels Sprouts
+    - Mocha-Cappuccino-Cinnamon Brownies
+    - Sardine Pasta Salad
+    - Strawberry and Banana Nut Bread Oatmeal
+    - Southwestern Red Pepper Oatmeal
+    - Banana-Peach Frozen Dessert
+    - Roasted Brussels Sprouts with Cranberries and Pecans
+    - Fisherman's Egg Cakes
+    - Salmon-Salad-Stuffed Avocado
+    - Nutty Carrot Cake Oatmeal
+    - Loaded Baked Potato Oatmeal
+    - Peanut Butter-Coconut Craving
+    - Roasted Brussels Sprouts and Mushrooms
+    - Popeye's Spinach and Kale Savory Oatmeal
+    - Smoky Sardine PÃ¢tÃ©
+    - High-Protein Ezekiel French Toast
+    - Roasted Brussels Sprouts with Pomegranate and Nuts
+    - Banana Pancakes
+    - Healthy Protein-Packed Carrot Cake
+    - Homemade Chocolate Bars
+    - Dark Chocolate Protein Truffles
+    - Cacao Banana Nut Butter Balls
+    - Chef Robert Irvine: Lamb Burger
+    - Chocolate Chip Cookie Dough Protein Bars
+    - Protein Donuts
+    - Dark Chocolate Protein Mocha
+    - Healthy Protein French Toast!
+    - Sunrise Smoothie
+    - Maple-Glazed Protein Donuts
+    - Morning Breakfast Shake
+    - Raspberry And Hazelnut Protein Truffles
+    - Mug of Mocha
+    - Healthier Banana Bread
+    - PB&J Protein Smoothie
+    - Dan Green's Boss Breakfast Shake
+    - Orange And Vanilla Protein Truffles
+    - Peanut Butter Lover's Protein Truffle
+    - Yogurt Stuffed Peppers
+    - Jerky Snack Mix
+    - Sweet Potato Protein Hummus
+    - Asian Tuna Balls
+    - Smoked Salmon Dip
+    - Tofu Bento
+    - Mexican Style Protein Bowl
+    - Low-Carb Myofusion Pancakes
+    - Pumpkin Pie Shake
+    - Quinoa Salad
+    - Kendall's Kitchen: Garlic And Herb Shrimp
+    - Lentil And Lima Hearty Soup
+    - Tempeh Lettuce Wraps
+    - Stacked Portabellas
+    - Lentil Marinara Spaghetti Squash
+    - The Ultimate Meat-Free, Nutrient-Rich Power Bowl
+    - Sweet Potato Fries And Chips
+    - Protein Cauliflower Cheese Bake
+    - Low-Carb Protein Crepe
+    - Low Carb Smoothie
+    - Alaskan Omelet
+    - Rosemary Marinated Salmon
+    - Tropical Punch Protein Shake
+    - Provencal Chicken Strips
+    - Lebanese Beef Kebabs
+    - Greek Chicken
+    - Egg Drop Soup
+    - Sweet And Spicy Sweet Potato Soup
+    - Low Carb Protein Bar
+    - Vegetable Salsa
+    - Baked Apples Or Pears
+    - Quick And Fancy Apples
+    - Breakfast Champion Shake
+    - Chocolate Peanut Butter Swirl Protein Bars
+    - Low Carb French Toast
+    - Onion Rings
+    - Healthy Low-Carb Pancakes
+    - Sweet Potato Stir Fry
+    - Peach-Mango Sangria
+    - Homemade Cucumber Pickles
+    - Easy Protein Bars
+    - Chef Robert Irvine: Grilled Mahi-Mahi Sandwich
+    - Garlicky Hummus
+    - Sweet Potato Pancakes and Waffles
+    - Bacon 'N Cheese Sweet Potato
+    - Protein Coconut Macaroons
+    - Protein and M&M Cake Jars
+    - Raspberry-Lemon Mojito
+    - Orange Rosemary Cooler
+    - Overnight Protein And Berry Oats
+    - Kiwi Strawberry Blitz
+    - Protein Powder And Oatmeal
+    - Summer Tea
+    - Sweet And Salty Party Mix
+    - Chocolate Peanut Butter Hummus
+    - Loco Moco
+    - The Carnivore
+    - The Make-It-Bacon Paleo Chicken Classic
+    - Fruit and Cheese Kabobs
+    - Microwavable Scrambled Eggs
+    - Portable Protein Roll-Up
+    - Taco Turkey Casserole
+    - Lighter Chicken Marsala
+    - Healthy Shrimp and Sausage Gumbo
+    - Grilled Chicken and Lemon Skewers
+    - Avocado Egg Sweet Potato Toast
+    - Honey Mustard Dressing
+    - Kale and Citrus Chicken Salad
+    - Easy DIY Yogurt Recipe
+    - Ultimate Omelet
+    - Quick And Easy Zesty Broccoli
+    - Moroccan Spiced Salmon
+    - Combat Tropical Strength Shake
+    - Super Hero Chicken
+    - Blueberry And Cucumber Quinoa Salad
+    - Esto Es La Pera
+    - Protein Pizza Crust
+    - Grilled BBQ Flank Steak
+    - Peppermint Fudge Protein Brownies
+    - Black Forest Protein Cupcakes
+    - Chocolate Peanut Butter Protein Blossoms
+    - Bill Phillips Back To Fit Recipes: Homestyle Turkey Meatloaf
+    - Chef Robert Irvine: Thousand Island Dressing
+    - Strawberry Protein Shake
+    - Chef Robert Irvine: Vegetarian Burger
+    - Strawberry Protein Bars
+    - Green Fruit Smoothie
+    - Eggnog Overnight Protein Oatmeal
+    - Yule Log Protein Cake (Base)
+    - Candy Cane Protein Pancakes
+    - Option 3: Chocolate Protein Filling for Holiday Yule Cake
+    - The Hulk Shake
+    - Nada Colada Shake
+    - Creatine Catalyst Shake
+    - Peanut Butter Gainer Shake
+    - Weight Gainer Shake
+    - Personalized Protein Shake
+    - Plum Lemon Shake
+    - Egg-cellent Shake
+    - Breakfast Blend of Champions
+    - Orange and Cream Shake
+    - Banana Delight Shake
+    - Pineapple Power Shake
+    - Peaches and Cream Shake
+    - Peanut Brittle Shake
+    - Strawberry Energy Shake
+    - Oatmeal Shake
+    - Quick Start Shake
+    - Super Peach Shake
+    - Berries & Cream Shake
+    - Bad Girl Shake
+    - Strawberry Nut Shake
+    - Banana Bread Shake
+    - Soy Almond Shake
+    - Blueberry Dream Shake
+    - Peanut Butter Chocolate Shake
+    - Mass Gainer Shake
+    - Tropical Pleasure Shake
+    - Cinnamon Roll Shake
+    - Strawberry Vanilla Shake
+    - Banana Almond Cream Shake
+    - Chocolate Almond Shake
+    - Mineral Power Shake
+    - Strawberry Savior Shake
+    - Chocolate Coffee Shake
+    - Vita-Plum Shake
+    - Iced Breakfast Shake
+    - Peppermint Oatmeal Shake
+    - Berry Good Shake
+    - Peanut Butter Cup Shake
+    - Honey Banana Shake
+    - Strawberry Cheesecake Shake
+    - Chocolate Lovers' Shake
+    - Double Berry Shake
+    - Caramel Hazelnut Shake
+    - Almond Blast Shake
+    - Peanut Butter Banana Shake
+    - Wild Berry Shake
+    - Vanilla Coffee Shake
+    - Chef Robert Irvine: Grilled Asian Chicken Wings
+    - Bill Phillips Back To Fit Recipes: Baked Chicken Parmesan
+    - Bill Phillips Back To Fit Recipes: Berry Dessert Crepes
+    - Bill Phillips Back To Fit Recipes: Singapore Shrimp
+    - Bill Phillips Back To Fit Recipes: Mom's Chicken Enchiladas
+    - Bill Phillips Back To Fit Recipes: Banana Cream Pudding
+    - Bill Phillips Back To Fit Recipes: Bill's Perfect Pot Roast
+    - Bill Phillips Back To Fit Recipes: Grilled Fish Soft Tacos
+    - Candy Cane Delight Parfait
+    - Birthday Cake Protein Chow
+    - Bill Phillips Back To Fit Recipes: Chicken Pomodoro
+    - Snickerdoodle Cookies
+    - Pumpkin Bread
+    - Bill Phillips Back To Fit Recipes: Lemon-Pepper Salmon Fillet
+    - Guilt Free Pizza
+    - Birthday Cake Protein Pudding Dip
+    - Low-Carb Protein Pizza
+    - Pizza Pancakes
+    - Chocolate Peanut Butter Cookies
+    - Cake Donut Protein Cookies
+    - Ice Cream Doughnuts
+    - Gluten-Free Sweet Potato Protein Pizza
+    - Savory Chicken Meatballs With Zucchini Pasta
+    - Low-Carb Pancakes
+    - Vegetable Quiche!
+    - Mixed Berry Sorbet
+    - Tropical Treat Shake
+    - Loaded Twice-Baked Sweet Potato
+    - The Peachy Keen Chiffon
+    - Chocolate Lover's Godsend
+    - Oatmeal Raisin Walnut Cookies
+    - When Life Gives You Lemons Make Cheesecake
+    - Honey Asian Barbecue Sauce
+    - Blueberry Coconut Oatmeal
+    - Fiery Peri-Peri Rub
+    - Spicy Turkey Stir-Fry
+    - High-Calorie Super Smoothie
+    - Rice Cake Treats
+    - Turkey Meatballs With Marinara Sauce
+    - Vanilla Blueberry Protein Pancakes
+    - Chocolate Nut Oatmeal Protein Bars
+    - Creamy Protein Granola
+    - Sweet Potato Chocolate Brownies
+    - Spinach Caprese Salad
+    - Turkey Burger On Eggplant Bun
+    - Creamy Lemon And Mint Dressing
+    - Maple Pumpkin Oatmeal
+    - Orange Beef Stir-Fry Sweet Potato Noodles And Kale
+    - Natalie Hodson's 30-Minute Spaghetti
+    - Garlic and Herb Gravy
+    - Parsnip Mash
+    - Creamy Barley With Mushrooms
+    - Cranberry Sauce
+    - Pumpkin Pie With Walnut Crust
+    - Brussels Sprouts
+    - Noodle-Less Zucchini Lasagna
+    - Deviled Eggs With Guacamole
+    - Natalie Hodson's Strawberry Banana Oatmeal Protein Bake
+    - Mandarin And Kale Salad
+    - Mango Chicken With Coconut Cauliflower Rice
+    - Kale Blueberry Smoothie
+    - Rosemary Apple Roasted Turkey
+    - Poached Eggs Over Kale
+    - Kale And Peppers
+    - Chicken Vegetable Soup
+    - Cajun Zucchini Noodle Stew With Shrimp And Sausage
+    - Green Pepper Barley Salad
+    - Natalie Hodson's Frozen Spinach Cups
+    - Wild and Brown Rice Salad
+    - Mason Jar Chicken Taco Salad
+    - Ranch-Style Hummus
+    - Pesto Hummus
+    - Guacamole Hummus
+    - Baked Kale Chips
+    - Clean Ketchup
+    - Peanut Butter Hummus
+    - Natalie Hodson's Lime And Curry Tilapia
+    - Millet-Cranberry Stuffing
+    - Crispy Chicken With Sweet Mustard Dip
+    - Coconut Shrimp With Sweet And Spicy Dipping Sauce
+    - Traditional Hummus
+    - Pulled Chicken
+    - Natalie Hodson's Easy Salsa Chicken
+    - Natalie Hodson's Blueberry Protein Pancakes
+    - Peanut Butter Protein Energy Balls
+    - Mason Jar Spinach and Feta Salad
+    - Banana Chocolate Chip Overnight Oats
+    - Egg and Veggie Muffins
+    - Chocolate Oatmeal With Cherry Sauce
+    - Cocoa Bean Veggie Tacos
+    - Muscle-Gaining Shake
+    - Homemade Hawaiian Pizza
+    - Sweet Potato, Beef, and Roasted Veggie Hash
+    - Chicken Strawberry Salad With Cacao Nib Dressing
+    - Homemade Double-Stuffed Cheesy Burrito
+    - Ground Beef Fajita Bowl
+    - Poppy Seed Chicken, Asparagus, and Wild Rice
+    - Ready-On-The-Spot Oatmeal
+    - Fruit Salad Cottage Cheese Breakfast Tacos
+    - Peanut Butter Protein Muffins
+    - Sweet Potato Pie Smoothie
+    - Peanut Butter and Jelly Smoothie
+    - Berry Lemon Zinger Smoothie
+    - Salmon Salad with Cottage Cheese Dressing
+    - Jamie's Thai Peanut Sauce
+    - Dymatize Banana Peanut Butter Protein Pancakes
+    - Easy Thai Pumpkin Soup
+    - Double Chocolate Smoothie
+    - Paleo Pumpkin Pie Muffins
+    - Coffee Breakfast Smoothie
+    - Paleo Pumpkin Pancakes
+    - PB Banana Split Smoothie
+    - Dymatize Pumpkin Spice Protein Waffles
+    - Dymatize Pumpkin Protein Pancakes
+    - Ghoulish Dymatize Vanilla Cupcake With Ube Protein Pancakes
+    - Dymatize Peanut Butter Chocolate Protein Mug Cake
+    - Dymatize Vanilla Cupcake Protein Pancakes
+    - Chocolate Fudge Smoothie
+    - Jamie's Turkey Salad
+    - Jamie's Pumped-Up Pancakes
+    - Mike Hildebrandt's Protein Pancakes
+    - Kris Gethin's DTP: Peanut Butter Figs Cookies Recipe
+    - FreakMode Recipes: Oatmeal And Berries
+    - Kris Gethin's DTP: Tuna Potato Melt Recipe
+    - FreakMode Recipes: Chicken Breast And Brown Rice
+    - FreakMode Recipes: Steak And Sweet-Potato Fries
+    - Kris Gethin's DTP: Indian-Spiced Yogurt Rice
+    - Jim Stoppani's Shortcut To Shred Recipes: Cheesy Ham Scramble
+    - FreakMode Recipes: Mediterranean Tomato and Egg Wrap
+    - Kris Gethin's DTP: Apple Cinnamon Roll Muffins Recipe
+    - DTP: Mass Mush
+    - Jim Stoppani's Shortcut To Shred Recipes: Low-Carb Lobster Boats
+    - FreakMode Recipes: Steak And Arugula Salad
+    - Jim Stoppani's Shortcut To Shred Recipes: Turkey Swiss Melt
+    - Jim Stoppani's Shortcut To Shred Recipes: Sweet Potato Omelet
+    - FreakMode Recipes: Veal Cutlets And Roasted Squash
+    - Jamie's Turkey Breakfast Sausage
+    - FreakMode Recipes: Greek Salad
+    - FreakMode Recipes: Lemon Chicken
+    - Jim Stoppani's Shortcut To Shred Recipes: Green Eggs And Chicken
+    - FreakMode Recipes: Veggie Omelet Wrap
+    - Jim Stoppani's Shortcut To Shred Recipes: Beef Stir Fry For Brawn
+    - FreakMode Recipes: Parmesan-Crusted Chicken
+    - FreakMode Recipes: Parmesan-Crusted Tilapia Fillets
+    - FreakMode Recipes: Chicken Pear And Parmesan Spinach Salad
+    - Pre-Workout Sorbet
+    - Asian Marinade
+    - Herbed Mediterranean Marinade
+    - Sweet Potato Parmesan Patty
+    - Cilantro Marinade
+    - Jamie Eason's Carrot Cake Protein Bars
+    - Pre-Workout Vinaigrette Salad Dressing
+    - Jim Stoppani's Egg And Ham Cups
+    - Patrick Stark's Freezable Greens Protein Smoothie
+    - Jamie Eason's Turkey Meatloaf Muffins
+    - Jamie Eason's Pumpkin Protein Bars
+    - Jamie Eason's Orange Almond Biscotti Cookies
+    - Jamie Eason's Fish In Foil Recipe
+    - Jamie Eason's Cinnamon Swirl Protein Bread
+    - Jamie Eason's Italian Turkey Burgers
+    - Jamie Eason's Chocolate Protein Bars
+    - Jamie Eason's Chocolate Peanut Butter Protein Crisp
+    - Jamie Eason's Lemon Protein Bars
+    - Jamie Eason's Toasted Coconut Protein Haystack Cookies
+    - Jamie Eason's 3-Bean Turkey Chili Recipe
+    - Jamie Eason's Low-Carb Apple Cinnamon Protein Bars
+    - Loaded Sweet Potato
+    - Jamie Eason's Simple Sweet Potato Protein Cookies
+    - Jamie Eason's Pumpkin Spice Pancakes
+    - Jamie Eason's Sweet and Sour Chicken Recipe
+    - Jamie's Monster Meatloaf
+    - Jamie Eason's Frosted Coconut Protein Cupcakes
+    - Jamie Eason's Honey Almond Protein Crisp
+    - Southwest Stuffed Sweet Potatoes with Chicken Breast
+    - Lean Turkey Lasagna
+    - Breakfast Omelet Roll-Ups
+    - Balsamic Chicken
+    - Post-Workout Sweet Potato Brownies
+    - Protein Peanut Butter Spread
+    - Protein Pancakes With Protein Whipped-Cream Topping
+    - The 75-Gram Protein Turkey Burger
+    - Protein and Herb Sauce
+    - Soft & Delicious Protein Bars
+    - Protein Bread
+    - Mediterranean Sandwiches
+    - Yam Muffins
+    - Grilled Veggies
+    - Quick Lasagna
+    - Creamy Salmon Omelet
+    - Lentil Soup
+    - Polenta and Sea Scallops
+    - Sweet Mustard Chicken With Creole Vegetables
+    - Tangy New Potatoes
+    - Chicken and Veggie Burritos
+    - Homemade Muesli
+    - Wild Rice with Cranberries and Pecans
+    - Cajun Tuna With Black Beans
+    - Sweet Potato Salmon
+    - Turkey Tenderloins And Rosemary Potatoes
+    - Chicken in a Bag
+    - Breakfast Burritos
+    - Kris Gethin's Healthy High-Protein Waffles
+    - Kris Gethin's Delicious Pancakes
+    - Basic Homemade Peanut Butter
+    - "Red Boost" Protein Shake
+    - Butterscotch-And-Vanilla Peanut Butter
+    - Gingerbread Peanut Butter
+    - Chocolate Peanut Butter
+    - Jamie Eason's Post-Pregnancy Recipes: Thai Peanut Sauce
+    - Crispy Parmesan Fish Sticks
+    - Spicy Mexican Dip
+    - Kale Dip
+    - Refreshing Cucumber Dip
+    - High-Protein, Low-Carb Mac And Cheese Sauce
+    - Banana Protein Muffins
+    - Protein Powered PB Muffins
+    - Coconut Protein Pancakes
+    - Birthday Cake Protein Pancakes
+    - Early Riser Breakfast
+    - Sweeter-Than-Apple-Pie Oatmeal
+    - Red Velvet Waffles And Cream Cheese Frosting
+    - Protein Frosting
+    - Creamy Peanut Butter Banana Ice Cream
+    - Raisin Cookie Oatmeal
+    - Gluten-Free PB&J Waffles
+    - Choconut Avocado Protein Shake
+    - Protein-Packed Southwest Scramble
+    - The Ultimate Muscle Building Pancake
+    - Almond Butter Protein Pancakes
+    - Low-Carb Myofusion Pancakes
+    - Dark Chocolate and Coconut Protein Doughnuts
+    - Spiced Berry Cobbler Oatmeal
+    - White Chocolate Brownie Protein Waffles
+    - Supercharged Oatmeal Bowl
+    - Mexican Mocha-Meal
+    - Peanut Butter And Raisin Oatmeal
+    - Protein Pancake Muffins
+    - Low-Carb Protein Pancake
+    - Berry Burst Morning Flapjack
+    - Greek Yogurt And Granola
+    - Egg White Puffs
+    - Brownie Overnight Protein Oatmeal
+    - Banana Nut Protein Muffins
+    - Smoked Salmon Guacamole
+    - White Chocolate Raspberry Protein Pancakes
+    - Coconut Vanilla Protein Crepes
+    - Chocolate Protein Waffle
+    - Pumpkin Vanilla Oatmeal
+    - Apple-Cinnamon Protein Doughnuts
+    - Sweet Potato Salad
+    - Strawberry Siege And Oat Compote
+    - Ham And Veggie Scramble
+    - Delicious Dill Dip
+    - Fried Egg With Sweet Potato Hash
+    - Chocolate Protein Pancakes
+    - Mango Guacamole
+    - High-Fiber Parmesan Dip
+    - Slow-Cooked Baked Beans
+    - Creamy Light Coleslaw
+    - Protein Cinnamon Pancakes
+    - White Chocolate Fluff Fruit Salad
+    - Simple Deviled Eggs
+    - Date, Almond, And Maple Protein Oatmeal
+    - Indian Fry Bread
+    - Chili-Chocolate Protein Oatmeal
+    - Cookies And Cream Protein Pancakes
+    - Corn On The Cob With A Twist
+    - Banana Killa Vanilla Fritter
+    - Peanut Butter Cup Protein Oatmeal
+    - Breakfast Muffins
+    - Two-Minute Blueberry Protein Cake
+    - Two-Minute Brownie
+    - Pumpkin Spice Protein Cookies
+    - BCAA Popsicles
+    - Chocolate Peanut Butter Mug Cake
+    - Black Bean Brownies
+    - Protein Pop-Tart Cakes
+    - Bison Kebab With Peanut Sauce
+    - Bill Phillips Back To Fit Recipes: Golden Protein Pancakes
+    - Pumpkin Snickerdoodle Protein Cookies
+    - Pumpkin Protein Bites
+    - Lais DeLeon's Peanut Butter Protein Pancakes
+    - Jamie Eason's Post-Pregnancy Recipes: Pumped-Up Pancakes
+    - Protein Pumpkin Spice Latte
+    - Million Dollar Pumpkin Protein Pie
+    - Gluten-Free Savory Whey Protein Crepes
+    - Bill Phillips Back To Fit Recipes: Breakfast Burrito
+    - Bison Chili
+    - Teriyaki Bison Steaks
+    - Orange And Vanilla Protein Oatmeal
+    - Protein Peppermint Latte
+    - Ground Bison Burger
+    - Ground Bison Meatloaf
+    - Jim Stoppani's Yoked Greek Yogurt
+    - Creamy Tuna, Cucumber CanapÃ©s, And Spicy Roasted Pepitas
+    - Pan-Seared Salmon With Pico And Mixed Greens
+    - Crispy Breakfast Bar
+    - Steak And Eggs Breakfast
+    - No-Bake Peanut Butter Oatmeal Protein Bars!
+    - PB Banana Pancakes
+    - Ukranian Joe
+    - Apple Crisp
+    - Pumpkin Spice Protein Pancakes
+    - Iso-100 Recovery Shake
+    - Baked French Toast
+    - Iced Gingerbread Protein Doughnuts
+    - Fluffy Aquafaba Protein Pancakes
+    - Breakfast Thai Scramble
+    - Double Chocolate Chip Zucchini Muffins
+    - Candied Turkey Bacon
+    - White Chocolate Cranberry Protein Bars
+    - Jamie Eason's Turkey Breakfast Sausage
+    - High Protein Waffles
+    - Preworkout Meal
+    - Spicy Lentil Curry
+    - Turkey Lentil Stew
+    - Protein-Packed Lentil Energy Bars
+    - Lemon Chia Seed Protein Muffins
+    - Cucumber Lentil Salad
+    - Slow Cooker Lentil Soup
+    - Coconut Cauliflower And Chicken Soup
+    - Whipped Sweet Potatoes
+    - Creamy Strawberry Ice Cream
+    - Coconut Mango Smoothie
+    - Coconut Chocolate Protein Pudding
+    - Coconut Cashew Rice
+    - Steel-Cut Oats Foundation Recipe
+    - Egg And Baby Spinach Oats
+    - Matcha and Avocado Oats
+    - Carrot and Walnut Oats
+    - Ricotta And Raspberries Oatmeal
+    - Shrimp Pesto
+    - Simple Ground Turkey Burger
+    - Sweet Turkey Burger
+    - Cheesy Spinach Omelet
+    - Tangy Chickpea Burger
+    - Vegetarian Hummus Wrap
+    - Black Bean Burger
+    - Thai Chicken Burger
+    - Blueberry Spinach Smoothie
+    - SautÃ©ed Spinach
+    - Tuna Melt Patties
+    - Quick Recipe: Strawberry Savior Shake
+    - Supercharged Garlic Guacamole
+    - Foil Baked Garlic and Dill Tilapia
+    - Lemon Garlic Shrimp
+    - Quick Recipe: Almond Butter Protein Pancakes
+    - Garlic Greens
+    - Garlic Cauliflower and Red Pepper Soup
+    - Egg White And Vegetable Scramble
+    - Quick Recipe: Nada Colada Shake
+    - Natalie Hodson's Death By Garlic Roasted Asparagus
+    - Lemon Quinoa Mint Salad
+    - Bean and Sweet Potato Salad
+    - Tuna Guacamole With Baked Sweet Potato Chips
+    - Arugula Chicken Salad
+    - Spinach Almond Salad
+    - Tuna Apple Salad
+    - Ginger Garlic Tilapia with Summer Squash Wedges
+    - Gluten-Free Apple Pie Protein Bars
+    - Cilantro Beef Burgers & Ecuadorian Style Patacones
+    - Grilled Chicken Salad
+    - Vegan Oatmeal Raisin Protein Cookies
+    - Greek Turkey (Or Chicken) Burgers
+    - Greek Turkey (Or Chicken) Burgers
+    - Lean Beef Enchiladas
+    - Hamburger Lentil Soup
+    - Lean Beef Enchiladas
+    - Thai Chicken And Vegetable Coconut Curry
+    - Moroccan Chicken Salad
+    - Zucchini Smoked Fish Rolls
+    - Cantaloupe Bowls
+    - Chocolate Banana "Ice Cream"
+    - Chilled Avocado Coconut Soup With Shrimp
+    - Teriyaki Tangelo Chicken Skewers
+    - Cucumber Crab Wraps
+    - Caprese Salad
+    - Red Pear And Prosciutto Skewers
+    - Protein Pow No-Bake Buckeyes
+    - Chocolate Peanut Butter Protein Oatmeal
+    - Greek Chicken
+    - Anabolic Muscle Bowl
+    - Red-Eye Chocolate And Peanut Butter Protein Parfait With Blueberries And Dark Chocolate Chips
+    - Rosemary Marinated Salmon
+    - Alaskan Omelet
+    - Provencal Chicken Strips
+    - Peppers With "Fit Grits," Egg Whites And Pico De Gallo
+    - Protein French Toast With SautÃ©ed Apples
+    - Buffalo Chicken Dip
+    - Deviled Eggs
+    - Lebanese Beef Kebabs
+    - Dark Chocolate Gluten-Free Protein Waffles
+    - Summer Slaw
+    - Post Cardio Protein Banana Split
+    - Cheddar-Stuffed Burgers
+    - Bacon Caesar Salad
+    - Italian Chicken Meatballs
+    - Spicy Turkey Meatballs
+    - Beef With Root Vegetables
+    - Cheesy Chicken Meatballs
+    - Caesar Chicken Meatballs
+    - Salmon Meatball Wrap
+    - Thai Peanut Chicken
+    - Quinoa And Bean Chili
+    - Easy Pulled Pork
+    - Orange Pecan Chicken Salad
+    - Coconut Almond Cookies
+    - Vanilla Butter Coffee
+    - Crock Pot Paprika Pot Roast
+    - "Double Cluck" Portabella Burger
+    - Double Beef Chili
+    - Fried-Egg-Topped Veggie Burger with Iced Coffee
+    - Turkey Avocado Skewers
+    - Cornflakes with Strawberries
+    - Paleo Bread
+    - Sausage and Egg Sandwich with OJ
+    - Yogurt Parfait with Wheat Germ and Berries
+    - Kale and Tofu Omelet
+    - Protein Pumpkin Pecan Pie
+    - Pumpkin Protein Oat Bars
+    - Homemade Seed Cereal
+    - Chocolate Pudding Pie
+    - Protein Chai Latte
+    - Apple Pie Protein Waffles
+    - Never Beet Smoothie
+    - Acai Boost Smoothie
+    - Pumpkin Pie Smoothie
+    - Sunflower Chocolate Smoothie
+    - Chicken and Chickpea Stew
+    - Chicken and Chickpea Stew
+    - Cashew Chicken with Baby Corn
+    - Chicken Stew with Vegetables
+    - Chicken Stew with Vegetables
+    - Chicken With White Wine Tomato Sauce
+    - Cashew Chicken with Baby Corn
+    - Tangy Pineapple Chicken
+    - Creamy Chicken Pitas
+    - Chicken With White Wine Tomato Sauce
+    - Chicken Pad Thai
+    - Chicken Pad Thai
+    - Creamy Parmesan Chicken
+    - Creamy Parmesan Chicken
+    - Creamy Chicken Pitas
+    - Tangy Pineapple Chicken
+    - Chocolate Avocado Protein Brownies
+    - No-Churn Vanilla Protein Ice Cream
+    - Snickerdoodle Protein Flan
+    - Chocolate Protein Yogurt With Berries
+    - Shredded Chicken Enchiladas
+    - Guacamole Lite
+    - Steak Tacos
+    - Smoky Snapper with Avocado Verde Sauce
+    - Coffee and Pecan Protein Bread
+    - Crab Burgers
+    - Pineapple Turkey Burgers
+    - Pineapple Turkey Burgers
+    - Sesame Salmon Burgers
+    - Homemade Beef Burgers
+    - Sesame Salmon Burgers
+    - Crab Burgers
+    - Homemade Beef Burgers
+    - Tomato Turkey Burgers
+    - Tomato Turkey Burgers
+    - Chocolate Pumpkin Bark
+    - Tilapia and Sweet Potatoes
+    - Healthy Ice Cream
+    - Sweet Potato Hash With Egg
+    - Hearty Paleo Juice
+    - Artichoke with Dipping Sauce
+    - Chicken and Broccoli
+    - Healthy Ice Cream
+    - Bison and Greens
+    - Hearty Paleo Juice
+    - Tilapia and Sweet Potatoes
+    - Artichoke and Dipping Sauce
+    - Almond-Coconut Waffle
+    - Bison and Greens
+    - Sweet Potato Hash With Egg
+    - Almond-Coconut Waffle
+    - Chicken and Broccoli
+    - Chocolate Banana Bread
+    - Chocolate Charged Brownies
+    - Killa Vanilla Cookies
+    - Blueberry Oat Muffins
+    - Chocolate Banana Bread
+    - Chocolate Protein Waffles
+    - Blueberry Oat Muffins
+    - Chocolate Protein Waffles
+    - Killa Vanilla Cookies
+    - Chocolate Charged Brownies
+    - Triple Berry Custard
+    - Plant-Based Chocolate Hazelnut Protein Shake
+    - Peanut Butter Banana Chocolate Chip Bars
+    - chocolate
+    - chicken
+    - butter
+    - peanut
+    - shake
+    - salad
+    - sweet
+    - pancakes
+    - banana
+    - pumpkin
+    - smoothie
+    - potato
+    - oatmeal
+    - cake
+    - turkey
+    - cream
+    - cookies
+    - rice
+    - salmon
+    - breakfast
+    - muffins
+    - bars
+    - egg
+    - strawberry
+    - shake
+    - spinach
+    - coconut
+    - pie
+    - almond
+    - avocado
+    - cheese
+    - beef
+    - cinnamon
+    - apple
+    - vanilla
+    - spicy
+    - soup
+    - burger
+    - bowl
+    - yogurt
+    - pudding
+    - berry
+    - oats
+    - shrimp
+    - cookie
+    - lemon
+    - tuna
+    - potatoes
+    - chili
+    - bread
+    - waffles
+    - pizza
+    - burgers
+    - toast
+    - quinoa
+    - brownies
+    - cheesecake
+    - tomato
+    - lentil
+    - steak
+    - parmesan
+    - asparagus
+    - hummus
+    - carrot
+    - eggs
+    - broccoli
+    - omelet
+    - curry
+    - zucchini
+    - pasta
+    - coffee
+    - fruit
+    - oat
+    - meatballs
+    - veggie
+    - bacon
+    - peppers
+    - mocha
+    - cupcakes
+    - sandwich
+    - sausage
+    - pineapple
+    - mustard
+    - truffles
+    - donuts
+    - cucumber
+    - tilapia
+    - wrap
+    - raspberry
+    - brownie
+    - watermelon
+    - peach
+    - stew
+    - cauliflower
+    - tacos
+    - guacamole
+    - tofu
+    - lasagna
+    - latte
+    - apples
+    - cherry
+    - pepper
+    - teriyaki
+    - pancake
+    - peppermint
+    - balsamic
+    - cranberry
+    - gluten
+    - meatloaf
+    - fries
+    - walnut
+    - fish
+    - waffle
+    - cilantro
+    - mint
+    - doughnuts
+    - burrito
+    - granola
+    - mushroom
+    - mushrooms
+    - spaghetti
+    - wraps
+    - ham
+    - milkshake
+    - veggies
+    - taco
+    - raisin
+    - cocoa
+    - marshmallow
+    - hazelnut
+    - tenderloin
+    - strawberries
+    - mozzarella
+    - coleslaw
+    - caramel
+    - sandwiches
+    - lemonade
+    - kiwi
+    - almonds
+    - onions
+    - ricotta
+    - prosciutto
+    - cheddar
+    - yam
+    - lettuce
+    - tomatoes
+    - sunflower
+    - cacao
+    - lamb
+    - blueberries
+- lookup: recipe_lookup
+  examples: |
+    - recipe
+    - recipes
+    - rec
+    - prescription
