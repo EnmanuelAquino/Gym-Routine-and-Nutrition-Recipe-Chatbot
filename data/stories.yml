@@ -1,0 +1,4284 @@
+version: "3.1"
+
+stories:
+
+- story: story 1:happy path
+  steps:
+  - intent: greet #What the user says
+  - action: utter_greet #what the assistant do
+  - intent: mood_great
+  - action: utter_happy
+
+- story: story 2:Asking what the bot does
+  steps:
+  - intent: greet #What the user says
+  - action: utter_greet #what the assistant do
+  - intent: mood_great
+  - action: utter_happy
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+############################################
+#stories of prompt combine multiple messages
+############################################
+- story: combination_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: shoulders
+  - slot_was_set:
+    - body_part: shoulders
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: shoulders
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '6'
+    - number_of_exercises: '6'
+  - slot_was_set:
+    - number_of_exercises: '6'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '6'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup: Dumbbell front raise to lateral raise
+  - action: action_image_exercise
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup: Clean and press
+  - action: action_image_exercise
+  - intent: mood_great
+  - action: utter_happy
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: abdominals
+  - slot_was_set:
+    - body_part: abdominals
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: abdominals
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '2'
+    - number_of_exercises: '2'
+  - slot_was_set:
+    - number_of_exercises: '2'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '2'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: ask_calories
+    entities:
+    - calories: calorie
+    - recipe_name: Green PBfit Smoothie
+  - action: action_calories
+  - intent: ask_total_time
+    entities:
+    - total_time: minutes
+    - recipe_name: Green PBfit Smoothie
+  - action: action_total_time
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Green PBfit Smoothie
+  - action: action_recipe_info
+  - intent: ask_fat
+    entities:
+    - fat: fat
+    - recipe_name: Green PBfit Smoothie
+  - action: action_fat
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: Green PBfit Smoothie
+  - action: action_protein
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: carbs
+    - recipe_name: Green PBfit Smoothie
+  - action: action_carbohydrates
+
+- story: combination_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: glutes
+  - slot_was_set:
+    - body_part: glutes
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: glutes
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '6'
+    - number_of_exercises: '6'
+  - slot_was_set:
+    - number_of_exercises: '6'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '6'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: ask_calories
+    entities:
+    - calories: calorie
+    - recipe_name: Pumpkin Waffles
+  - action: action_calories
+  - intent: ask_total_time
+    entities:
+    - total_time: minutes
+    - recipe_name: Pumpkin Waffles
+  - action: action_total_time
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Pumpkin Waffles
+  - action: action_recipe_info
+  - intent: ask_fat
+    entities:
+    - fat: fat
+    - recipe_name: Strawberry Frozen Yogurt
+  - action: action_fat
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: Strawberry Frozen Yogurt
+  - action: action_protein
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: carbs
+    - recipe_name: Pumpkin Waffles
+  - action: action_carbohydrates
+
+- story: combination_story_3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: middle back
+  - slot_was_set:
+    - body_part: middle back
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: middle back
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '5'
+    - number_of_exercises: '5'
+  - slot_was_set:
+    - number_of_exercises: '5'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '5'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup:  T-Bar Row with Handle
+  - action: action_image_exercise
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: smoothie
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '18'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '45'
+    - protein: grams protein
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '20'
+    - fat: fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '96'
+    - calories: cal
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '30'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipes
+    - number_recipe: '67'
+    - carbohydrates: carbohydrates
+    - number_recipe: '38'
+    - fat: grams of fat
+  - action: action_multiple_recipe_info
+
+
+- story: combination_story_4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: chest
+  - slot_was_set:
+    - body_part: chest
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: chest
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '4'
+    - number_of_exercises: '4'
+  - slot_was_set:
+    - number_of_exercises: '4'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '4'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: yup
+  - slot_was_set:
+    - description_exercises: yup
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: yup
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup:  Bodyweight Flyes
+  - action: action_image_exercise
+  - intent: greet
+  - action: utter_greet
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: beef
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '20'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '46'
+    - protein: grams protein
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '26'
+    - fat: fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '98'
+    - calories: cal
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '35'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipes
+    - number_recipe: '11'
+    - carbohydrates: carbohydrates
+    - number_recipe: '5'
+    - fat: grams of fat
+  - action: action_multiple_recipe_info  
+
+
+- story: combination_story_5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: abdominals
+  - slot_was_set:
+    - body_part: abdominals
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: abdominals
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '4'
+    - number_of_exercises: '4'
+  - slot_was_set:
+    - number_of_exercises: '4'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '4'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: yup
+  - slot_was_set:
+    - description_exercises: yup
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: yup
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: mood_great
+  - action: utter_happy
+  - intent: ask_calories
+    entities:
+    - calories: calorie
+    - recipe_name: Squash Pie Shake
+  - action: action_calories
+  - intent: ask_total_time
+    entities:
+    - total_time: minutes
+    - recipe_name: Squash Pie Shake
+  - action: action_total_time
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Squash Pie Shake
+  - action: action_recipe_info
+  - intent: ask_fat
+    entities:
+    - fat: fat
+    - recipe_name: White Turkey Mac And Cheese
+  - action: action_fat
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: White Turkey Mac And Cheese
+  - action: action_protein
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: carbs
+    - recipe_name: Squash Pie Shake
+  - action: action_carbohydrates
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: combination_story_6
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: abductors
+  - slot_was_set:
+    - body_part: abductors
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: abductors
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '3'
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: yup
+  - slot_was_set:
+    - description_exercises: yup
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: yup
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: ask_calories
+    entities:
+    - calories: calories
+    - recipe_name: Squash Pie Shake
+  - action: action_calories
+  - intent: mood_great
+  - action: utter_happy
+  - intent: ask_total_time
+    entities:
+    - total_time: time
+    - recipe_name: Squash Pie Shake
+  - action: action_total_time
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Squash Pie Shake
+  - action: action_recipe_info
+  - intent: ask_fat
+    entities:
+    - fat: g of fat
+    - recipe_name: Sweet Potato Breakfast Boat
+  - action: action_fat
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: Sweet Potato Breakfast Boat
+  - action: action_protein
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: of carbohydrates
+    - recipe_name: Squash Pie Shake
+  - action: action_carbohydrates
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: combination_story_7
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: greet
+  - action: utter_greet
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: biceps
+  - slot_was_set:
+    - body_part: biceps
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: biceps
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '5'
+    - number_of_exercises: '5'
+  - slot_was_set:
+    - number_of_exercises: '5'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '5'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: yup
+  - slot_was_set:
+    - description_exercises: yup
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: yup
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: rice
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '21'
+    - total_time: time
+  - action: action_multiple_recipe_info
+  - intent: mood_great
+  - action: utter_happy
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '50'
+    - protein: macronutrient
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '30'
+    - fat: fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '100'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '37'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '34'
+    - protein: macronutrient
+    - number_recipe: '338'
+    - calories: cal
+  - action: action_multiple_recipe_info  
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: combination_story_8
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: calves
+  - slot_was_set:
+    - body_part: calves
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: calves
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '3'
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: yup
+  - slot_was_set:
+    - description_exercises: yup
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: yup
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: mood_great
+  - action: utter_happy
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: cookies
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '25'
+    - total_time: time
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '54'
+    - protein: macronutrient
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '31'
+    - fat: fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '101'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '38'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '40'
+    - protein: macronutrient
+    - number_recipe: '266'
+    - calories: cal
+  - action: action_multiple_recipe_info  
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: combination_story_9
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: glutes
+  - slot_was_set:
+    - body_part: glutes
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: glutes
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '6'
+    - number_of_exercises: '6'
+  - slot_was_set:
+    - number_of_exercises: '6'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '6'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: mood_great
+  - action: utter_happy
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: strawberry
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '26'
+    - total_time: time
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '55'
+    - protein: macronutrient
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '32'
+    - fat: fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '104'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '45'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '51'
+    - protein: macronutrient
+    - number_recipe: '523'
+    - calories: cal
+  - action: action_multiple_recipe_info  
+
+- story: combination_story_10
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: hamstrings
+  - slot_was_set:
+    - body_part: hamstrings
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: hamstrings
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '6'
+    - number_of_exercises: '6'
+  - slot_was_set:
+    - number_of_exercises: '6'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '6'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: burger
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '30'
+    - total_time: time
+  - action: action_multiple_recipe_info
+  - intent: mood_great
+  - action: utter_happy
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '58'
+    - protein: macronutrient
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '35'
+    - fat: fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '105'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '49'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '7'
+    - protein: macronutrient
+    - number_recipe: '254'
+    - calories: cal
+  - action: action_multiple_recipe_info  
+  - intent: image_exercise
+    entities:
+    - image_lookup: images
+    - exercise_lookup: T-Bar Row with Handle
+    - exercise_lookup: Reverse-grip bent-over row
+  - action: action_image_exercise
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup:  Incline dumbbell bench press
+  - action: action_image_exercise
+  - intent: mood_great
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: combination_story_11
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: lower back
+  - slot_was_set:
+    - body_part: lower back
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: lower back
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '3'
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: image_exercisee
+    entities:
+    - image_lookup: image
+    - exercise_lookup:  Decline Push-Up
+  - action: action_image_exercise
+  - intent: mood_great
+  - action: utter_happy
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: ask_calories
+    entities:
+    - calories: calories
+    - recipe_name: Hemp Crusted Salmon
+  - action: action_calories
+  - intent: ask_total_time
+    entities:
+    - total_time: time
+    - recipe_name: Hemp Crusted Salmon
+  - action: action_total_time
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Hemp Crusted Salmon
+  - action: action_recipe_info
+  - intent: ask_fat
+    entities:
+    - fat: g of fat
+    - recipe_name: Banana Nut Shake
+  - action: action_fat
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: Banana Nut Shake
+  - action: action_protein
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: of carbohydrates
+    - recipe_name: Hemp Crusted Salmon
+  - action: action_carbohydrates
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: combination_story_12
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: middle back
+  - slot_was_set:
+    - body_part: middle back
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: middle back
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '2'
+    - number_of_exercises: '2'
+  - slot_was_set:
+    - number_of_exercises: '2'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '2'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: mood_great
+  - action: utter_happy
+  - intent: ask_calories
+    entities:
+    - calories: calories
+    - recipe_name: Chocolate Fudge Pancakes
+  - action: action_calories
+  - intent: ask_total_time
+    entities:
+    - total_time: time
+    - recipe_name: Chocolate Fudge Pancakes
+  - action: action_total_time
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Chocolate Fudge Pancakes
+  - action: action_recipe_info
+  - intent: ask_fat
+    entities:
+    - fat: g of fat
+    - recipe_name: Turkey Egg Quiche
+  - action: action_fat
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: Turkey Egg Quiche
+  - action: action_protein
+  - intent: mood_great
+  - action: utter_happy
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: of carbohydrates
+    - recipe_name: Chocolate Fudge Pancakes
+  - action: action_carbohydrates
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup:  EZ-bar spider curl
+  - action: action_image_exercise
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup:  Close-grip EZ-bar curl
+  - action: action_image_exercise
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: combination_story_13
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: middle back
+  - slot_was_set:
+    - body_part: middle back
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: middle back
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '2'
+    - number_of_exercises: '2'
+  - slot_was_set:
+    - number_of_exercises: '2'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '2'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: mood_great
+  - action: utter_happy
+  - intent: ask_calories
+    entities:
+    - calories: calories
+    - recipe_name: Strawberry and Papaya Smoothie
+  - action: action_calories
+  - intent: ask_total_time
+    entities:
+    - total_time: time
+    - recipe_name: Strawberry and Papaya Smoothie
+  - action: action_total_time
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Strawberry and Papaya Smoothie
+  - action: action_recipe_info
+  - intent: ask_fat
+    entities:
+    - fat: g of fat
+    - recipe_name: Spicy Vegan Freekeh Chili
+  - action: action_fat
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: Spicy Vegan Freekeh Chili
+  - action: action_protein
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: of carbohydrates
+    - recipe_name: Strawberry and Papaya Smoothie
+  - action: action_carbohydrates
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: combination_story_14
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: greet
+  - action: utter_greet
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: quadriceps
+  - slot_was_set:
+    - body_part: quadriceps
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: quadriceps
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '10'
+    - number_of_exercises: '10'
+  - slot_was_set:
+    - number_of_exercises: '10'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '10'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: 'yes'
+  - slot_was_set:
+    - description_exercises: 'yes'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: 'yes'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup:  Drag curl
+  - action: action_image_exercise
+  - intent: image_exercise
+    entities:
+    - image_lookup: images
+    - exercise_lookup: Cable V-bar push-down
+    - exercise_lookup: EZ-Bar Skullcrusher
+  - action: action_image_exercise
+  - intent: ask_calories
+    entities:
+    - calories: calories
+    - recipe_name: Mocha Pops
+  - action: action_calories
+  - intent: ask_total_time
+    entities:
+    - total_time: time
+    - recipe_name: Mocha Pops
+  - action: action_total_time
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Mocha Pops
+  - action: action_recipe_info
+  - intent: ask_fat
+    entities:
+    - fat: g of fat
+    - recipe_name: Peanut Butter Banana Chocolate Chunk Waffles
+  - action: action_fat
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: Peanut Butter Banana Chocolate Chunk Waffles
+  - action: action_protein
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: of carbohydrates
+    - recipe_name: Strawberry and Papaya Smoothie
+  - action: action_carbohydrates
+  - intent: mood_great
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: combination_story_15
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: greet
+  - action: utter_greet
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: shoulders
+  - slot_was_set:
+    - body_part: shoulders
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: shoulders
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '4'
+    - number_of_exercises: '4'
+  - slot_was_set:
+    - number_of_exercises: '4'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '4'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: 'yes'
+  - slot_was_set:
+    - description_exercises: 'yes'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: 'yes'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: soup
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '35'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '65'
+    - protein: macronutrient
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '38'
+    - fat: fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '110'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '55'
+    - carbohydrates: carbs
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '25'
+    - total_time: minutes
+    - number_recipe: '45'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info 
+  - intent: mood_great
+  - action: utter_happy 
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: combination_story_16
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: chest
+  - slot_was_set:
+    - body_part: chest
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: chest
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '7'
+    - number_of_exercises: '7'
+  - slot_was_set:
+    - number_of_exercises: '7'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '7'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: mood_great
+  - action: utter_happy
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: tuna
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '40'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '70'
+    - protein: macronutrient
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '50'
+    - fat: fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '114'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '70'
+    - carbohydrates: carbs
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '18'
+    - total_time: minutes
+    - number_recipe: '72'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info 
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: combination_story_17
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: biceps
+  - slot_was_set:
+    - body_part: biceps
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: biceps
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '7'
+    - number_of_exercises: '7'
+  - slot_was_set:
+    - number_of_exercises: '7'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '7'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: image_exercise
+    entities:
+    - image_lookup: images
+    - exercise_lookup: Single-Leg Press
+    - exercise_lookup: Push-press
+  - action: action_image_exercise
+  - intent: image_exercise
+    entities:
+    - image_lookup: images
+    - exercise_lookup: Barbell Squat
+    - exercise_lookup: Barbell front squat
+  - action: action_image_exercise
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: broccoli
+  - action: action_multiple_recipe_info  
+  - intent: mood_great
+  - action: utter_happy
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '45'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '80'
+    - protein: macronutrient
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '61'
+    - fat: fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '120'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '73'
+    - carbohydrates: carbs
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '31'
+    - total_time: minutes
+    - number_recipe: '8'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info  
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: combination_story_18
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: shoulders
+  - slot_was_set:
+    - body_part: shoulders
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: shoulders
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '2'
+    - number_of_exercises: '2'
+  - slot_was_set:
+    - number_of_exercises: '2'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '2'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: ask_total_time
+    entities:
+    - total_time: time
+    - recipe_name: Green Mango Pops
+  - action: action_total_time
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Green Mango Pops
+  - action: action_recipe_info
+  - intent: ask_fat
+    entities:
+    - fat: g of fat
+    - recipe_name: Apple Pie Smoothie
+  - action: action_fat
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: Apple Pie Smoothie
+  - action: action_protein
+  - intent: mood_great
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: combination_story_19
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: shoulders
+  - slot_was_set:
+    - body_part: shoulders
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: shoulders
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '1'
+    - number_of_exercises: '1'
+  - slot_was_set:
+    - number_of_exercises: '1'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '1'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: mood_great
+  - action: utter_happy
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Red Velvet Waffles
+  - action: action_recipe_info
+  - intent: ask_protein
+    entities:
+    - protein: grams of protein
+    - recipe_name: Red Velvet Waffles
+  - action: action_protein
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: shrimp
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '50'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '84'
+    - protein: macronutrient
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '72'
+    - fat: fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '132'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '75'
+    - carbohydrates: carbs
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '10'
+    - total_time: minutes
+    - number_recipe: '137'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info  
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+
+- story: combination_story_20
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: triceps
+  - slot_was_set:
+    - body_part: triceps
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: triceps
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '7'
+    - number_of_exercises: '7'
+  - slot_was_set:
+    - number_of_exercises: '7'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '7'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: 'yes'
+  - slot_was_set:
+    - description_exercises: 'yes'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: 'yes'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: prosciutto
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '70'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '105'
+    - protein: macronutrient
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '81'
+    - fat: fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '200'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '90'
+    - carbohydrates: carbs
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '15'
+    - total_time: minutes
+    - number_recipe: '182'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info  
+  - intent: goodbye
+  - action: utter_goodbye
+  
+- story: combination_story_21
+  steps:
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: mood_great
+  - action: utter_happy
+  - intent: ask_total_time
+    entities:
+    - total_time: minutes
+    - recipe_name: Mayan Chocolate Fudge Smoothie
+  - action: action_total_time
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Mayan Chocolate Fudge Smoothie
+  - action: action_recipe_info
+  - intent: ask_fat
+    entities:
+    - fat: grams fat
+    - recipe_name: Mayan Chocolate Fudge Smoothie
+  - action: action_fat
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: Mayan Chocolate Fudge Smoothie
+  - action: action_protein
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: carbs
+    - recipe_name: Mayan Chocolate Fudge Smoothie
+  - action: action_carbohydrates
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: chicken
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '10'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '50'
+    - protein: grams of protein
+  - action: action_multiple_recipe_info
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: combination_story_22
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: ask_calories
+    entities:
+    - calories: calorie
+    - recipe_name: Sparkling Mint Lemonade
+  - action: action_calories
+  - intent: ask_total_time
+    entities:
+    - total_time: minutes
+    - recipe_name: Sparkling Mint Lemonade
+  - action: action_total_time
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Healthy Greek Yogurt Brownies
+  - action: action_recipe_info
+  - intent: ask_fat
+    entities:
+    - fat: fat
+    - recipe_name: Sparkling Mint Lemonade
+  - action: action_fat
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: Healthy Greek Yogurt Brownies
+  - action: action_protein
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: carbs
+    - recipe_name: Healthy Greek Yogurt Brownies
+  - action: action_carbohydrates
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '10'
+    - fat: g fat
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '20'
+    - protein: grams of protein
+    - number_recipe: '20'
+    - carbohydrates: carbs
+  - action: action_multiple_recipe_info
+  - intent: goodbye
+  - action: utter_goodbye
+
+####################################
+######Stories of gym routine########
+####################################
+
+- story: gym_routine_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: lats
+  - slot_was_set:
+    - body_part: lats
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: lats
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '6'
+    - number_of_exercises: '6'
+  - slot_was_set:
+    - number_of_exercises: '6'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '6'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: yup
+  - slot_was_set:
+    - description_exercises: yup
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: yup
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: gym_routine_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: adductors
+  - slot_was_set:
+    - body_part: adductors
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: adductors
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '2'
+    - number_of_exercises: '2'
+  - slot_was_set:
+    - number_of_exercises: '2'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '2'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: yup
+  - slot_was_set:
+    - description_exercises: yup
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: yup
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: gym_routine_story_3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: adductors
+  - slot_was_set:
+    - body_part: adductors
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: adductors
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '1'
+    - number_of_exercises: '1'
+  - slot_was_set:
+    - number_of_exercises: '1'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '1'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: yup
+  - slot_was_set:
+    - description_exercises: yup
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: yup
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: gym_routine_story_4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: biceps
+  - slot_was_set:
+    - body_part: biceps
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: biceps
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '8'
+    - number_of_exercises: '8'
+  - slot_was_set:
+    - number_of_exercises: '8'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '8'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: yup
+  - slot_was_set:
+    - description_exercises: yup
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: yup
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: gym_routine_story_5
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: calves
+  - slot_was_set:
+    - body_part: calves
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: calves
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '3'
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: perfect
+  - slot_was_set:
+    - description_exercises: perfect
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: perfect
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: gym_routine_story_6
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: chest
+  - slot_was_set:
+    - body_part: chest
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: chest
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '10'
+    - number_of_exercises: '10'
+  - slot_was_set:
+    - number_of_exercises: '10'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '10'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: perfect
+  - slot_was_set:
+    - description_exercises: perfect
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: perfect
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: gym_routine_story_7
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: chest
+  - slot_was_set:
+    - body_part: chest
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: chest
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '8'
+    - number_of_exercises: '8'
+  - slot_was_set:
+    - number_of_exercises: '8'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '8'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: perfect
+  - slot_was_set:
+    - description_exercises: perfect
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: perfect
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: gym_routine_story_8
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: forearms
+  - slot_was_set:
+    - body_part: forearms
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: forearms
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '4'
+    - number_of_exercises: '4'
+  - slot_was_set:
+    - number_of_exercises: '4'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '4'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+
+- story: gym_routine_story_9
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: forearms
+  - slot_was_set:
+    - body_part: forearms
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: forearms
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '3'
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: gym_routine_story_10
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: glutes
+  - slot_was_set:
+    - body_part: glutes
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: glutes
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '3'
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+
+- story: gym_routine_story_11
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: hamstrings
+  - slot_was_set:
+    - body_part: hamstrings
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: hamstrings
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '4'
+    - number_of_exercises: '4'
+  - slot_was_set:
+    - number_of_exercises: '4'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '4'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: gym_routine_story_12
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: lats
+  - slot_was_set:
+    - body_part: lats
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: lats
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '3'
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+
+- story: gym_routine_story_13
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: lats
+  - slot_was_set:
+    - body_part: lats
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: lats
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '7'
+    - number_of_exercises: '7'
+  - slot_was_set:
+    - number_of_exercises: '7'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '7'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: gym_routine_story_14
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: lower back
+  - slot_was_set:
+    - body_part: lower back
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: lower back
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '3'
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+
+- story: gym_routine_story_15
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: neck
+  - slot_was_set:
+    - body_part: neck
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: neck
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '2'
+    - number_of_exercises: '2'
+  - slot_was_set:
+    - number_of_exercises: '2'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '2'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+
+- story: gym_routine_story_16
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: quadriceps
+  - slot_was_set:
+    - body_part: quadriceps
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: quadriceps
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: expert
+  - slot_was_set:
+    - level_intensity: expert
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: expert
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '5'
+    - number_of_exercises: '5'
+  - slot_was_set:
+    - number_of_exercises: '5'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '5'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: gym_routine_story_17
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: quadriceps
+  - slot_was_set:
+    - body_part: quadriceps
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: quadriceps
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '4'
+    - number_of_exercises: '4'
+  - slot_was_set:
+    - number_of_exercises: '4'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '4'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: ok
+  - slot_was_set:
+    - description_exercises: ok
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: ok
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+
+- story: gym_routine_story_18
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: shoulders
+  - slot_was_set:
+    - body_part: shoulders
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: shoulders
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - level_intensity: intermediate
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: intermediate
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '7'
+    - number_of_exercises: '7'
+  - slot_was_set:
+    - number_of_exercises: '7'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '7'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: 'yes'
+  - slot_was_set:
+    - description_exercises: 'yes'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: 'yes'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+
+- story: gym_routine_story_19
+  steps:
+  - intent: gym_routine
+  - action: advanced_gym_routine_form
+  - active_loop: advanced_gym_routine_form
+  - slot_was_set:
+    - requested_slot: body_part
+  - intent: inform_gym_routine
+    entities:
+    - body_part: triceps
+  - slot_was_set:
+    - body_part: triceps
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - body_part: triceps
+  - slot_was_set:
+    - requested_slot: level_intensity
+  - intent: inform_gym_routine
+    entities:
+    - level_intensity: beginner
+  - slot_was_set:
+    - level_intensity: beginner
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - level_intensity: beginner
+  - slot_was_set:
+    - requested_slot: number_of_exercises
+  - intent: request_exercises
+    entities:
+    - number_recipe: '3'
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - number_of_exercises: '3'
+  - slot_was_set:
+    - requested_slot: description_exercises
+  - intent: description_of_exercises
+    entities:
+    - description_exercises: 'yes'
+  - slot_was_set:
+    - description_exercises: 'yes'
+  - action: advanced_gym_routine_form
+  - slot_was_set:
+    - description_exercises: 'yes'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_gym_routine_slots
+  - action: action_exercise_description
+  - slot_was_set:
+    - body_part: null
+  - slot_was_set:
+    - level_intensity: null
+  - slot_was_set:
+    - number_of_exercises: null
+  - slot_was_set:
+    - description_exercises: null
+  - slot_was_set:
+    - requested_slot: null
+
+- story: gym_routine_story_20
+  steps:
+  - intent: image_exercise
+    entities:
+    - image_lookup: images
+    - exercise_lookup: Incline Hammer Curls
+    - exercise_lookup: EZ-bar spider curl
+  - action: action_image_exercise
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup:  Close-grip EZ-bar curl
+  - action: action_image_exercise
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup:  Single-arm kettlebell push-press
+  - action: action_image_exercise
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup:  Incline dumbbell reverse fly
+  - action: action_image_exercise
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup:  Single-leg depth squat
+  - action: action_image_exercise
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup:  Stairmaster
+  - action: action_image_exercise
+  - intent: image_exercise
+    entities:
+    - image_lookup: image
+    - exercise_lookup:  T-Bar Row with Handle
+  - action: action_image_exercise
+
+  
+####################################
+##Stories of nutrition recipes######
+####################################
+
+- story: recipe_ask_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_calories
+    entities:
+    - calories: calories
+    - recipe_name: Beef Teriyaki Rice and Stir Fry
+  - action: action_calories
+  - intent: ask_calories
+    entities:
+    - calories: calories
+    - recipe_name: Cinnamon Nutella French Toast Sticks
+  - action: action_calories
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: Cinnamon Nutella French Toast Sticks
+  - action: action_protein
+  - intent: ask_total_time
+    entities:
+    - total_time: time
+    - recipe_name: Tofu Steaks with Blistered Tomatoes
+  - action: action_total_time
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: carbohydrates
+    - recipe_name: Cappucino Overnight Oats
+  - action: action_carbohydrates
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: carbs
+    - recipe_name: Morning Mocha Frappe
+  - action: action_carbohydrates
+  - intent: ask_fat
+    entities:
+    - fat: fat
+    - recipe_name: Morning Mocha Frappe
+  - action: action_fat
+
+
+- story: recipe_ask_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_calories
+    entities:
+    - calories: cal
+    - recipe_name: French Toast
+  - action: action_calories
+  - intent: ask_calories
+    entities:
+    - calories: energy unit
+    - recipe_name: Easy Mediterranean Bowls
+  - action: action_calories
+  - intent: ask_total_time
+    entities:
+    - total_time: minutes
+    - recipe_name: Easy Mediterranean Bowls
+  - action: action_total_time
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: Scrambled Egg with Salsa and Potatoes
+  - action: action_protein  
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: carbohydrates
+    - recipe_name: Dirty Banana Pudding
+  - action: action_carbohydrates
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: carbs
+    - recipe_name: PB Banana Chia Pudding
+  - action: action_carbohydrates
+  - intent: ask_fat
+    entities:
+    - fat: fat
+    - recipe_name: PB Banana Chia Pudding
+  - action: action_fat
+
+
+- story: recipe_ask_story_3
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: bot_usage
+  - action: utter_botusage
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipes
+    - number_recipe: '300'
+    - calories: calories
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipes
+    - number_recipe: '50'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info 
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '5'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '30'
+    - protein: g protein
+  - action: action_multiple_recipe_info
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Caramel Apple Slow Cooker Proats
+  - action: action_recipe_info
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: recipe_ask_story_4
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: ask_calories
+    entities:
+    - calories: calorie
+    - recipe_name: Creamy Mashed Sweet Potato
+  - action: action_calories
+  - intent: ask_total_time
+    entities:
+    - total_time: minutes
+    - recipe_name: Creamy Mashed Sweet Potato
+  - action: action_total_time
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Pad Thai Chicken
+  - action: action_recipe_info
+  - intent: ask_fat
+    entities:
+    - fat: fat
+    - recipe_name: Pad Thai Chicken
+  - action: action_fat
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: recipe_ask_story_5
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - intent: ask_calories
+    entities:
+    - calories: calorie
+    - recipe_name: Chicken Quesadillas
+  - action: action_calories
+  - intent: ask_total_time
+    entities:
+    - total_time: minutes
+    - recipe_name: Chicken Quesadillas
+  - action: action_total_time
+  - intent: ask_recipe_info
+    entities:
+    - recipe_name: Chicken Quesadillas
+  - action: action_recipe_info
+  - intent: ask_fat
+    entities:
+    - fat: fat
+    - recipe_name: Chicken Quesadillas
+  - action: action_fat
+  - intent: ask_protein
+    entities:
+    - protein: protein
+    - recipe_name: Chicken Quesadillas
+  - action: action_protein
+  - intent: ask_carbohydrates
+    entities:
+    - carbohydrates: carbs
+    - recipe_name: Chicken Quesadillas
+  - action: action_carbohydrates
+
+#recipe info
+- story: recipe_info_story_1
+  steps:
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: rec
+    - recipe_name: chocolate
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '7'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '34'
+    - protein: grams of protein
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '16'
+    - fat: g fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '10'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '105'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '20'
+    - protein: grams of protein
+    - number_recipe: '5'
+    - fat: grams of fat
+  - action: action_multiple_recipe_info
+
+- story: recipe_info_story_2
+  steps:
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: rec
+    - recipe_name: salad
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '2'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '10'
+    - protein: grams of protein
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '6'
+    - fat: g fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '70'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '15'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipes
+    - number_recipe: '37'
+    - protein: grams of protein
+    - number_recipe: '16'
+    - fat: grams of fat
+  - action: action_multiple_recipe_info
+
+- story: recipe_info_story_3
+  steps:
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: rec
+    - recipe_name: shake
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '3'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '21'
+    - protein: grams of protein
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '7'
+    - fat: g fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '72'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '16'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipes
+    - number_recipe: '39'
+    - protein: grams of protein
+    - number_recipe: '4'
+    - fat: grams of fat
+  - action: action_multiple_recipe_info
+
+- story: recipe_info_story_4
+  steps:
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: rec
+    - recipe_name: banana
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '5'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '27'
+    - protein: grams of protein
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '8'
+    - fat: g fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '75'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '19'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipes
+    - number_recipe: '53'
+    - protein: grams of protein
+    - number_recipe: '17'
+    - fat: grams of fat
+  - action: action_multiple_recipe_info
+
+- story: recipe_info_story_5
+  steps:
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: rec
+    - recipe_name: pancakes
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '8'
+    - total_time: min
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '30'
+    - protein: g protein
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '9'
+    - fat: g of fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '80'
+    - calories: calorie
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '19'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipes
+    - number_recipe: '20'
+    - total_time: minutes
+    - number_recipe: '414'
+    - calories: calories
+  - action: action_multiple_recipe_info
+  
+- story: recipe_info_story_6
+  steps:
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: rec
+    - recipe_name: oatmeal
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '11'
+    - total_time: min
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '33'
+    - protein: g protein
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '10'
+    - fat: g of fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '84'
+    - calories: calorie
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '21'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipes
+    - number_recipe: '55'
+    - total_time: minutes
+    - number_recipe: '335'
+    - calories: calories
+  - action: action_multiple_recipe_info
+
+- story: recipe_info_story_7
+  steps:
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: rec
+    - recipe_name: turkey
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '14'
+    - total_time: min
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '34'
+    - protein: g protein
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '11'
+    - fat: g of fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '87'
+    - calories: calorie
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '22'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipes
+    - number_recipe: '35'
+    - total_time: minutes
+    - number_recipe: '134'
+    - calories: calories
+  - action: action_multiple_recipe_info
+
+
+- story: recipe_info_story_8
+  steps:
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: rec
+    - recipe_name: cake
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '15'
+    - total_time: min
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '36'
+    - protein: g protein
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '12'
+    - fat: g of fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '89'
+    - calories: calorie
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '23'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipes
+    - number_recipe: '25'
+    - total_time: minutes
+    - number_recipe: '173'
+    - calories: calories
+  - action: action_multiple_recipe_info
+
+
+- story: recipe_info_story_9
+  steps:
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: cake
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '16'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '37'
+    - protein: grams protein
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '13'
+    - fat: fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '90'
+    - calories: cal
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '26'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipes
+    - number_recipe: '28'
+    - carbohydrates: carbohydrates
+    - number_recipe: '25'
+    - fat: grams of fat
+  - action: action_multiple_recipe_info
+
+- story: recipe_info_story_10
+  steps:
+  - intent: recipe_info_by_ingredient
+    entities:
+    - recipe_lookup: recipe
+    - recipe_name: salmon
+  - action: action_multiple_recipe_info  
+  - intent: recipe_info_by_totaltime
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '17'
+    - total_time: minutes
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_protein
+    entities:
+    - number_recipe: '40'
+    - protein: grams protein
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_fat
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '15'
+    - fat: fat
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_calories
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '93'
+    - calories: cal
+  - action: action_multiple_recipe_info
+  - intent: recipe_info_by_carbs
+    entities:
+    - recipe_lookup: recipe
+    - number_recipe: '29'
+    - carbohydrates: carbohydrates
+  - action: action_multiple_recipe_info
+  - intent: multiple_info_forrecipe
+    entities:
+    - recipe_lookup: recipes
+    - number_recipe: '116'
+    - carbohydrates: carbohydrates
+    - number_recipe: '11'
+    - fat: grams of fat
+  - action: action_multiple_recipe_info
+
