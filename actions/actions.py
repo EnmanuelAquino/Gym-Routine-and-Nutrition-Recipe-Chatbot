@@ -6,85 +6,11 @@
 
 
 from typing import Any, Text, Dict, List, Optional
-
-#import arrow 
-#import dateparser
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 
-#Slots to collect information to later use in action description exercises
-#ALLOWED_INTENSITY_SIZES = ["beginner", "intermediate", "expert", "b", "i", "e"]
-#ALLOWED_BODY_PART_TYPES = ["abdominals", "abductors", "adductors", "biceps", "calves","chest","forearms","glutes","hamstrings","lats","lower back","middle back","neck",
-#                           "quadriceps","shoulders","traps","triceps"]
-
-
-#class ValidateSimpleGymRoutineForm(FormValidationAction):
-#    def name(self) -> Text:
-#        return "validate_simple_gym_routine_form"
-    
-#    def validate_body_part( #validate_<slot_name>
-#        self,
-#        slot_value: Any,
-#        dispatcher: CollectingDispatcher,
-#        tracker: Tracker,
-#        domain: DomainDict,
-#    ) -> Dict[Text, Any]:
-#        """Validate `body_part` value."""
-
-#        if slot_value.lower() not in ALLOWED_BODY_PART_TYPES:
-#            dispatcher.utter_message(text=f"We only accept body part exercises: {'/'.join(ALLOWED_BODY_PART_TYPES)}.")
-#            return {"body_part": None}
-#        dispatcher.utter_message(text=f"OK! You want to exercise {slot_value}.")
-#        return {"body_part": slot_value}
-    
-#    def validate_level_intensity( #validate_<slot_name>
-#        self,
-#        slot_value: Any,
-#        dispatcher: CollectingDispatcher,
-#        tracker: Tracker,
-#        domain: DomainDict,
-#    ) -> Dict[Text, Any]:
-#        """Validate `level_intensity` value."""
-
-#        if slot_value not in ALLOWED_INTENSITY_SIZES:
-#            dispatcher.utter_message(text=f"I don't recognize that level of intensity: b/i/e.")
-#            return {"level_intensity": None}
-#        dispatcher.utter_message(text=f"OK! You want a {slot_value} level of intensity.")
-#        return {"level_intensity": slot_value}
-    
-#    def validate_number_of_exercises(
-#        self,
-#        slot_value: Any,
-#        dispatcher: CollectingDispatcher,
-#        tracker: Tracker,
-#        domain: DomainDict,
-#    ) -> Dict[Text, Any]:
-#        """Validate `number_of_exercises` value."""
-        
-#        if not isinstance(slot_value, (int, str)):
-#            dispatcher.utter_message(text="Please provide a valid number for the exercises.")
-#            return {"number_of_exercises": None}
-        
-#        dispatcher.utter_message(text=f"OK! You want {slot_value} exercises.")
-#        return {"number_of_exercises": slot_value}
-    
-#    def validate_description_exercises(
-#        self,
-#        slot_value: Any,
-#        dispatcher: CollectingDispatcher,
-#        tracker: Tracker,
-#        domain: DomainDict,
-#    ) -> Dict[Text, Any]:
-#        """Validate `description_exercises` value."""
-        
-#        if not isinstance(slot_value, (str)):
-#            dispatcher.utter_message(text="Please provide a valid response: yes/ok/perfect.")
-#            return {"description_exercises": None}
-        
-#        dispatcher.utter_message(text=f"Perfect. I'll give you a description of exercises.")
-#        return {"description_exercises": slot_value}
 
 ################################################################################################################################################
 ################################################################################################################################################
@@ -246,9 +172,7 @@ class ValidateAdvancedGymRoutineForm(FormValidationAction):
 #Action return exercises description
 import csv 
 import traceback
-
-#def fetch_exercise_data(file_path="path/to/your/exercise_data.csv"):
-def fetch_exercise_data(file_path="C:/Users/enman/OneDrive/Documents/Fordham University/Fall 2023/Natural Language Processing/Final Project/Gym exercise dataset/kagglegymfinal.csv"):    
+def fetch_exercise_data(file_path="gymexercises"):    
     exercise_data = []
     with open(file_path, newline="", encoding='ISO-8859-1') as csvfile:
         reader = csv.DictReader(csvfile)
@@ -390,7 +314,7 @@ class ActionImageExercise(Action):
 ################################################################################################################################################   
     
 #Recipe actions: details of a recipe, calories, protein, total time, carbohydrates, fat
-def fetch_recipe_data(file_path="C:/Users/enman/OneDrive/Documents/Fordham University/Fall 2023/Natural Language Processing/Final Project/recipedataset.csv"):    
+def fetch_recipe_data(file_path="recipedataset"):    
     recipe_data = []
     with open(file_path, newline="", encoding='ISO-8859-1') as csvfile:
         reader = csv.DictReader(csvfile)
